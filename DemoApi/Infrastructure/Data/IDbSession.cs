@@ -33,6 +33,8 @@ namespace DemoApi.Infrastructure.Data
             }
             else if (_connectionName != name)
             {
+                // A session owns a single connection. Mixing databases in one session
+                // (especially inside a transaction) is not supported.
                 throw new InvalidOperationException(
                     $"Session already bound to '{_connectionName}'; cannot also use '{name}'.");
             }

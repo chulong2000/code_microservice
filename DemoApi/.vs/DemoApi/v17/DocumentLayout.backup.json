@@ -1,0 +1,102 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice\\DemoApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice\\demoapi\\api\\controller\\educationlevelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:api\\controller\\educationlevelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice\\demoapi\\demoapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:demoapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice\\demoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice\\demoapi\\domain\\modelmetas\\educationlevelmeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\modelmetas\\educationlevelmeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice\\demoapi\\domain\\irepository\\ieducationlevelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\irepository\\ieducationlevelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DemoApi.csproj",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice\\DemoApi\\DemoApi.csproj",
+              "RelativeDocumentMoniker": "DemoApi.csproj",
+              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice\\DemoApi\\DemoApi.csproj",
+              "RelativeToolTip": "DemoApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-11T16:42:11.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EducationLevelController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice\\DemoApi\\Api\\Controller\\EducationLevelController.cs",
+              "RelativeDocumentMoniker": "Api\\Controller\\EducationLevelController.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice\\DemoApi\\Api\\Controller\\EducationLevelController.cs",
+              "RelativeToolTip": "Api\\Controller\\EducationLevelController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T16:38:45.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EducationLevelMeta.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice\\DemoApi\\Domain\\ModelMetas\\EducationLevelMeta.cs",
+              "RelativeDocumentMoniker": "Domain\\ModelMetas\\EducationLevelMeta.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice\\DemoApi\\Domain\\ModelMetas\\EducationLevelMeta.cs",
+              "RelativeToolTip": "Domain\\ModelMetas\\EducationLevelMeta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T16:38:31.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IEducationLevelRepository.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice\\DemoApi\\Domain\\IRepository\\IEducationLevelRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\IRepository\\IEducationLevelRepository.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice\\DemoApi\\Domain\\IRepository\\IEducationLevelRepository.cs",
+              "RelativeToolTip": "Domain\\IRepository\\IEducationLevelRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T16:38:29.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice\\DemoApi\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice\\DemoApi\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAvwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T16:29:58.87Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

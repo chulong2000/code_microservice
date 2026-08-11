@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoApi", "DemoApi.csproj", "{E301A1F8-243E-430A-BE75-A6B97711BA29}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GHM.Infrastructure", "..\..\..\Source Code HR_GHM\hrm-api\GHM.Infrastructure\GHM.Infrastructure.csproj", "{88AC9772-48FF-4F84-BD97-45CE02DFD205}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E301A1F8-243E-430A-BE75-A6B97711BA29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E301A1F8-243E-430A-BE75-A6B97711BA29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E301A1F8-243E-430A-BE75-A6B97711BA29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E301A1F8-243E-430A-BE75-A6B97711BA29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88AC9772-48FF-4F84-BD97-45CE02DFD205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88AC9772-48FF-4F84-BD97-45CE02DFD205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88AC9772-48FF-4F84-BD97-45CE02DFD205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88AC9772-48FF-4F84-BD97-45CE02DFD205}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30E4C2CF-AE0A-4CFB-BD6A-62E868B9FC17}
+	EndGlobalSection
+EndGlobal

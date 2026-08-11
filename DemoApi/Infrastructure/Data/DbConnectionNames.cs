@@ -1,10 +1,8 @@
 ﻿namespace DemoApi.Infrastructure.Data
 {
-    public class DbConnectionNames
+    public static class DbConnectionNames
     {
         /// <summary>Main EducationLevel database.</summary>
-        public const string EducationLevel = "ELConnection";
-
-
+        public const string Default = "DemoConnection";
     }
 }
