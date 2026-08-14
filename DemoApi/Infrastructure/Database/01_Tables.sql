@@ -10,6 +10,7 @@
 );
 GO
 
+
 -- Không có tên trùng nhau trong các bản ghi chưa xoá.
 CREATE UNIQUE INDEX UX_EducationLevel_Name
     ON dbo.EducationLevel(Name)

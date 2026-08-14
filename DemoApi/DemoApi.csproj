@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    
+    <ProjectReference Include="..\..\..\..\Documents\Source Code GHM Backend\hrm-api\GHM.Infrastructure\GHM.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

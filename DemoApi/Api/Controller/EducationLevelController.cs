@@ -1,4 +1,5 @@
-﻿using DemoApi.Domain.IServices;
+﻿using DemoApi.Domain.IRepository;
+using DemoApi.Domain.IServices;
 using DemoApi.Domain.ModelMetas;
 using DemoApi.Domain.ViewModels;
 using GHM.Infrastructure.Models;
