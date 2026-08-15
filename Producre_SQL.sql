@@ -1,4 +1,6 @@
-﻿CREATE OR ALTER PROCEDURE dbo.spJobPosition_ExistsName
+
+
+CREATE OR ALTER PROCEDURE dbo.spJobPosition_ExistsName
     @Title      NVARCHAR(100),
     @ExcludeId UNIQUEIDENTIFIER = NULL
 AS
@@ -6,7 +8,7 @@ BEGIN
     SET NOCOUNT ON;
     SELECT CASE WHEN EXISTS (
         SELECT 1 FROM dbo.JobPosition
-        WHERE Name = @Name AND IsDeleted = 0
+        WHERE Title = @Title AND IsDeleted = 0
           AND (@ExcludeId IS NULL OR Id <> @ExcludeId)
     ) THEN 1 ELSE 0 END;
 END
@@ -14,20 +16,20 @@ GO
 
 CREATE OR ALTER PROCEDURE dbo.spJobPosition_Insert
     @Id UNIQUEIDENTIFIER, @Title NVARCHAR(100), @Department NVARCHAR(500),
-    @OpenSlots INT, @EducationLevelId UNIQUEIDENTIFIER, @IsOpen bit, @CreatedAt datetime
+    @OpenSlots INT, @EducationLevelId UNIQUEIDENTIFIER, @IsOpen bit, @CreatedAt datetime, @IsDeleted bit
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    -- Guard chống race condition: 2 request tạo cùng tên gần như đồng thời.
-    IF EXISTS (SELECT 1 FROM dbo.JobPosition WHERE Name = @Title AND IsDeleted = 0)
+    -- Guard ch?ng race condition: 2 request t?o c�ng t�n g?n nh? ??ng th?i.
+    IF EXISTS (SELECT 1 FROM dbo.JobPosition WHERE Title = @Title AND IsDeleted = 0)
     BEGIN
         SELECT -1;
         RETURN;
     END
 
-    INSERT INTO dbo.JobPosition (Id, Title, Department, OpenSlots, MinimumEducationLevelId, IsOpen, CreatedAt)
-    VALUES (@Id, @Title, @Department , @OpenSlots, @EducationLevelId, @IsOpen, @CreatedAt);
+    INSERT INTO dbo.JobPosition (Id, Title, Department, OpenSlots, MinimumEducationLevelId, IsOpen, CreatedAt, IsDeleted)
+    VALUES (@Id, @Title, @Department , @OpenSlots, @EducationLevelId, @IsOpen, @CreatedAt, @IsDeleted);
 
     SELECT 1;
 END
@@ -40,7 +42,7 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    IF EXISTS (SELECT 1 FROM dbo.JobPosition WHERE Name = @Title AND IsDeleted = 0 AND Id <> @Id)
+    IF EXISTS (SELECT 1 FROM dbo.JobPosition WHERE Title = @Title AND IsDeleted = 0 AND Id <> @Id)
     BEGIN
         SELECT -1;
         RETURN;
@@ -74,7 +76,7 @@ CREATE OR ALTER PROCEDURE dbo.spJobPosition_SelectList
 AS
 BEGIN
     SET NOCOUNT ON;
-    select job.Id, job.Title, job.Department,job.OpenSlots, job.CreatedAt, job.UpdatedAt, education.Id, education.Name 
+    select job.Id, job.Title, job.Department,job.OpenSlots, job.CreatedAt, job.UpdatedAt, education.Id as Id, education.Name as Name
     from dbo.JobPosition as job 
     inner join dbo.EducationLevel as education
     on job.MinimumEducationLevelId = education.Id
@@ -92,8 +94,15 @@ BEGIN
     from dbo.JobPosition as job 
     inner join dbo.EducationLevel as education
 	on job.MinimumEducationLevelId = education.Id
-    WHERE Id = @Id AND IsDeleted = 0;
+    WHERE job.Id = @Id AND job.IsDeleted = 0;
 END
 GO
 
 
+select * from dbo.EducationLevel;
+
+select * from dbo.JobPosition;
+
+Delete from dbo.JobPosition where Id = '8CA9B0AE-4DD1-42DF-8894-83E3E592BEBA'
+
+select * from dbo.JobPosition;

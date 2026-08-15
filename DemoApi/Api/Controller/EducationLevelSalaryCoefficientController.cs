@@ -14,16 +14,6 @@ namespace DemoApi.Api.Controller
     [SwaggerTag("Quản lý phụ cấp theo trình độ học vấn")]
     public class EducationLevelSalaryCoefficientController(IEducationLevelSalaryCoefficientService service) : ControllerBase
     {
-        [HttpGet]
-        [SwaggerOperation(
-       Summary = "Danh sách phụ cấp theo trình độ học vấn",
-       Description = "Trả về toàn bộ danh mục phụ cấp theo trình độ học vấn.",
-       OperationId = "GetEducationLevels")]
-        [ProducesResponseType(typeof(ActionResultResponse<List<EducationLevelSalaryCoefficientViewModel>>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetList()
-        {
-            var result = await service.GetListAsync();
-            return Ok(result);
-        }
+        
     }
 }

@@ -27,6 +27,10 @@ builder.Services.AddScoped<IDbSession, DbSession>();
 // --- Repository / Service ---
 builder.Services.AddScoped<IEducationLevelRepository, EducationLevelRepository>();
 builder.Services.AddScoped<IEducationLevelService, EducationLevelService>();
+builder.Services.AddScoped<IJobPositionRepository, JobPositionRepository>();
+builder.Services.AddScoped<IJobPositionService,JobPositionService>();
+
+
 
 // --- FluentValidation ---
 builder.Services.AddFluentValidationAutoValidation();

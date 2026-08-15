@@ -21,7 +21,7 @@ namespace DemoApi.Api.Controller
       Description = "Trả về toàn bộ danh mục các công việc.",
       OperationId = "GetJobPosition")]
         [ProducesResponseType(typeof(ActionResultResponse<List<JobPositionViewModel>>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetList(Guid educationLevelId, string keyword)
+        public async Task<IActionResult> GetList(Guid educationLevelId, string? keyword)
         {
             var result = await service.GetListAsync(educationLevelId, keyword);
             return Ok(result);
@@ -66,7 +66,7 @@ namespace DemoApi.Api.Controller
         [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Update(
             [SwaggerParameter("Id của vị trí nghề nghiệp", Required = true)] Guid id,
-            [FromBody, SwaggerRequestBody("Thông tin cập nhật", Required = true)] JobPosition meta)
+            [FromBody, SwaggerRequestBody("Thông tin cập nhật", Required = true)] JobPositionMeta meta)
         {
             var result = await service.UpdateAsync(id, meta);
             return result.Code <= 0 ? BadRequest(result) : Ok(result);

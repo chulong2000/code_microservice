@@ -60,6 +60,17 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
+    IF EXISTS (
+        SELECT 1 
+        FROM dbo.JobPosition 
+        WHERE MinimumEducationLevelId = @Id 
+          AND IsDeleted = 0
+    )
+    BEGIN
+        SELECT -1;
+        RETURN;
+    END
+
     UPDATE dbo.EducationLevel SET IsDeleted = 1
     WHERE Id = @Id AND IsDeleted = 0;
 
@@ -88,5 +99,27 @@ BEGIN
     SELECT Id, Name, Description, [Order], IsDeleted, CreatedAt, UpdatedAt
     FROM dbo.EducationLevel
     WHERE Id = @Id AND IsDeleted = 0;
+END
+GO
+
+CREATE OR ALTER PROCEDURE dbo.spEducationLevel_SelectListForCombobox
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT Id, Name
+    FROM dbo.EducationLevel
+    WHERE IsDeleted = 0
+    ORDER BY [Order], Name;
+END
+GO
+
+CREATE OR ALTER PROCEDURE dbo.spEducationLevel_CountJobPosition
+AS
+BEGIN
+    SET NOCOUNT ON;
+    select edu.Name, Count(job.Id) from dbo.JobPosition as job 
+    inner join dbo.EducationLevel as edu
+    on job.MinimumEducationLevelId = edu.Id
+	group by edu.Name
 END
 GO
