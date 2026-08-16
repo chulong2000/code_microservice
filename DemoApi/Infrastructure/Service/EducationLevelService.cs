@@ -1,9 +1,12 @@
 ﻿using DemoApi.Domain.IRepository;
 using DemoApi.Domain.IServices;
+using DemoApi.Domain.Mapper;
 using DemoApi.Domain.ModelMetas;
 using DemoApi.Domain.Models;
 using DemoApi.Domain.ViewModels;
 using GHM.Infrastructure.Models;
+using DemoApi.Domain.Mapper;
+using System.Xml.Linq;
 
 namespace DemoApi.Infrastructure.Service
 {
@@ -19,7 +22,7 @@ namespace DemoApi.Infrastructure.Service
         public async Task<ActionResultResponse<List<EducationLevelViewModel>>> GetListAsync()
         {
             var entities = await _educationRepo.SelectListAsync();
-            var data = entities.Select(MapToViewModel).ToList();
+            var data = entities.Select(EducationLevelMapper.MapToViewModel).ToList();
 
             // Constructor (T data) tự set Code = 1 — dùng cho case thành công đơn giản, không cần message riêng.
             return new ActionResultResponse<List<EducationLevelViewModel>>(data);
@@ -31,7 +34,7 @@ namespace DemoApi.Infrastructure.Service
             if (entity is null)
                 return new ActionResultResponse<EducationLevelViewModel>(-99, "Không tìm thấy trình độ học vấn.");
 
-            return new ActionResultResponse<EducationLevelViewModel>(MapToViewModel(entity));
+            return new ActionResultResponse<EducationLevelViewModel>(EducationLevelMapper.MapToViewModel(entity));
         }
 
         public async Task<ActionResultResponse<Guid>> CreateAsync(EducationLevelMeta meta)
@@ -90,19 +93,22 @@ namespace DemoApi.Infrastructure.Service
         public async Task<ActionResultResponse> DeleteAsync(Guid id)
         {
             var result = await _educationRepo.SoftDeleteAsync(id);
-            return result <= 0
-                ? new ActionResultResponse(-99, "Không tìm thấy trình độ học vấn.")
-                : new ActionResultResponse(1, "Xoá thành công.");
+            return result switch
+            {
+                1 => new ActionResultResponse(1, "Xóa thành công."),
+                -1 => new ActionResultResponse(-1, "Không thể xóa do vẫn còn tồn tại dữ liệu tham chiếu"),
+                _ => new ActionResultResponse(-99, "Không tìm thấy trình độ học vấn.")
+            };
         }
 
-        private static EducationLevelViewModel MapToViewModel(EducationLevel entity) => new()
+        public async Task<ActionResultResponse<List<JobPositionViewModel>>> GetListJobPositionByEducationLevelId(Guid id)
         {
-            Id = entity.Id,
-            Name = entity.Name,
-            Description = entity.Description,
-            Order = entity.Order,
-            CreatedAt = entity.CreatedAt,
-            UpdatedAt = entity.UpdatedAt
-        };
+            var entities = await _educationRepo.GetListJobPositionByEducationLevelId(id);
+            var data = entities.Select(JobPositionMapper.MapToViewModel).ToList();
+
+            return new ActionResultResponse<List<JobPositionViewModel>>(data);
+
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DemoApi.Domain.IRepository;
 using DemoApi.Domain.IServices;
+using DemoApi.Domain.Mapper;
 using DemoApi.Domain.ModelMetas;
 using DemoApi.Domain.Models;
 using DemoApi.Domain.ViewModels;
@@ -58,15 +59,15 @@ namespace DemoApi.Infrastructure.Service
         {
             var entity = await _jobPositionRepo.SelectByIdAsync(id);
             if (entity is null)
-                return new ActionResultResponse<JobPositionViewModel>(-99, "Không tìm thấy trình độ học vấn.");
+                return new ActionResultResponse<JobPositionViewModel>(-99, "Không tìm thấy vị trí công việc.");
 
-            return new ActionResultResponse<JobPositionViewModel>(MapToViewModel(entity));
+            return new ActionResultResponse<JobPositionViewModel>(JobPositionMapper.MapToViewModel(entity));
         }
 
         public async Task<ActionResultResponse<List<JobPositionViewModel>>> GetListAsync(Guid educationLevelId, string keyword)
         {
             var entities = await _jobPositionRepo.SelectListAsync(educationLevelId, keyword);
-            var data = entities.Select(MapToViewModel).ToList();
+            var data = entities.Select(JobPositionMapper.MapToViewModel).ToList();
 
             // Constructor (T data) tự set Code = 1 — dùng cho case thành công đơn giản, không cần message riêng.
             return new ActionResultResponse<List<JobPositionViewModel>>(data);
@@ -84,8 +85,10 @@ namespace DemoApi.Infrastructure.Service
                 Id = id,
                 Title = name,
                 OpenSlots = meta.OpenSlots,
+                Department = meta.Department,
                 MinimumEducationLevelId = meta.MinimumEducationLevelId,
-                IsOpen = meta.IsOpen
+                IsOpen = meta.IsOpen,
+                UpdatedAt = DateTime.Now,
             };
 
             var result = await _jobPositionRepo.UpdateAsync(entity);
@@ -97,16 +100,7 @@ namespace DemoApi.Infrastructure.Service
             };
         }
 
-        private static JobPositionViewModel MapToViewModel(JobPosition job) => new()
-        {
-            Id = job.Id,
-            Title = job.Title,
-            Department = job.Department,
-            IsOpen = job.IsOpen,
-            MinimumEducationLevelId = job.MinimumEducationLevel.Id,
-            MinimumEducationLevelName = job.MinimumEducationLevel.Name,
-            OpenSlots = job.OpenSlots
-        };
+        
 
         
     }

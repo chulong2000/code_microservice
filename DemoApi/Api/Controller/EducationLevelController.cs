@@ -26,6 +26,18 @@ namespace DemoApi.Api.Controller
             return Ok(result);
         }
 
+        [HttpGet("{id:guid}/job-positions")]
+        [SwaggerOperation(
+        Summary = "Danh sách vị trí công việc theo trình độ học vấn",
+        Description = "Trả về toàn bộ danh mục vị trí công việc theo trình độ học vấn",
+        OperationId = "GetListJobPositionByEducationLevelId")]
+        [ProducesResponseType(typeof(ActionResultResponse<List<JobPositionViewModel>>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetListJobPositionByEducationLevelId([SwaggerParameter("Id của trình độ học vấn", Required = true)] Guid id)
+        {
+            var result = await service.GetListJobPositionByEducationLevelId(id);
+            return Ok(result);
+        }
+
         [HttpGet("{id:guid}")]
         [SwaggerOperation(
             Summary = "Chi tiết một trình độ học vấn",
@@ -82,5 +94,7 @@ namespace DemoApi.Api.Controller
             var result = await service.DeleteAsync(id);
             return result.Code <= 0 ? BadRequest(result) : Ok(result);
         }
+
+
     }
 }

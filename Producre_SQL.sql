@@ -14,6 +14,29 @@ BEGIN
 END
 GO
 
+
+CREATE OR ALTER PROCEDURE dbo.spEducationLevel_CountJobPosition
+   
+AS
+BEGIN
+    SET NOCOUNT ON;
+    Select edu.Name, count(job.id) as numberOfJobPosition from dbo.EducationLevel as edu
+	left join dbo.JobPosition as job
+	on edu.Id = job.MinimumEducationLevelId
+	group by edu.Name
+END
+
+Select * from dbo.EducationLevel as edu
+	left join dbo.JobPosition as job
+	on edu.Id = job.MinimumEducationLevelId
+	
+
+
+
+select * from dbo.JobPosition
+
+select * from dbo.EducationLevel
+
 CREATE OR ALTER PROCEDURE dbo.spJobPosition_Insert
     @Id UNIQUEIDENTIFIER, @Title NVARCHAR(100), @Department NVARCHAR(500),
     @OpenSlots INT, @EducationLevelId UNIQUEIDENTIFIER, @IsOpen bit, @CreatedAt datetime, @IsDeleted bit
@@ -62,7 +85,6 @@ CREATE OR ALTER PROCEDURE dbo.spJobPosition_SoftDelete
 AS
 BEGIN
     SET NOCOUNT ON;
-
     UPDATE dbo.JobPosition SET IsDeleted = 1
     WHERE Id = @Id AND IsDeleted = 0;
 
@@ -76,12 +98,12 @@ CREATE OR ALTER PROCEDURE dbo.spJobPosition_SelectList
 AS
 BEGIN
     SET NOCOUNT ON;
-    select job.Id, job.Title, job.Department,job.OpenSlots, job.CreatedAt, job.UpdatedAt, education.Id as Id, education.Name as Name
+    select job.Id, job.Title, job.Department,job.OpenSlots, job.CreatedAt, job.UpdatedAt, job.MinimumEducationLevelId as Id, Name, Description
     from dbo.JobPosition as job 
     inner join dbo.EducationLevel as education
     on job.MinimumEducationLevelId = education.Id
 	where job.IsDeleted = 0 and job.MinimumEducationLevelId = @EducationId
-	AND (@Keyword IS NULL OR Name LIKE '%' + @Keyword + '%')
+	AND (@Keyword IS NULL OR Title LIKE '%' + @Keyword + '%')
 END
 GO
 
@@ -99,10 +121,77 @@ END
 GO
 
 
+CREATE OR ALTER PROCEDURE dbo.spJobPosition_SelectListJobPostionByEducationLevelId
+    @Id UNIQUEIDENTIFIER
+AS
+BEGIN
+    SET NOCOUNT ON;
+    select job.Id, job.Title, job.Department,job.OpenSlots, job.CreatedAt, job.UpdatedAt
+    from dbo.JobPosition as job 
+    inner join dbo.EducationLevel as education
+	on job.MinimumEducationLevelId = education.Id
+    WHERE education.Id = @Id AND job.IsDeleted = 0;
+END
+
+
+
+
+
+
+
 select * from dbo.EducationLevel;
+
+Update dbo.EducationLevel 
+set IsDeleted = 0 where id = 'C8E643B8-1CBB-48EC-8AF9-F9622FDF3792'
 
 select * from dbo.JobPosition;
 
 Delete from dbo.JobPosition where Id = '8CA9B0AE-4DD1-42DF-8894-83E3E592BEBA'
 
 select * from dbo.JobPosition;
+
+
+
+select job.Id, job.Title, job.Department,job.OpenSlots, job.CreatedAt, job.UpdatedAt, education.Id as educationId, education.Name as educationName, education.Description
+    from dbo.JobPosition as job 
+    inner join dbo.EducationLevel as education
+    on job.MinimumEducationLevelId = education.Id
+	where job.IsDeleted = 0 and job.MinimumEducationLevelId = 'C8E643B8-1CBB-48EC-8AF9-F9622FDF3792'
+	AND  Name LIKE '%' + '' + '%'
+
+
+	select job.Id, job.Title, job.Department,job.OpenSlots, job.CreatedAt, job.UpdatedAt, job.MinimumEducationLevelId, Name, Description
+    from dbo.JobPosition as job 
+    inner join dbo.EducationLevel as education
+    on job.MinimumEducationLevelId = education.Id
+	where job.IsDeleted = 0 and job.MinimumEducationLevelId = 'C8E643B8-1CBB-48EC-8AF9-F9622FDF3792'
+
+	select * from dbo.JobPosition;
+
+
+
+
+
+
+CREATE OR ALTER PROCEDURE dbo.spEducationLevel_SoftDelete
+    @Id UNIQUEIDENTIFIER
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF EXISTS (
+        SELECT 1 
+        FROM dbo.JobPosition 
+        WHERE MinimumEducationLevelId = @Id 
+          AND IsDeleted = 0
+    )
+    BEGIN
+        SELECT -1;
+        RETURN;
+    END
+
+    UPDATE dbo.EducationLevel SET IsDeleted = 1
+    WHERE Id = @Id AND IsDeleted = 0;
+
+    SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
+END

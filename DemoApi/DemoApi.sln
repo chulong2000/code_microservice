@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoApi", "DemoApi.csproj", "{E301A1F8-243E-430A-BE75-A6B97711BA29}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GHM.Infrastructure", "..\..\..\..\Source Code HR_GHM\hrm-api\GHM.Infrastructure\GHM.Infrastructure.csproj", "{00889B66-0BF3-4925-BD45-7BDAECFFAACF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E301A1F8-243E-430A-BE75-A6B97711BA29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E301A1F8-243E-430A-BE75-A6B97711BA29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E301A1F8-243E-430A-BE75-A6B97711BA29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00889B66-0BF3-4925-BD45-7BDAECFFAACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00889B66-0BF3-4925-BD45-7BDAECFFAACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00889B66-0BF3-4925-BD45-7BDAECFFAACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00889B66-0BF3-4925-BD45-7BDAECFFAACF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -27,7 +27,6 @@ namespace DemoApi.Api.Controller
             return Ok(result);
         }
 
-
         [HttpGet("{id}")]
         [SwaggerOperation(
             Summary = "Chi tiết về vị trí nghề nghiệp",

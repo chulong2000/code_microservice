@@ -11,5 +11,6 @@ namespace DemoApi.Domain.IRepository
         Task<int> SoftDeleteAsync(Guid id);
         Task<List<EducationLevel>> SelectListAsync();
         Task<EducationLevel?> SelectByIdAsync(Guid id);
+        Task<List<JobPosition>> GetListJobPositionByEducationLevelId(Guid id);
     }
 }

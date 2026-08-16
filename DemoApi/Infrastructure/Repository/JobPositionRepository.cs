@@ -71,16 +71,17 @@ namespace DemoApi.Infrastructure.Repository
 
             var result = await connection.QueryAsync<JobPosition, EducationLevel, JobPosition>(
                 "[dbo].[spJobPosition_SelectList]",
-                (job, edu) =>
+                (job, education) =>
                 {
-                    job.MinimumEducationLevel = edu;
+                    job.MinimumEducationLevel = education;
                     return job;
                 },
                 param,
                 transaction: _session.Transaction,
-                splitOn: "education.Id",
+                splitOn: "Id",
                 commandType: CommandType.StoredProcedure);
 
+            Console.WriteLine("Check_23455: " + result);
             return result.ToList();
         }
 
@@ -98,6 +99,7 @@ namespace DemoApi.Infrastructure.Repository
 
         public async Task<int> UpdateAsync(JobPosition entity)
         {
+            Console.WriteLine("Check_567: "+ entity);
             var connection = await _session.GetConnectionAsync();
             var param = new DynamicParameters();
             param.Add("@Id", entity.Id);

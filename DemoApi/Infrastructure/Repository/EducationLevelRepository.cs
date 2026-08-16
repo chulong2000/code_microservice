@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using DemoApi.Domain.IRepository;
 using DemoApi.Domain.Models;
+using DemoApi.Domain.ViewModels;
 using DemoApi.Infrastructure.Data;
 using System.Data;
 
@@ -97,8 +98,20 @@ namespace DemoApi.Infrastructure.Repository
                 commandType: CommandType.StoredProcedure);
         }
 
+        public async Task<List<JobPosition>> GetListJobPositionByEducationLevelId(Guid id)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@Id", id);
 
+            var result = await connection.QueryAsync<JobPosition>(
+                "[dbo].[spJobPosition_SelectListJobPostionByEducationLevelId]",
+                param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
 
+            return result.ToList();
 
+        }
     }
 }

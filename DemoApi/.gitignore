@@ -1,0 +1,77 @@
+## .NET / Visual Studio
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Publish output
+[Pp]ublish/
+*.pubxml
+*.publishproj
+
+# Rest of .NET / build artifacts
+*.pdb
+*.dll
+*.exe
+*.cache
+*.tlog
+*.log
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tmp
+*.tmp_proj
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Environment / secrets
+appsettings.*.json
+!appsettings.json
+!appsettings.Development.json
+*.env
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
