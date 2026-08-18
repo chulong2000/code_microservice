@@ -4,6 +4,8 @@ namespace DemoApi.Domain.ViewModels
 {
     public class EducationLevelSalaryCoefficientViewModel
     {
+
+        public Guid Id { get; set; }
         public EducationLevel educationLevel { get; set; }
 
         public decimal BaseCoefficient { get; set; }        // hệ số lương cơ bản, VD: 2.34

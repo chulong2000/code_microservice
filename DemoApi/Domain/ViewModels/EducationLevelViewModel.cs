@@ -1,4 +1,6 @@
-﻿namespace DemoApi.Domain.ViewModels
+﻿using DemoApi.Domain.Models;
+
+namespace DemoApi.Domain.ViewModels
 {
     public class EducationLevelViewModel
     {
@@ -8,5 +10,9 @@
         public int Order { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+
+        public EducationLevelSalaryCoefficient educationLevelSalaryCoefficient { get; set;  }
+
+        public List<JobPosition> jobPositions { get; set; }
     }
 }

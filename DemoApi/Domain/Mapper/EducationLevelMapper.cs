@@ -13,7 +13,9 @@ namespace DemoApi.Domain.Mapper
             Description = entity.Description,
             Order = entity.Order,
             CreatedAt = entity.CreatedAt,
-            UpdatedAt = entity.UpdatedAt
+            UpdatedAt = entity.UpdatedAt,
+            educationLevelSalaryCoefficient = entity.educationLevelSalaryCoefficient,
+            jobPositions = entity.jobPositions,
         };
 
 

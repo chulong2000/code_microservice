@@ -10,5 +10,9 @@
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
+        public EducationLevelSalaryCoefficient educationLevelSalaryCoefficient { get; set; }
+
+        public List<JobPosition> jobPositions { get; } = [];
+
     }
 }

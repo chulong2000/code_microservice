@@ -1,7 +1,11 @@
-﻿namespace DemoApi.Domain.Models
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DemoApi.Domain.Models
 {
     public class EducationLevelSalaryCoefficient
     {
+        //[Description("Id")]
         public Guid Id { get; set; }
 
         // FK + unique -> đảm bảo 1-1

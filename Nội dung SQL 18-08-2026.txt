@@ -1,0 +1,41 @@
+
+THêm vào 2 đối tượng JobPosition và EducationSalary vào response của API getDetail của EducationLevel.
+
+Thêm 1 bảng CV có quan hệ 1-n vơi bảng JobPositon và hiện thị ra 1 List CV trong getDetailEducationLevel.
+
+CREATE TABLE [dbo].[JobApplication](
+	[Id] [uniqueidentifier] NOT NULL,
+	[JobPositionId] [uniqueidentifier] NOT NULL,
+	[FullName] [nvarchar](200) NOT NULL,
+	[Email] [varchar](150) NOT NULL,
+	[PhoneNumber] [varchar](100) NOT NULL,
+	[DateOfBirth] [datetime] NOT NULL,
+	[Gender] [varchar](120) NOT NULL,
+	[CvFileUrl] [varchar](200) NOT NULL,
+	[CoverLetter] [nvarchar](300) NULL,
+	[YearsOfExperience] [int] NOT NULL,
+	[AppliedAt] [datetime] NOT NULL,
+	[CreatedAt] [datetime] NULL,
+	[UpdatedAt] [datetime] NULL,
+	[IsDeleted] [bit] NULL
+) ON [PRIMARY]
+GO
+
+ALTER   PROCEDURE [dbo].[spEducationLevel_SelectById]
+    @Id UNIQUEIDENTIFIER
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT edu.Id, edu.Name, edu.Description, edu.[Order], edu.CreatedAt, edu.UpdatedAt, 
+	       sa.Id , sa.AllowancePercentage, sa.BaseCoefficient, sa.EffectiveFrom,
+		   job.Id, job.Title, job.Department, job.OpenSlots,
+		   app.Id, app.FullName, app.Email, app.CvFileUrl, app.AppliedAt
+    FROM dbo.EducationLevel as edu
+	inner join dbo.EducationLevelSalaryCoefficient as sa
+	on edu.Id = sa.EducationLevelId
+	inner join dbo.JobPosition as job
+	on edu.Id = job.MinimumEducationLevelId
+	left join  dbo.JobApplication as app
+	on job.Id = app.JobPositionId
+    WHERE edu.Id = @Id AND edu.IsDeleted = 0;
+END

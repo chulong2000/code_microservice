@@ -8,11 +8,13 @@ namespace DemoApi.Domain.Mapper
     {
         public static EducationLevelSalaryCoefficientViewModel MapToViewModel(EducationLevelSalaryCoefficient entity) => new()
         {
+            Id = entity.Id,
             Notes = entity.Notes,
             AllowancePercentage = entity.AllowancePercentage,
             BaseCoefficient = entity.BaseCoefficient,
             educationLevel = entity.educationLevel,
-            EffectiveFrom = entity.EffectiveFrom
+            EffectiveFrom = entity.EffectiveFrom,
+            
         };
 
 

@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net8.0": {
       "BouncyCastle.NetCoreSdk/1.9.7": {
@@ -4866,7 +4866,6 @@
       "path": "microsoft.netcore.windows.apisets/1.0.1",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "microsoft.netcore.windows.apisets.1.0.1.nupkg.sha512",
@@ -10174,8 +10173,8 @@
     },
     "GHM.Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../../../../Source Code HR_GHM/hrm-api/GHM.Infrastructure/GHM.Infrastructure.csproj",
-      "msbuildProject": "../../../../Source Code HR_GHM/hrm-api/GHM.Infrastructure/GHM.Infrastructure.csproj"
+      "path": "../../../../Documents/Source Code GHM Backend/hrm-api/GHM.Infrastructure/GHM.Infrastructure.csproj",
+      "msbuildProject": "../../../../Documents/Source Code GHM Backend/hrm-api/GHM.Infrastructure/GHM.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -10191,23 +10190,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {},
+    "C:\\Users\\deptraitoc2mai\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\DemoApi.csproj",
+      "projectUniqueName": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\DemoApi.csproj",
       "projectName": "DemoApi",
-      "projectPath": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\DemoApi.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\obj\\",
+      "projectPath": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\DemoApi.csproj",
+      "packagesPath": "C:\\Users\\deptraitoc2mai\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\deptraitoc2mai\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -10216,15 +10215,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\user\\Documents\\Source Code C#\\Source Code HR_GHM\\hrm-api\\GHM.Infrastructure\\GHM.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code HR_GHM\\hrm-api\\GHM.Infrastructure\\GHM.Infrastructure.csproj"
+            "C:\\Users\\deptraitoc2mai\\Documents\\Source Code GHM Backend\\hrm-api\\GHM.Infrastructure\\GHM.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\deptraitoc2mai\\Documents\\Source Code GHM Backend\\hrm-api\\GHM.Infrastructure\\GHM.Infrastructure.csproj"
             }
           }
         }
@@ -10238,10 +10237,12 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
       "net8.0": {
+        "framework": "net8.0",
         "targetAlias": "net8.0",
         "dependencies": {
           "Dapper": {
@@ -10284,6 +10285,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.30, 8.0.30]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.30, 8.0.30]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.30, 8.0.30]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.30, 8.0.30]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -10292,7 +10311,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

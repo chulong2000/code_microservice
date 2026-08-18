@@ -92,10 +92,34 @@ namespace DemoApi.Infrastructure.Repository
             var param = new DynamicParameters();
             param.Add("@Id", id);
 
-            return await connection.QueryFirstOrDefaultAsync<EducationLevel>(
-                "[dbo].[spEducationLevel_SelectById]", param,
+            EducationLevel? educationLevel = null;
+
+            var result = await connection.QueryAsync<EducationLevel, EducationLevelSalaryCoefficient, JobPosition, JobApplication, EducationLevel>(
+                "[dbo].[spEducationLevel_SelectById]",
+                (edu, sa, job, app) =>
+                {
+                    educationLevel ??= edu;
+                    educationLevel.educationLevelSalaryCoefficient = sa;
+                    
+                    if (educationLevel.jobPositions.All(j => j.Id != job.Id))
+                    {
+                        
+                        job.jobApplications.Add(app);
+                        educationLevel.jobPositions.Add(job);
+                    } else
+                    {
+
+                        educationLevel.jobPositions.Single(j => j.Id == job.Id).jobApplications.Add(app);
+                    }
+                    
+                    return educationLevel;
+                },
+                param,
                 transaction: _session.Transaction,
+                splitOn: "Id, Id, Id",
                 commandType: CommandType.StoredProcedure);
+
+            return educationLevel;
         }
 
         public async Task<List<JobPosition>> GetListJobPositionByEducationLevelId(Guid id)

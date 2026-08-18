@@ -70,6 +70,36 @@
         }
       }
     },
+    "/api/v1/education-levels/{id}/job-positions": {
+      "get": {
+        "tags": [
+          "EducationLevel"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobPositionViewModelListActionResultResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/education-levels/{id}": {
       "get": {
         "tags": [
@@ -169,6 +199,141 @@
       "delete": {
         "tags": [
           "EducationLevel"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResultResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResultResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/education-level-salary-coefficient": {
+      "get": {
+        "tags": [
+          "EducationLevelSalaryCoefficient"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EducationLevelViewModelListActionResultResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "EducationLevelSalaryCoefficient"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EducationLevelSalaryCoefficientMeta"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EducationLevelSalaryCoefficientMeta"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EducationLevelSalaryCoefficientMeta"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuidActionResultResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionResultResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/education-levels/{educationLevelId}/salary-coefficient": {
+      "get": {
+        "tags": [
+          "EducationLevelSalaryCoefficient"
+        ],
+        "parameters": [
+          {
+            "name": "educationLevelId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EducationLevelSalaryCoefficientViewModelListActionResultResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/education-level-salary-coefficient/{id}": {
+      "delete": {
+        "tags": [
+          "EducationLevelSalaryCoefficient"
         ],
         "parameters": [
           {
@@ -473,6 +638,17 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          },
+          "educationLevelSalaryCoefficient": {
+            "$ref": "#/components/schemas/EducationLevelSalaryCoefficient"
+          },
+          "jobPositions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JobPosition"
+            },
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -508,6 +684,140 @@
         },
         "additionalProperties": false
       },
+      "EducationLevelSalaryCoefficient": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "educationLevelId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "educationLevel": {
+            "$ref": "#/components/schemas/EducationLevel"
+          },
+          "baseCoefficient": {
+            "type": "number",
+            "format": "double"
+          },
+          "allowancePercentage": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "effectiveFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EducationLevelSalaryCoefficientMeta": {
+        "type": "object",
+        "properties": {
+          "educationLevelId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "baseCoefficient": {
+            "type": "number",
+            "format": "double"
+          },
+          "allowancePercentage": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "effectiveFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EducationLevelSalaryCoefficientViewModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "educationLevel": {
+            "$ref": "#/components/schemas/EducationLevel"
+          },
+          "baseCoefficient": {
+            "type": "number",
+            "format": "double"
+          },
+          "allowancePercentage": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "effectiveFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EducationLevelSalaryCoefficientViewModelListActionResultResponse": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EducationLevelSalaryCoefficientViewModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "EducationLevelViewModel": {
         "type": "object",
         "properties": {
@@ -534,6 +844,16 @@
           "updatedAt": {
             "type": "string",
             "format": "date-time",
+            "nullable": true
+          },
+          "educationLevelSalaryCoefficient": {
+            "$ref": "#/components/schemas/EducationLevelSalaryCoefficient"
+          },
+          "jobPositions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JobPosition"
+            },
             "nullable": true
           }
         },
@@ -607,6 +927,122 @@
         },
         "additionalProperties": false
       },
+      "JobApplication": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "jobPosition": {
+            "$ref": "#/components/schemas/JobPosition"
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "cvFileUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "coverLetter": {
+            "type": "string",
+            "nullable": true
+          },
+          "yearsOfExperience": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "appliedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "JobPosition": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "department": {
+            "type": "string",
+            "nullable": true
+          },
+          "openSlots": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "minimumEducationLevelId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "minimumEducationLevel": {
+            "$ref": "#/components/schemas/EducationLevel"
+          },
+          "isOpen": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "jobApplications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JobApplication"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
       "JobPositionMeta": {
         "type": "object",
         "properties": {
@@ -664,14 +1100,6 @@
           "openSlots": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
-          },
-          "minimumEducationLevelId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "minimumEducationLevelName": {
-            "type": "string",
             "nullable": true
           },
           "minimumEducationLevel": {

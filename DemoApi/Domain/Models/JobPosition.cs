@@ -1,7 +1,10 @@
-﻿namespace DemoApi.Domain.Models
+﻿using System.ComponentModel;
+
+namespace DemoApi.Domain.Models
 {
     public class JobPosition
     {
+        //[Description("Id")]
         public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;   // tên vị trí, max 150
         public string? Department { get; set; }              // khoa/phòng tuyển
@@ -15,5 +18,6 @@
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public bool IsDeleted { get; set; }
+        public List<JobApplication> jobApplications { get; } = [];
     }
 }
