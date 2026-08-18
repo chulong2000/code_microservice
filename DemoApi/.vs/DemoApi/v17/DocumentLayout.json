@@ -3,128 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\database\\04_storedproducer_educationlevelsalarycoeffientviewmodel.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\database\\04_storedproducer_educationlevelsalarycoeffientviewmodel.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\database\\01_stored.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\database\\01_stored.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\database\\02_storedprocedures.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\database\\02_storedprocedures.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\database\\03_storedprocedures_jobposition.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\database\\03_storedprocedures_jobposition.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\domain\\modelmetas\\educationlevelsalarycoefficientmeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\modelmetas\\educationlevelsalarycoefficientmeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\validation\\educationlevelsalarycoefficientvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\validation\\educationlevelsalarycoefficientvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\validation\\jobpositionmetavalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\validation\\jobpositionmetavalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\validation\\educationlevelmetavalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\validation\\educationlevelmetavalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\domain\\models\\educationlevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\models\\educationlevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\repository\\educationlevelsalarycoefficientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\repository\\educationlevelsalarycoefficientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\repository\\jobpositionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\repository\\jobpositionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\repository\\educationlevelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\repository\\educationlevelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\domain\\irepository\\ijobpositionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\irepository\\ijobpositionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\domain\\irepository\\ieducationlevelsalarycoefficientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\irepository\\ieducationlevelsalarycoefficientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\service\\educationlevelsalarycoefficientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\service\\educationlevelsalarycoefficientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\domain\\iservices\\ieducationlevelsalarycoefficientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\iservices\\ieducationlevelsalarycoefficientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\api\\controller\\educationlevelsalarycoefficientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:api\\controller\\educationlevelsalarycoefficientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\domain\\models\\educationlevelsalarycoefficient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\models\\educationlevelsalarycoefficient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\domain\\mapper\\educationlevelsalarycoefficientmappper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\mapper\\educationlevelsalarycoefficientmappper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\domain\\viewmodels\\educationlevelsalarycoefficientviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\viewmodels\\educationlevelsalarycoefficientviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\domain\\mapper\\educationlevelmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\mapper\\educationlevelmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\domain\\mapper\\jobpositionmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\mapper\\jobpositionmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\service\\educationlevelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\service\\educationlevelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\service\\jobpositionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\service\\jobpositionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\domain\\iservices\\ieducationlevelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:domain\\iservices\\ieducationlevelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\api\\controller\\jobpositioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:api\\controller\\jobpositioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\database\\02_storedprocedures.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\database\\02_storedprocedures.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\database\\01_stored.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\database\\01_stored.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\database\\03_storedprocedures_jobposition.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\database\\03_storedprocedures_jobposition.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|c:\\users\\user\\documents\\source code c#\\source code demo api\\code_microservice_2\\code_microservice\\demoapi\\infrastructure\\database\\04_storedproducer_educationlevelsalarycoeffientviewmodel.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{E301A1F8-243E-430A-BE75-A6B97711BA29}|DemoApi.csproj|solutionrelative:infrastructure\\database\\04_storedproducer_educationlevelsalarycoeffientviewmodel.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -139,348 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "04_StoredProducer_EducationLevelSalaryCoeffientViewModel.sql ",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Database\\04_StoredProducer_EducationLevelSalaryCoeffientViewModel.sql",
-              "RelativeDocumentMoniker": "Infrastructure\\Database\\04_StoredProducer_EducationLevelSalaryCoeffientViewModel.sql",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Database\\04_StoredProducer_EducationLevelSalaryCoeffientViewModel.sql",
-              "RelativeToolTip": "Infrastructure\\Database\\04_StoredProducer_EducationLevelSalaryCoeffientViewModel.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-08-16T14:54:03.518Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "03_StoredProcedures_JobPosition.sql ",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Database\\03_StoredProcedures_JobPosition.sql",
-              "RelativeDocumentMoniker": "Infrastructure\\Database\\03_StoredProcedures_JobPosition.sql",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Database\\03_StoredProcedures_JobPosition.sql",
-              "RelativeToolTip": "Infrastructure\\Database\\03_StoredProcedures_JobPosition.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-08-16T14:50:52.051Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "01_Stored.sql ",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Database\\01_Stored.sql",
-              "RelativeDocumentMoniker": "Infrastructure\\Database\\01_Stored.sql",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Database\\01_Stored.sql",
-              "RelativeToolTip": "Infrastructure\\Database\\01_Stored.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-08-16T14:48:03.96Z",
+              "Title": "EducationLevel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\Models\\EducationLevel.cs",
+              "RelativeDocumentMoniker": "Domain\\Models\\EducationLevel.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\Models\\EducationLevel.cs",
+              "RelativeToolTip": "Domain\\Models\\EducationLevel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-17T09:50:31.904Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "02_StoredProcedures.sql ",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Database\\02_StoredProcedures.sql",
-              "RelativeDocumentMoniker": "Infrastructure\\Database\\02_StoredProcedures.sql",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Database\\02_StoredProcedures.sql",
-              "RelativeToolTip": "Infrastructure\\Database\\02_StoredProcedures.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-08-16T14:46:18.649Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IJobPositionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\IRepository\\IJobPositionRepository.cs",
-              "RelativeDocumentMoniker": "Domain\\IRepository\\IJobPositionRepository.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\IRepository\\IJobPositionRepository.cs",
-              "RelativeToolTip": "Domain\\IRepository\\IJobPositionRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T14:11:15.514Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-08-16T14:00:02.981Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:53:10.253Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EducationLevelSalaryCoefficientValidator.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Validation\\EducationLevelSalaryCoefficientValidator.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Validation\\EducationLevelSalaryCoefficientValidator.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Validation\\EducationLevelSalaryCoefficientValidator.cs",
-              "RelativeToolTip": "Infrastructure\\Validation\\EducationLevelSalaryCoefficientValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:45:19.152Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "EducationLevelSalaryCoefficientViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\ViewModels\\EducationLevelSalaryCoefficientViewModel.cs",
-              "RelativeDocumentMoniker": "Domain\\ViewModels\\EducationLevelSalaryCoefficientViewModel.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\ViewModels\\EducationLevelSalaryCoefficientViewModel.cs",
-              "RelativeToolTip": "Domain\\ViewModels\\EducationLevelSalaryCoefficientViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:39:03.605Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "EducationLevelSalaryCoefficient.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\Models\\EducationLevelSalaryCoefficient.cs",
-              "RelativeDocumentMoniker": "Domain\\Models\\EducationLevelSalaryCoefficient.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\Models\\EducationLevelSalaryCoefficient.cs",
-              "RelativeToolTip": "Domain\\Models\\EducationLevelSalaryCoefficient.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:38:26.348Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "JobPositionMapper.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\Mapper\\JobPositionMapper.cs",
-              "RelativeDocumentMoniker": "Domain\\Mapper\\JobPositionMapper.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\Mapper\\JobPositionMapper.cs",
-              "RelativeToolTip": "Domain\\Mapper\\JobPositionMapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:37:09.983Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "EducationLevelSalaryCoefficientMappper.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\Mapper\\EducationLevelSalaryCoefficientMappper.cs",
-              "RelativeDocumentMoniker": "Domain\\Mapper\\EducationLevelSalaryCoefficientMappper.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\Mapper\\EducationLevelSalaryCoefficientMappper.cs",
-              "RelativeToolTip": "Domain\\Mapper\\EducationLevelSalaryCoefficientMappper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:36:00.789Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "EducationLevelMapper.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\Mapper\\EducationLevelMapper.cs",
-              "RelativeDocumentMoniker": "Domain\\Mapper\\EducationLevelMapper.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\Mapper\\EducationLevelMapper.cs",
-              "RelativeToolTip": "Domain\\Mapper\\EducationLevelMapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:35:47.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "JobPositionService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Service\\JobPositionService.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Service\\JobPositionService.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Service\\JobPositionService.cs",
-              "RelativeToolTip": "Infrastructure\\Service\\JobPositionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:34:53.397Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "JobPositionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Repository\\JobPositionRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repository\\JobPositionRepository.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Repository\\JobPositionRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Repository\\JobPositionRepository.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAwwFAAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:32:28.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "JobPositionMetaValidation.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Validation\\JobPositionMetaValidation.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Validation\\JobPositionMetaValidation.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Validation\\JobPositionMetaValidation.cs",
-              "RelativeToolTip": "Infrastructure\\Validation\\JobPositionMetaValidation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:31:12.607Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EducationLevelMetaValidator.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Validation\\EducationLevelMetaValidator.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Validation\\EducationLevelMetaValidator.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Validation\\EducationLevelMetaValidator.cs",
-              "RelativeToolTip": "Infrastructure\\Validation\\EducationLevelMetaValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:31:12.007Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "EducationLevelService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Service\\EducationLevelService.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Service\\EducationLevelService.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Service\\EducationLevelService.cs",
-              "RelativeToolTip": "Infrastructure\\Service\\EducationLevelService.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAA0wGQAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:22:21.766Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "IEducationLevelSalaryCoefficientService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\IServices\\IEducationLevelSalaryCoefficientService.cs",
-              "RelativeDocumentMoniker": "Domain\\IServices\\IEducationLevelSalaryCoefficientService.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\IServices\\IEducationLevelSalaryCoefficientService.cs",
-              "RelativeToolTip": "Domain\\IServices\\IEducationLevelSalaryCoefficientService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:20:35.678Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "IEducationLevelService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\IServices\\IEducationLevelService.cs",
-              "RelativeDocumentMoniker": "Domain\\IServices\\IEducationLevelService.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\IServices\\IEducationLevelService.cs",
-              "RelativeToolTip": "Domain\\IServices\\IEducationLevelService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:20:56.643Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "EducationLevelRepository.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Repository\\EducationLevelRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repository\\EducationLevelRepository.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Repository\\EducationLevelRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Repository\\EducationLevelRepository.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAcwB4AAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:12:13.522Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EducationLevelSalaryCoefficientMeta.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\ModelMetas\\EducationLevelSalaryCoefficientMeta.cs",
-              "RelativeDocumentMoniker": "Domain\\ModelMetas\\EducationLevelSalaryCoefficientMeta.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\ModelMetas\\EducationLevelSalaryCoefficientMeta.cs",
-              "RelativeToolTip": "Domain\\ModelMetas\\EducationLevelSalaryCoefficientMeta.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:10:55.948Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EducationLevelSalaryCoefficientRepository.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAkwB0AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:10:23.325Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IEducationLevelSalaryCoefficientRepository.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\IRepository\\IEducationLevelSalaryCoefficientRepository.cs",
-              "RelativeDocumentMoniker": "Domain\\IRepository\\IEducationLevelSalaryCoefficientRepository.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Domain\\IRepository\\IEducationLevelSalaryCoefficientRepository.cs",
-              "RelativeToolTip": "Domain\\IRepository\\IEducationLevelSalaryCoefficientRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:10:11.008Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "EducationLevelSalaryCoefficientService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Service\\EducationLevelSalaryCoefficientService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Service\\EducationLevelSalaryCoefficientService.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Service\\EducationLevelSalaryCoefficientService.cs",
               "RelativeToolTip": "Infrastructure\\Service\\EducationLevelSalaryCoefficientService.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAA1wCkAAABcAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAjwBoAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:09:26.998Z",
+              "WhenOpened": "2026-08-17T09:48:18.251Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "EducationLevelSalaryCoefficientController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Api\\Controller\\EducationLevelSalaryCoefficientController.cs",
-              "RelativeDocumentMoniker": "Api\\Controller\\EducationLevelSalaryCoefficientController.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Api\\Controller\\EducationLevelSalaryCoefficientController.cs",
-              "RelativeToolTip": "Api\\Controller\\EducationLevelSalaryCoefficientController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAABNAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "EducationLevelSalaryCoefficientRepository.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwDUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:09:13.883Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "JobPositionController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Api\\Controller\\JobPositionController.cs",
-              "RelativeDocumentMoniker": "Api\\Controller\\JobPositionController.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Source Code C#\\Source Code Demo API\\code_microservice_2\\code_microservice\\DemoApi\\Api\\Controller\\JobPositionController.cs",
-              "RelativeToolTip": "Api\\Controller\\JobPositionController.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAgwDcAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T13:08:24.846Z",
+              "WhenOpened": "2026-08-17T09:46:30.073Z",
               "EditorCaption": ""
             }
           ]
