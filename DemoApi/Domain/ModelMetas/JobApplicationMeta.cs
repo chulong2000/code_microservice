@@ -1,11 +1,11 @@
-﻿namespace DemoApi.Domain.Models
+﻿using DemoApi.Domain.Models;
+
+namespace DemoApi.Domain.ModelMetas
 {
-    public class JobApplication
+    public class JobApplicationMeta
     {
-        public Guid Id { get; set; }
 
         public Guid JobPositionId { get; set; }
-        public JobPosition JobPosition { get; set; } = new JobPosition();
 
         // Thông tin ứng viên
         public string FullName { get; set; } = string.Empty;      // bắt buộc, max 150
@@ -21,7 +21,6 @@
 
         public DateTime AppliedAt { get; set; }                        // ngày nộp hồ sơ
         public DateTime CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
-        public bool IsDeleted { get; set; }
+        
     }
 }

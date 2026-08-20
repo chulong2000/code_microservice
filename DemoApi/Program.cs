@@ -31,6 +31,8 @@ builder.Services.AddScoped<IJobPositionRepository, JobPositionRepository>();
 builder.Services.AddScoped<IJobPositionService,JobPositionService>();
 builder.Services.AddScoped<IEducationLevelSalaryCoefficientRepository,EducationLevelSalaryCoefficientRepository>();
 builder.Services.AddScoped<IEducationLevelSalaryCoefficientService, EducationLevelSalaryCoefficientService>();
+builder.Services.AddScoped<IJobApplicationRepository, JobApplicationRepository>();
+builder.Services.AddScoped<IJobApplicationService, JobApplicationService>();
 
 
 

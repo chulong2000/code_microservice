@@ -108,7 +108,6 @@ namespace DemoApi.Infrastructure.Repository
                         educationLevel.jobPositions.Add(job);
                     } else
                     {
-
                         educationLevel.jobPositions.Single(j => j.Id == job.Id).jobApplications.Add(app);
                     }
                     

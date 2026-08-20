@@ -11,7 +11,7 @@ namespace DemoApi.Domain.ViewModels
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
-        public EducationLevelSalaryCoefficient educationLevelSalaryCoefficient { get; set;  }
+        public EducationLevelSalaryCoefficient educationLevelSalaryCoefficient { get; set; } = null!;
 
         public List<JobPosition> jobPositions { get; set; }
     }
