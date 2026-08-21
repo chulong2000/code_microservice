@@ -9,5 +9,6 @@ namespace DemoApi.Domain.IRepository
         Task<int> InsertAsync(JobApplication entity);
         Task<JobApplication> SelectByIdAsync(Guid id);
         Task<List<JobApplication>> SelectListAsync(JobApplicationSearchMeta search);
+        Task<int> SoftDeleteAsync(Guid id);
     }
 }

@@ -287,6 +287,9 @@
         ],
         "StatusCode": 200
       }
+    ],
+    "Tags": [
+      "JobApplication"
     ]
   },
   {
@@ -318,6 +321,9 @@
         ],
         "StatusCode": 400
       }
+    ],
+    "Tags": [
+      "JobApplication"
     ]
   },
   {
@@ -349,6 +355,43 @@
         ],
         "StatusCode": 404
       }
+    ],
+    "Tags": [
+      "JobApplication"
+    ]
+  },
+  {
+    "ContainingType": "DemoApi.Api.Controller.JobApplicationController\u0323",
+    "Method": "Delete",
+    "RelativePath": "api/v1/job-applications/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GHM.Infrastructure.Models.ActionResultResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "GHM.Infrastructure.Models.ActionResultResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "Tags": [
+      "JobApplication"
     ]
   },
   {
@@ -373,6 +416,9 @@
         ],
         "StatusCode": 200
       }
+    ],
+    "Tags": [
+      "JobApplication"
     ]
   },
   {

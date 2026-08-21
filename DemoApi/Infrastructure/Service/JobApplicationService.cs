@@ -39,6 +39,17 @@ namespace DemoApi.Infrastructure.Service
             return new ActionResultResponse<Guid>(1, "Tạo trình độ học vấn thành công.", data: entity.Id);
         }
 
+        public async Task<ActionResultResponse> DeleteAsync(Guid id)
+        {
+            var result = await _jobApplicationRepo.SoftDeleteAsync(id);
+            return result switch
+            {
+                1 => new ActionResultResponse(1, "Xóa thành công."),
+                -1 => new ActionResultResponse(-1, "Xóa thất bại"),
+                _ => new ActionResultResponse(-99, "Không tìm thấy CV này.")
+            };
+        }
+
         public async Task<ActionResultResponse<JobApplicationViewModel>> GetDetailAsync(Guid id)
         {
             var entity = await _jobApplicationRepo.SelectByIdAsync(id);

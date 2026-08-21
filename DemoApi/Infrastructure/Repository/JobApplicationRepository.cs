@@ -38,7 +38,7 @@ namespace DemoApi.Infrastructure.Repository
             var connection = await _session.GetConnectionAsync();
             var param = new DynamicParameters();
             param.Add("@Id", entity.Id);
-            param.Add("@JobPositionId", entity.JobPosition.Id);
+            param.Add("@JobPositionId", entity.JobPositionId);
             param.Add("@FullName", entity.FullName);
             param.Add("@Email", entity.Email);
             param.Add("@PhoneNumber", entity.PhoneNumber);
@@ -95,11 +95,24 @@ namespace DemoApi.Infrastructure.Repository
                     app.JobPosition = job;
                     return app;
                 },
+                param,
                 transaction: _session.Transaction,
                 splitOn: "Id, Id",
                 commandType: CommandType.StoredProcedure);
 
             return result.ToList();
+        }
+
+        public async Task<int> SoftDeleteAsync(Guid id)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@Id", id);
+
+            return await connection.ExecuteScalarAsync<int>(
+                "[dbo].[spJobApplication_SoftDelete]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
         }
     }
 }

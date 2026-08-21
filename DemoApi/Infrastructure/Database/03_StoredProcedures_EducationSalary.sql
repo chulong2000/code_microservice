@@ -1,4 +1,4 @@
-﻿CREATE OR ALTER PROCEDURE dbo.spEducationLevelSalaryCoefficient_GetSalaryCoefficientOfEducationLevel
+﻿ALTER     PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_GetSalaryCoefficientOfEducationLevel]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
@@ -8,9 +8,10 @@ BEGIN
 	on sa.EducationLevelId = edu.Id
 	where edu.Id = @Id
 END
-GO
 
-CREATE OR ALTER PROCEDURE dbo.spEducationLevelSalaryCoefficient_SelectList
+GO 
+
+ALTER     PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_SelectList]
     
 AS
 BEGIN
@@ -20,7 +21,22 @@ BEGIN
 	on sa.EducationLevelId = edu.Id
 END
 
-CREATE OR ALTER PROCEDURE dbo.spEducationLevelSalaryCoefficient_Upsert
+GO
+
+ALTER     PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_SoftDelete]
+    @Id UNIQUEIDENTIFIER
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE dbo.EducationLevelSalaryCoefficient SET IsDeleted = 1
+    WHERE Id = @Id AND IsDeleted = 0;
+
+    SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
+END
+
+GO
+
+ALTER     PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_Upsert]
     @Id UNIQUEIDENTIFIER, @EducationLevelId UNIQUEIDENTIFIER, @BaseCoefficient DECIMAL(5,2), @AllowancePercentage DECIMAL(5,2),@EffectiveFrom DATETIME,
     @Notes nvarchar(500), @CreatedAt DATETIME, @UpdatedAt DATETIME
 AS
@@ -40,17 +56,5 @@ BEGIN
         INSERT INTO dbo.EducationLevelSalaryCoefficient(Id,EducationLevelId,BaseCoefficient, AllowancePercentage, EffectiveFrom, Notes, CreatedAt, IsDeleted)
         VALUES (@Id, @EducationLevelId, @BaseCoefficient , @AllowancePercentage, @EffectiveFrom, @Notes, @CreatedAt, 0);
 	END
-    SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
-END
-
-
-CREATE OR ALTER PROCEDURE dbo.spEducationLevelSalaryCoefficient_SoftDelete
-    @Id UNIQUEIDENTIFIER
-AS
-BEGIN
-    SET NOCOUNT ON;
-    UPDATE dbo.EducationLevelSalaryCoefficient SET IsDeleted = 1
-    WHERE Id = @Id AND IsDeleted = 0;
-
     SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
 END

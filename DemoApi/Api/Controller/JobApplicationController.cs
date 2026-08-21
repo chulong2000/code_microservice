@@ -11,6 +11,7 @@ namespace DemoApi.Api.Controller
     [ApiController]
     [Route("api/v1/job-applications")]
     [SwaggerTag("Quản lý danh mục CV")]
+    [Tags("JobApplication")]
     public class JobApplicationControlleṛ(IJobApplicationService service) : ControllerBase
     {
         [HttpGet]
@@ -65,20 +66,20 @@ namespace DemoApi.Api.Controller
             return result.Code <= 0 ? BadRequest(result) : Ok(result);
         }
 
-        
-        //[HttpDelete("{id:guid}")]
-        //[SwaggerOperation(
-        //    Summary = "Xoá (mềm) trình độ học vấn",
-        //    Description = "Trả về `Code = -99` (HTTP 400) khi không tìm thấy.",
-        //    OperationId = "DeleteEducationLevel")]
-        //[ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status200OK)]
-        //[ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status400BadRequest)]
-        //public async Task<IActionResult> Delete(
-        //    [SwaggerParameter("Id của trình độ học vấn", Required = true)] Guid id)
-        //{
-        //    var result = await service.DeleteAsync(id);
-        //    return result.Code <= 0 ? BadRequest(result) : Ok(result);
-        //}
+
+        [HttpDelete("{id:guid}")]
+        [SwaggerOperation(
+            Summary = "Xoá (mềm) trình độ học vấn",
+            Description = "Trả về `Code = -99` (HTTP 400) khi không tìm thấy.",
+            OperationId = "DeleteEducationLevel")]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Delete(
+            [SwaggerParameter("Id của trình độ học vấn", Required = true)] Guid id)
+        {
+            var result = await service.DeleteAsync(id);
+            return result.Code <= 0 ? BadRequest(result) : Ok(result);
+        }
 
     }
 }

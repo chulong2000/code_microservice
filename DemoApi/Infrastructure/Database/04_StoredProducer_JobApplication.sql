@@ -1,4 +1,15 @@
-﻿Create OR ALTER   PROCEDURE [dbo].[spJobApplication_Insert]
+﻿ALTER   PROCEDURE [dbo].[spJobApplication_GetListJobApplicationByJobPositionId]
+    @Id UNIQUEIDENTIFIER
+AS
+BEGIN
+    SET NOCOUNT ON;
+    select app.Id, app.FullName, app.Gender, app.CvFileUrl, app.CoverLetter, app.AppliedAt from dbo.JobPosition as job 
+	inner join dbo.JobApplication as app
+	on job.Id = app.JobPositionId
+	where job.Id = @Id and job.IsDeleted = 0
+END
+
+ALTER     PROCEDURE [dbo].[spJobApplication_Insert]
     @Id UNIQUEIDENTIFIER, @JobPositionId UNIQUEIDENTIFIER, @FullName NVARCHAR(500),
     @Email varchar(200), @PhoneNumber varchar(50), @DateOfBirth DateTime, @Gender varchar(120), @CvFileUrl varchar(150), 
 	@CoverLetter nvarchar (500), @YearOfExperience int, @AppliedAt Datetime, @CreatedAt datetime
@@ -12,18 +23,23 @@ BEGIN
 END
 
 ALTER   PROCEDURE [dbo].[spJobApplication_Select]
-    @Keyword UNIQUEIDENTIFIER,
-	@JobPositionId UNIQUEIDENTIFIER,
-	@AppliedFrom Datetime,
-	@AppliedTo Datetime
+    @Keyword nvarchar(100) = NULL,
+	@JobPositionId UNIQUEIDENTIFIER = Null,
+	@AppliedFrom Datetime = null,
+	@AppliedTo Datetime = null
 AS
 BEGIN
     SET NOCOUNT ON;
+	DECLARE @Pattern nvarchar(102) = N'%' + @Keyword + N'%';
     select app.Id, app.FullName, app.Gender, app.CvFileUrl, app.CoverLetter, app.AppliedAt, job.Id, job.Title, job.Department from dbo.JobApplication as app 
 	inner join dbo.JobPosition as job
 	on app.JobPositionId = job.Id
-	where app.FullName like '%@Keyword%' or app.Email like '%@Keyword%' 
-	and JobPositionId = @JobPositionId and app.AppliedAt between @AppliedFrom and @AppliedTo
+	 WHERE (@Keyword IS NULL
+           OR app.FullName LIKE @Pattern
+           OR app.Email    LIKE @Pattern)      -- 
+      AND (@JobPositionId IS NULL OR app.JobPositionId = @JobPositionId)
+      AND (@AppliedFrom   IS NULL OR app.AppliedAt >= @AppliedFrom)
+      AND (@AppliedTo     IS NULL OR app.AppliedAt <  DATEADD(DAY, 1, @AppliedTo))
 END
 
 ALTER   PROCEDURE [dbo].[spJobApplication_SelectById]
@@ -35,15 +51,4 @@ BEGIN
 	inner join dbo.JobPosition as job
 	on app.JobPositionId = job.Id
 	where app.Id = @Id and app.IsDeleted = 0
-END
-
-ALTER   PROCEDURE [dbo].[spJobApplication_GetListJobApplicationByJobPositionId]
-    @Id UNIQUEIDENTIFIER
-AS
-BEGIN
-    SET NOCOUNT ON;
-    select app.Id, app.FullName, app.Gender, app.CvFileUrl, app.CoverLetter, app.AppliedAt from dbo.JobPosition as job 
-	inner join dbo.JobApplication as app
-	on job.Id = app.JobPositionId
-	where job.Id = @Id and job.IsDeleted = 0
 END
