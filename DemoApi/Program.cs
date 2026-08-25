@@ -5,6 +5,7 @@ using DemoApi.Infrastructure.Repository;
 using DemoApi.Infrastructure.Service;
 using FluentValidation;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,6 +14,17 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+const string ReactClientPolicy = "ReactClient";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(ReactClientPolicy, policy =>
+    {
+        policy.WithOrigins("http://localhost:5174", "http://localhost:5173","http://127.0.0.1:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 // --- Data access: factory là Singleton (chỉ giữ chuỗi kết nối) ---
 builder.Services.AddSingleton<IDbConnectionFactory>(_ => new SqlConnectionFactory(
@@ -51,6 +63,8 @@ if (app.Environment.IsDevelopment())
 }
 
 //app.UseHttpsRedirection();
+
+app.UseCors(ReactClientPolicy);
 
 app.UseAuthorization();
 

@@ -17,6 +17,28 @@ namespace DemoApi.Infrastructure.Service
             _salaryCoefficientRepo = salaryCoefficientRepo;
         }
 
+        public async Task<ActionResultResponse<Guid>> CreateAsync(EducationLevelSalaryCoefficientMeta meta)
+        {
+            var entity = new EducationLevelSalaryCoefficient
+            {
+                Id = Guid.NewGuid(),
+                EducationLevelId = meta.EducationLevelId,
+                BaseCoefficient = meta.BaseCoefficient,
+                AllowancePercentage = meta.AllowancePercentage,
+                EffectiveFrom = meta.EffectiveFrom,
+                Notes = meta.Notes,
+                CreatedAt = meta.CreatedAt,
+            };
+
+            var result = await _salaryCoefficientRepo.InsertAsync(entity);
+            if (result <= 0)
+            {
+                new ActionResultResponse<Guid>(-99, "Ứng tuyển CV thất bại.");
+            }
+            // Tham số thứ 3 của constructor thật là "title", không phải "data" -> phải truyền data bằng named argument.
+            return new ActionResultResponse<Guid>(1, "Tạo trình độ học vấn thành công.", data: entity.Id);
+        }
+
         public async Task<ActionResultResponse> DeleteAsync(Guid id)
         {
             var result = await _salaryCoefficientRepo.SoftDeleteAsync(id);
@@ -46,12 +68,11 @@ namespace DemoApi.Infrastructure.Service
             return new ActionResultResponse<EducationLevelSalaryCoefficientViewModel>(EducationLevelSalaryCoefficientMappper.MapToViewModel(entity));
         }
 
-        public async Task<ActionResultResponse> UpsertAsync(EducationLevelSalaryCoefficientMeta meta)
+        public async Task<ActionResultResponse> UpdateAsync(EducationLevelSalaryCoefficientMeta meta)
         {
            
             var entity = new EducationLevelSalaryCoefficient
             {
-                Id = Guid.NewGuid(),
                 EducationLevelId = meta.EducationLevelId,
                 BaseCoefficient = meta.BaseCoefficient,
                 AllowancePercentage = meta.AllowancePercentage,
@@ -61,7 +82,7 @@ namespace DemoApi.Infrastructure.Service
                 UpdatedAt = DateTime.Now,
             };
 
-            var result = await _salaryCoefficientRepo.UpsertAsync(entity);
+            var result = await _salaryCoefficientRepo.UpdateAsync(entity);
             if (result <= 0)
                 return new ActionResultResponse(-90, "Thêm mới/cập nhập không thành công.");
             return new ActionResultResponse(1, "Thêm mới/cập nhập thành công.");

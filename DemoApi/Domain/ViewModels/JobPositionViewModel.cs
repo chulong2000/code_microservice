@@ -16,7 +16,9 @@ namespace DemoApi.Domain.ViewModels
         public EducationLevel MinimumEducationLevel { get; set; } = null!;
 
         public bool IsOpen { get; set; }
-        
+
+        public bool IsDeleted { get; set; }
+
     }
 
 }

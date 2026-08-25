@@ -10,6 +10,8 @@ namespace DemoApi.Domain.IServices
         Task<ActionResultResponse> DeleteAsync(Guid id);
         Task<ActionResultResponse<List<EducationLevelSalaryCoefficientViewModel>>> GetListAsync();
         Task<ActionResultResponse<EducationLevelSalaryCoefficientViewModel>> GetSalaryCoefficientByEducationLevelId(Guid id);
-        Task<ActionResultResponse> UpsertAsync(EducationLevelSalaryCoefficientMeta meta);
+        Task<ActionResultResponse> UpdateAsync(EducationLevelSalaryCoefficientMeta meta);
+
+        Task<ActionResultResponse<Guid>> CreateAsync(EducationLevelSalaryCoefficientMeta meta);
     }
 }

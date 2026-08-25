@@ -62,7 +62,7 @@ namespace DemoApi.Infrastructure.Repository
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<List<JobPosition>> SelectListAsync(Guid educationLevelId, string keyword)
+        public async Task<List<JobPosition>> SelectListAsync(Guid? educationLevelId, string keyword)
         {
             var connection = await _session.GetConnectionAsync();
             var param = new DynamicParameters();

@@ -14,7 +14,8 @@ namespace DemoApi.Domain.Mapper
             //MinimumEducationLevelId = job.MinimumEducationLevelId,
             //MinimumEducationLevelName = job.MinimumEducationLevel.Name,
             MinimumEducationLevel = job.MinimumEducationLevel,
-            OpenSlots = job.OpenSlots
+            OpenSlots = job.OpenSlots,
+            IsDeleted = job.IsDeleted,
         };
 
         

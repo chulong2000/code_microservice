@@ -10,7 +10,7 @@ namespace DemoApi.Domain.ModelMetas
         public int? OpenSlots { get; set; }                    // số lượng cần tuyển
 
         // FK — nhiều JobPosition cùng yêu cầu 1 mức EducationLevel tối thiểu
-        public Guid MinimumEducationLevelId { get; set; }
+        public Guid? MinimumEducationLevelId { get; set; }
 
         public bool IsOpen { get; set; }
         public DateTime CreatedAt { get; set; }

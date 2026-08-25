@@ -21,7 +21,7 @@ namespace DemoApi.Api.Controller
       Description = "Trả về toàn bộ danh mục các công việc.",
       OperationId = "GetJobPosition")]
         [ProducesResponseType(typeof(ActionResultResponse<List<JobPositionViewModel>>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetList(Guid educationLevelId, string? keyword)
+        public async Task<IActionResult> GetList(Guid? educationLevelId, string? keyword)
         {
             var result = await service.GetListAsync(educationLevelId, keyword);
             return Ok(result);

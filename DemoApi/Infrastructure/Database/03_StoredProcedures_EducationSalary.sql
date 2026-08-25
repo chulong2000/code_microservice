@@ -9,7 +9,21 @@ BEGIN
 	where edu.Id = @Id
 END
 
-GO 
+ALTER   PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_Insert]
+    @Id UNIQUEIDENTIFIER, @EducationLevelId UNIQUEIDENTIFIER, @BaseCoefficient DECIMAL(5,2), @AllowancePercentage DECIMAL(5,2),@EffectiveFrom DATETIME,
+    @Notes nvarchar(500), @CreatedAt DATETIME
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF EXISTS (SELECT 1 from dbo.EducationLevel as edu 
+	           inner join dbo.EducationLevelSalaryCoefficient as salary 
+			   on edu.Id = salary.EducationLevelId where edu.Id = @EducationLevelId)
+    BEGIN
+        INSERT INTO dbo.EducationLevelSalaryCoefficient(Id,EducationLevelId,BaseCoefficient, AllowancePercentage, EffectiveFrom, Notes, CreatedAt)
+        VALUES (@Id, @EducationLevelId, @BaseCoefficient , @AllowancePercentage, @EffectiveFrom, @Notes, @CreatedAt);
+    END
+    SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
+END
 
 ALTER     PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_SelectList]
     
@@ -19,25 +33,22 @@ BEGIN
     select sa.Id, sa.EffectiveFrom, sa.BaseCoefficient, sa.AllowancePercentage, sa.Notes, edu.Id as Id, edu.Name from dbo.EducationLevelSalaryCoefficient as sa 
 	inner join dbo.EducationLevel as edu
 	on sa.EducationLevelId = edu.Id
+	where sa.IsDeleted = 0 and edu.IsDeleted = 0;
 END
-
-GO
 
 ALTER     PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_SoftDelete]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
     SET NOCOUNT ON;
-    UPDATE dbo.EducationLevelSalaryCoefficient SET IsDeleted = 1
-    WHERE Id = @Id AND IsDeleted = 0;
+    DELETE FROM dbo.EducationLevelSalaryCoefficient
+    WHERE Id = @Id;
 
     SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
 END
 
-GO
-
-ALTER     PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_Upsert]
-    @Id UNIQUEIDENTIFIER, @EducationLevelId UNIQUEIDENTIFIER, @BaseCoefficient DECIMAL(5,2), @AllowancePercentage DECIMAL(5,2),@EffectiveFrom DATETIME,
+ALTER     PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_Update]
+    @EducationLevelId UNIQUEIDENTIFIER, @BaseCoefficient DECIMAL(5,2), @AllowancePercentage DECIMAL(5,2),@EffectiveFrom DATETIME,
     @Notes nvarchar(500), @CreatedAt DATETIME, @UpdatedAt DATETIME
 AS
 BEGIN
@@ -49,12 +60,7 @@ BEGIN
         UPDATE dbo.EducationLevelSalaryCoefficient
         SET BaseCoefficient = @BaseCoefficient, AllowancePercentage = @AllowancePercentage, EffectiveFrom = @EffectiveFrom, Notes = @Notes,
         UpdatedAt = @UpdatedAt
-        WHERE EducationLevelId = @EducationLevelId AND IsDeleted = 0;
+        WHERE EducationLevelId = @EducationLevelId;
     END
-	ELSE
-	BEGIN
-        INSERT INTO dbo.EducationLevelSalaryCoefficient(Id,EducationLevelId,BaseCoefficient, AllowancePercentage, EffectiveFrom, Notes, CreatedAt, IsDeleted)
-        VALUES (@Id, @EducationLevelId, @BaseCoefficient , @AllowancePercentage, @EffectiveFrom, @Notes, @CreatedAt, 0);
-	END
     SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
 END

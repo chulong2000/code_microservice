@@ -32,7 +32,7 @@ namespace DemoApi.Infrastructure.Service
                 OpenSlots = meta.OpenSlots,
                 MinimumEducationLevelId = meta.MinimumEducationLevelId,
                 IsOpen = meta.IsOpen,
-                CreatedAt = meta.CreatedAt
+                CreatedAt = DateTime.Now
             };
 
             var result = await _jobPositionRepo.InsertAsync(entity);
@@ -64,7 +64,7 @@ namespace DemoApi.Infrastructure.Service
             return new ActionResultResponse<JobPositionViewModel>(JobPositionMapper.MapToViewModel(entity));
         }
 
-        public async Task<ActionResultResponse<List<JobPositionViewModel>>> GetListAsync(Guid educationLevelId, string keyword)
+        public async Task<ActionResultResponse<List<JobPositionViewModel>>> GetListAsync(Guid? educationLevelId, string keyword)
         {
             var entities = await _jobPositionRepo.SelectListAsync(educationLevelId, keyword);
             var data = entities.Select(JobPositionMapper.MapToViewModel).ToList();

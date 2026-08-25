@@ -16,7 +16,7 @@ namespace DemoApi.Api.Controller
     {
         [HttpGet]
         [SwaggerOperation(
-       Summary = "Danh sách các CV",
+       Summary = "Danh sac các CV",
        Description = "Trả về toàn bộ danh sách CV",
        OperationId = "GetListJobApplication")]
         [ProducesResponseType(typeof(ActionResultResponse<List<JobApplicationViewModel>>), StatusCodes.Status200OK)]
@@ -50,6 +50,21 @@ namespace DemoApi.Api.Controller
         {
             var result = await service.GetDetailAsync(id);
             return result.Code <= 0 ? NotFound(result) : Ok(result);
+        }
+
+        [HttpPut("{id:guid}")]
+        [SwaggerOperation(
+            Summary = "Cập nhật CV ứng tuyển",
+            Description = "Trả về `Code = -1` (HTTP 400) khi tên trùng, `Code = -99` khi không tìm thấy.",
+            OperationId = "Update Job Application")]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Update(
+            [SwaggerParameter("Id của CV ứng tuyển", Required = true)] Guid id,
+            [FromBody, SwaggerRequestBody("Thông tin cập nhật", Required = true)] JobApplicationMeta meta)
+        {
+            var result = await service.UpdateAsync(id, meta);
+            return result.Code <= 0 ? BadRequest(result) : Ok(result);
         }
 
         [HttpPost]

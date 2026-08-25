@@ -114,5 +114,29 @@ namespace DemoApi.Infrastructure.Repository
                 transaction: _session.Transaction,
                 commandType: CommandType.StoredProcedure);
         }
+
+        public async Task<int> UpdateAsync(JobApplication entity)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@Id", entity.Id);
+            param.Add("@JobPositionId", entity.JobPositionId);
+            param.Add("@FullName", entity.FullName);
+            param.Add("@Email", entity.Email);
+            param.Add("@PhoneNumber", entity.PhoneNumber);
+            param.Add("@DateOfBirth", entity.DateOfBirth);
+            param.Add("@Gender", entity.Gender);
+            param.Add("@CvFileUrl", entity.CvFileUrl);
+            param.Add("@CoverLetter", entity.CoverLetter);
+            param.Add("@YearsOfExperience", entity.YearsOfExperience);
+            param.Add("@AppliedAt", entity.AppliedAt);
+            param.Add("@UpdatedAt", entity.UpdatedAt);
+
+            // 1 = thành công, -1 = trùng tên, 0 = không tìm thấy.
+            return await connection.ExecuteScalarAsync<int>(
+                "[dbo].[JobApplication_Update]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+        }
     }
 }

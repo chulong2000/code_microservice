@@ -9,7 +9,7 @@ namespace DemoApi.Domain.IRepository
         Task<int> InsertAsync(JobPosition entity);
         Task<int> UpdateAsync(JobPosition entity);
         Task<int> SoftDeleteAsync(Guid id);
-        Task<List<JobPosition>> SelectListAsync(Guid educationLevelId, string keyword);
+        Task<List<JobPosition>> SelectListAsync(Guid? educationLevelId, string keyword);
         Task<JobPosition> SelectByIdAsync(Guid id);
     }
 

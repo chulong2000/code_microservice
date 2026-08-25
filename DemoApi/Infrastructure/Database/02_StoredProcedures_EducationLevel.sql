@@ -11,8 +11,6 @@ BEGIN
     ) THEN 1 ELSE 0 END;
 END
 
-GO 
-
 ALTER   PROCEDURE [dbo].[spEducationLevel_Insert]
     @Id UNIQUEIDENTIFIER, @Name NVARCHAR(100), @Description NVARCHAR(500) = NULL,
     @Order INT, @CreatedAt DATETIME
@@ -33,8 +31,6 @@ BEGIN
     SELECT 1;
 END
 
-GO
-
 ALTER   PROCEDURE [dbo].[spEducationLevel_SelectById]
     @Id UNIQUEIDENTIFIER
 AS
@@ -54,8 +50,6 @@ BEGIN
     WHERE edu.Id = @Id AND edu.IsDeleted = 0;
 END
 
-GO
-
 ALTER   PROCEDURE [dbo].[spEducationLevel_SelectList]
     @Keyword NVARCHAR(100) = NULL
 AS
@@ -67,8 +61,6 @@ BEGIN
       AND (@Keyword IS NULL OR Name LIKE '%' + @Keyword + '%')
     ORDER BY [Order], Name;
 END
-
-GO
 
 ALTER   PROCEDURE [dbo].[spEducationLevel_SoftDelete]
     @Id UNIQUEIDENTIFIER
@@ -112,3 +104,4 @@ BEGIN
 
     SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
 END
+

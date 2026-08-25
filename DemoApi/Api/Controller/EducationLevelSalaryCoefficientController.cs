@@ -39,18 +39,32 @@ namespace DemoApi.Api.Controller
             return Ok(result);
         }
 
-        
         [HttpPost]
+        [SwaggerOperation(
+            Summary = "Thê",
+            Description = "Trả về `Code = -1` (HTTP 400) khi tên đã tồn tại.",
+            OperationId = "CreateEducationLevel")]
+        [ProducesResponseType(typeof(ActionResultResponse<Guid>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Create(
+            [FromBody, SwaggerRequestBody("Thông tin hệ số lương", Required = true)] EducationLevelSalaryCoefficientMeta meta)
+        {
+            var result = await service.CreateAsync(meta);
+            return result.Code <= 0 ? BadRequest(result) : Ok(result);
+        }
+
+
+        [HttpPut("{id:guid}")]
         [SwaggerOperation(
             Summary = "Tạo trình độ học vấn",
             Description = "Trả về `Code = -1` (HTTP 400) khi tên đã tồn tại.",
             OperationId = "CreateEducationLevel")]
         [ProducesResponseType(typeof(ActionResultResponse<Guid>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Upsert(
-            [FromBody, SwaggerRequestBody("Thông tin về hệ số lương thêm mới hoặc cập nhập", Required = true)] EducationLevelSalaryCoefficientMeta meta)
+        public async Task<IActionResult> Update(
+            [FromBody, SwaggerRequestBody("Cập nhập hệ số lương", Required = true)] EducationLevelSalaryCoefficientMeta meta)
         {
-            var result = await service.UpsertAsync(meta);
+            var result = await service.UpdateAsync(meta);
             return result.Code <= 0 ? BadRequest(result) : Ok(result);
         }
 

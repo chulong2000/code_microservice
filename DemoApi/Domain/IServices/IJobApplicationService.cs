@@ -11,5 +11,6 @@ namespace DemoApi.Domain.IServices
         Task<ActionResultResponse<JobApplicationViewModel>> GetDetailAsync(Guid id);
         Task<ActionResultResponse<List<JobApplicationViewModel>>> GetListAsync(JobApplicationSearchMeta search);
         Task<ActionResultResponse<List<JobApplicationViewModel>>> GetListJobApplicationByJobApplicationId(Guid id);
+        Task<ActionResultResponse> UpdateAsync(Guid id, JobApplicationMeta meta);
     }
 }

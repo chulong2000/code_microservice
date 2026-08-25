@@ -15,6 +15,7 @@ namespace DemoApi.Domain.Mapper
             JobPosition = entity.JobPosition,
             Gender = entity.Gender,
             DateOfBirth = entity.DateOfBirth,
+            YearsOfExperience = entity.YearsOfExperience,
             CvFileUrl = entity.CvFileUrl,
             PhoneNumber = entity.PhoneNumber,
             AppliedAt = entity.AppliedAt,

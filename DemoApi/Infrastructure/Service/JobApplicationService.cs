@@ -19,6 +19,7 @@ namespace DemoApi.Infrastructure.Service
                 FullName = meta.FullName,
                 PhoneNumber = meta.PhoneNumber,
                 DateOfBirth = meta.DateOfBirth,
+                Email = meta.Email,
                 Gender = meta.Gender,
                 CvFileUrl = meta.CvFileUrl,
                 CoverLetter = meta.CoverLetter,
@@ -74,6 +75,30 @@ namespace DemoApi.Infrastructure.Service
             var data = entities.Select(x => JobApplicationMapper.MapToViewModel(x)).ToList();
 
             return new ActionResultResponse<List<JobApplicationViewModel>>(data);
+        }
+
+        public async Task<ActionResultResponse> UpdateAsync(Guid id, JobApplicationMeta meta)
+        {
+            var entity = new JobApplication
+            {
+                Id = id,
+                JobPositionId = id,
+                FullName = meta.FullName,
+                Email = meta.Email,
+                PhoneNumber = meta.PhoneNumber,
+                YearsOfExperience = meta.YearsOfExperience,
+                CvFileUrl = meta.CvFileUrl,
+                AppliedAt = meta.AppliedAt,
+                UpdatedAt = DateTime.Now,
+                CoverLetter = meta.CoverLetter,
+                DateOfBirth = meta.DateOfBirth,
+                Gender = meta.Gender 
+            };
+
+            var result = await _jobApplicationRepo.UpdateAsync(entity);
+            if (result <= 0)
+                return new ActionResultResponse(-90, "Thêm mới/cập nhập không thành công.");
+            return new ActionResultResponse(1, "Thêm mới/cập nhập thành công.");
         }
     }
 }

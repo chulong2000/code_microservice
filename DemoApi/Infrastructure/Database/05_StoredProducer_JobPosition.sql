@@ -36,7 +36,7 @@ ALTER     PROCEDURE [dbo].[spJobPosition_SelectById]
 AS
 BEGIN
     SET NOCOUNT ON;
-    select job.Id, job.Title, job.Department,job.OpenSlots, job.CreatedAt, job.UpdatedAt, education.Id, education.Name 
+    select job.Id, job.Title, job.Department,job.OpenSlots, job.IsOpen, job.CreatedAt, job.UpdatedAt, education.Id, education.Name 
     from dbo.JobPosition as job 
     inner join dbo.EducationLevel as education
 	on job.MinimumEducationLevelId = education.Id
@@ -45,15 +45,15 @@ END
 
 ALTER     PROCEDURE [dbo].[spJobPosition_SelectList]
     @Keyword NVARCHAR(100) = NULL,
-    @EducationId UNIQUEIDENTIFIER
+    @EducationId UNIQUEIDENTIFIER = NULL
 AS
 BEGIN
     SET NOCOUNT ON;
-    select job.Id, job.Title, job.Department,job.OpenSlots, job.CreatedAt, job.UpdatedAt, job.MinimumEducationLevelId as Id, Name, Description
+    select job.Id, job.Title, job.Department,job.OpenSlots, job.IsOpen,job.IsDeleted, job.CreatedAt, job.UpdatedAt, job.MinimumEducationLevelId as Id, Name, Description
     from dbo.JobPosition as job 
     inner join dbo.EducationLevel as education
     on job.MinimumEducationLevelId = education.Id
-	where job.IsDeleted = 0 and job.MinimumEducationLevelId = @EducationId
+	where job.IsDeleted = 0 and (@EducationId IS NULL OR  job.MinimumEducationLevelId = @EducationId)
 	AND (@Keyword IS NULL OR Title LIKE '%' + @Keyword + '%')
 END
 

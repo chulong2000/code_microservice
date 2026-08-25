@@ -39,6 +39,26 @@ namespace DemoApi.Infrastructure.Repository
             return result.FirstOrDefault();
         }
 
+        public async Task<int> InsertAsync(EducationLevelSalaryCoefficient entity)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@Id", entity.Id);
+            param.Add("@EducationLevelId", entity.EducationLevelId);
+            param.Add("@BaseCoefficient", entity.BaseCoefficient);
+            param.Add("@AllowancePercentage", entity.AllowancePercentage);
+            param.Add("@EffectiveFrom", entity.EffectiveFrom);
+            param.Add("@Notes", entity.Notes);
+            param.Add("@CreatedAt", entity.CreatedAt);
+            param.Add("@CreatedAt", entity.CreatedAt);
+
+            // Trả về: 1 = thành công, -1 = trùng tên (race condition ở tầng SQL).
+            return await connection.ExecuteScalarAsync<int>(
+                "[dbo].[spEducationLevelSalaryCoefficient_Insert]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+        }
+
         public async Task<List<EducationLevelSalaryCoefficient>> SelectListAsync()
         {
             var connection = await _session.GetConnectionAsync();
@@ -69,11 +89,10 @@ namespace DemoApi.Infrastructure.Repository
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<int> UpsertAsync(EducationLevelSalaryCoefficient entity)
+        public async Task<int> UpdateAsync(EducationLevelSalaryCoefficient entity)
         {
             var connection = await _session.GetConnectionAsync();
             var param = new DynamicParameters();
-            param.Add("@Id", entity.Id);
             param.Add("@EducationLevelId", entity.EducationLevelId);
             param.Add("@BaseCoefficient", entity.BaseCoefficient);
             param.Add("@AllowancePercentage", entity.AllowancePercentage);
@@ -83,7 +102,7 @@ namespace DemoApi.Infrastructure.Repository
             param.Add("@UpdatedAt", entity.UpdatedAt);
 
             return await connection.ExecuteScalarAsync<int>(
-                "[dbo].[spEducationLevelSalaryCoefficient_Upsert]", param,
+                "[dbo].[spEducationLevelSalaryCoefficient_Update]", param,
                 transaction: _session.Transaction,
                 commandType: CommandType.StoredProcedure);
         }

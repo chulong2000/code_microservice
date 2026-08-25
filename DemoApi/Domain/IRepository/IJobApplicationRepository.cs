@@ -10,5 +10,6 @@ namespace DemoApi.Domain.IRepository
         Task<JobApplication> SelectByIdAsync(Guid id);
         Task<List<JobApplication>> SelectListAsync(JobApplicationSearchMeta search);
         Task<int> SoftDeleteAsync(Guid id);
+        Task<int> UpdateAsync(JobApplication entity);
     }
 }

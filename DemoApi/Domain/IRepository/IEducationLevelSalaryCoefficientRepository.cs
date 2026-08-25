@@ -8,6 +8,8 @@ namespace DemoApi.Domain.IRepository
         Task<EducationLevelSalaryCoefficient> GetSalaryCoefficientByEducationLevelId(Guid id);
         Task<List<EducationLevelSalaryCoefficient>> SelectListAsync();
         Task<int> SoftDeleteAsync(Guid id);
-        Task<int> UpsertAsync(EducationLevelSalaryCoefficient entity);
+        Task<int> UpdateAsync(EducationLevelSalaryCoefficient entity);
+
+        Task<int> InsertAsync(EducationLevelSalaryCoefficient entity);
     }
 }
