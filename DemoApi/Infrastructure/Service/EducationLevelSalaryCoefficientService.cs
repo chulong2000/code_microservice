@@ -27,7 +27,7 @@ namespace DemoApi.Infrastructure.Service
                 AllowancePercentage = meta.AllowancePercentage,
                 EffectiveFrom = meta.EffectiveFrom,
                 Notes = meta.Notes,
-                CreatedAt = meta.CreatedAt,
+                CreatedAt = DateTime.Now,
             };
 
             var result = await _salaryCoefficientRepo.InsertAsync(entity);

@@ -3,16 +3,72 @@
   "WorkspaceRootPath": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\service\\jobapplicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\service\\jobapplicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\repository\\educationlevelsalarycoefficientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\repository\\educationlevelsalarycoefficientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\api\\controller\\educationlevelsalarycoefficientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\api\\controller\\educationlevelsalarycoefficientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\domain\\irepository\\ieducationlevelsalarycoefficientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\domain\\irepository\\ieducationlevelsalarycoefficientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\service\\educationlevelsalarycoefficientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\service\\educationlevelsalarycoefficientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\domain\\iservices\\ieducationlevelsalarycoefficientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\domain\\iservices\\ieducationlevelsalarycoefficientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\api\\controller\\jobapplicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\api\\controller\\jobapplicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\service\\jobapplicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\service\\jobapplicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\domain\\modelmetas\\jobapplicationmeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\domain\\modelmetas\\jobapplicationmeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\domain\\iservices\\ijobapplicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\domain\\iservices\\ijobapplicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\database\\01_schema_data.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\database\\01_schema_data.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\database\\05_storedproducer_jobposition.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\database\\05_storedproducer_jobposition.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\database\\04_storedproducer_jobapplication.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\database\\04_storedproducer_jobapplication.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\database\\03_storedprocedures_educationsalary.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\database\\03_storedprocedures_educationsalary.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\database\\02_storedprocedures_educationlevel.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\database\\02_storedprocedures_educationlevel.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\repository\\jobapplicationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,14 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\repository\\educationlevelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\repository\\educationlevelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\domain\\modelmetas\\jobapplicationmeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\domain\\modelmetas\\jobapplicationmeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\service\\educationlevelsalarycoefficientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\service\\educationlevelsalarycoefficientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\service\\jobpositionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,10 +93,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\domain\\iservices\\ieducationlevelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\domain\\iservices\\ieducationlevelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\domain\\iservices\\ieducationlevelsalarycoefficientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\domain\\iservices\\ieducationlevelsalarycoefficientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\api\\controller\\jobpositioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -71,18 +115,6 @@
       "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\domain\\modelmetas\\jobpositionmeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\repository\\educationlevelsalarycoefficientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\repository\\educationlevelsalarycoefficientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\domain\\irepository\\ieducationlevelsalarycoefficientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\domain\\irepository\\ieducationlevelsalarycoefficientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\api\\controller\\educationlevelsalarycoefficientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\api\\controller\\educationlevelsalarycoefficientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\domain\\mapper\\educationlevelmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\domain\\mapper\\educationlevelmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -93,10 +125,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\api\\controller\\educationlevelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\api\\controller\\educationlevelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\domain\\mapper\\jobpositionmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -115,10 +143,6 @@
       "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\domain\\irepository\\ijobpositionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\validation\\jobpositionmetavalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\validation\\jobpositionmetavalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -133,10 +157,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\validation\\educationlevelmetavalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\validation\\educationlevelmetavalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\database\\01_schema_data.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\database\\01_schema_data.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\domain\\models\\jobapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -167,14 +187,6 @@
       "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\domain\\viewmodels\\countjobofeducatiuonviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\database\\05_storedproducer_jobposition.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\database\\05_storedproducer_jobposition.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\database\\02_storedprocedures_educationlevel.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\database\\02_storedprocedures_educationlevel.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|c:\\users\\deptraitoc2mai\\source\\repos\\demoapi\\demoapi\\infrastructure\\data\\idbsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46DABA03-A88B-A15D-DAEF-5F3C1B0403D2}|DemoApi\\DemoApi.csproj|solutionrelative:demoapi\\infrastructure\\data\\idbsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -202,84 +214,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "JobApplicationService.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\JobApplicationService.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Service\\JobApplicationService.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\JobApplicationService.cs",
-              "RelativeToolTip": "DemoApi\\Infrastructure\\Service\\JobApplicationService.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAlwD8AAAAIAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "IEducationLevelSalaryCoefficientRepository.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IRepository\\IEducationLevelSalaryCoefficientRepository.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\IRepository\\IEducationLevelSalaryCoefficientRepository.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IRepository\\IEducationLevelSalaryCoefficientRepository.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\IRepository\\IEducationLevelSalaryCoefficientRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T00:43:34.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-25T07:42:26.194Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "JobApplicationRepository.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\JobApplicationRepository.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Repository\\JobApplicationRepository.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\JobApplicationRepository.cs",
-              "RelativeToolTip": "DemoApi\\Infrastructure\\Repository\\JobApplicationRepository.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAEwHYAAAAIAAAAAAAAAA==",
+              "Title": "EducationLevelSalaryCoefficientRepository.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAgwFAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-21T09:35:47.562Z",
+              "WhenOpened": "2026-08-21T09:35:45.428Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EducationLevelRepository.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\EducationLevelRepository.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Repository\\EducationLevelRepository.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\EducationLevelRepository.cs",
-              "RelativeToolTip": "DemoApi\\Infrastructure\\Repository\\EducationLevelRepository.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAIwDEAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Program.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Program.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Program.cs",
+              "RelativeToolTip": "DemoApi\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T07:53:41.032Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "JobApplicationController.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\JobApplicationController.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Api\\Controller\\JobApplicationController.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\JobApplicationController.cs",
-              "RelativeToolTip": "DemoApi\\Api\\Controller\\JobApplicationController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAswBcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-22T04:14:15.178Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IJobApplicationService.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IJobApplicationService.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\IServices\\IJobApplicationService.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IJobApplicationService.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\IServices\\IJobApplicationService.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAcwAsAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T10:13:30.21Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "JobApplicationMeta.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ModelMetas\\JobApplicationMeta.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\ModelMetas\\JobApplicationMeta.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ModelMetas\\JobApplicationMeta.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\ModelMetas\\JobApplicationMeta.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-24T08:59:27.423Z",
+              "WhenOpened": "2026-08-24T04:29:44.809Z",
               "EditorCaption": ""
             },
             {
@@ -290,301 +262,13 @@
               "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Service\\EducationLevelSalaryCoefficientService.cs",
               "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\EducationLevelSalaryCoefficientService.cs",
               "RelativeToolTip": "DemoApi\\Infrastructure\\Service\\EducationLevelSalaryCoefficientService.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAvwEkAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwCsAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T00:43:28.595Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-25T00:43:28.595Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "JobPositionService.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\JobPositionService.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Service\\JobPositionService.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\JobPositionService.cs",
-              "RelativeToolTip": "DemoApi\\Infrastructure\\Service\\JobPositionService.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAawFIAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T00:43:35.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EducationLevelService.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\EducationLevelService.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Service\\EducationLevelService.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\EducationLevelService.cs",
-              "RelativeToolTip": "DemoApi\\Infrastructure\\Service\\EducationLevelService.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAEwCkAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-22T04:24:40.121Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "IJobPositionService.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IJobPositionService.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\IServices\\IJobPositionService.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IJobPositionService.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\IServices\\IJobPositionService.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAkwAwAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T02:30:04.397Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IEducationLevelSalaryCoefficientService.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IEducationLevelSalaryCoefficientService.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\IServices\\IEducationLevelSalaryCoefficientService.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IEducationLevelSalaryCoefficientService.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\IServices\\IEducationLevelSalaryCoefficientService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T07:43:56.269Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "JobPositionController.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\JobPositionController.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Api\\Controller\\JobPositionController.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\JobPositionController.cs",
-              "RelativeToolTip": "DemoApi\\Api\\Controller\\JobPositionController.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAhwEcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-14T04:35:06.564Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IEducationLevelService.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IEducationLevelService.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\IServices\\IEducationLevelService.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IEducationLevelService.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\IServices\\IEducationLevelService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T07:50:38.863Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "JobApplicationViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ViewModels\\JobApplicationViewModel.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\ViewModels\\JobApplicationViewModel.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ViewModels\\JobApplicationViewModel.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\ViewModels\\JobApplicationViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAqwA0AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-21T09:35:01.329Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "JobApplicationMapper.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Mapper\\JobApplicationMapper.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\Mapper\\JobApplicationMapper.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Mapper\\JobApplicationMapper.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\Mapper\\JobApplicationMapper.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T04:05:02.942Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "JobPosition.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Models\\JobPosition.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\Models\\JobPosition.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Models\\JobPosition.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\Models\\JobPosition.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA1wA0AAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-24T06:59:21.879Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "JobPositionMeta.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ModelMetas\\JobPositionMeta.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\ModelMetas\\JobPositionMeta.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ModelMetas\\JobPositionMeta.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\ModelMetas\\JobPositionMeta.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-24T08:59:29.535Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "EducationLevelSalaryCoefficientRepository.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
-              "RelativeToolTip": "DemoApi\\Infrastructure\\Repository\\EducationLevelSalaryCoefficientRepository.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAcwEsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-21T09:35:45.428Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "EducationLevelSalaryCoefficientController.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\EducationLevelSalaryCoefficientController.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Api\\Controller\\EducationLevelSalaryCoefficientController.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\EducationLevelSalaryCoefficientController.cs",
-              "RelativeToolTip": "DemoApi\\Api\\Controller\\EducationLevelSalaryCoefficientController.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAA0wEIAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-24T08:59:20.999Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "IEducationLevelSalaryCoefficientRepository.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IRepository\\IEducationLevelSalaryCoefficientRepository.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\IRepository\\IEducationLevelSalaryCoefficientRepository.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IRepository\\IEducationLevelSalaryCoefficientRepository.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\IRepository\\IEducationLevelSalaryCoefficientRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T07:42:26.194Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "EducationLevelMapper.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Mapper\\EducationLevelMapper.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\Mapper\\EducationLevelMapper.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Mapper\\EducationLevelMapper.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\Mapper\\EducationLevelMapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T08:00:38.383Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "IEducationLevelRepository.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IRepository\\IEducationLevelRepository.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\IRepository\\IEducationLevelRepository.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IRepository\\IEducationLevelRepository.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\IRepository\\IEducationLevelRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T07:50:07.621Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "EducationLevelController.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\EducationLevelController.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Api\\Controller\\EducationLevelController.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\EducationLevelController.cs",
-              "RelativeToolTip": "DemoApi\\Api\\Controller\\EducationLevelController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAowE8AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-22T04:16:11.117Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Program.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Program.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Program.cs",
-              "RelativeToolTip": "DemoApi\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-24T04:29:44.809Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "JobPositionViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ViewModels\\JobPositionViewModel.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\ViewModels\\JobPositionViewModel.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ViewModels\\JobPositionViewModel.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\ViewModels\\JobPositionViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-21T09:35:02.545Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "JobPositionMapper.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Mapper\\JobPositionMapper.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\Mapper\\JobPositionMapper.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Mapper\\JobPositionMapper.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\Mapper\\JobPositionMapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T02:40:24.238Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "JobPositionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\JobPositionRepository.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Repository\\JobPositionRepository.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\JobPositionRepository.cs",
-              "RelativeToolTip": "DemoApi\\Infrastructure\\Repository\\JobPositionRepository.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAADgv0AAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-21T09:35:48.332Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "IJobPositionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IRepository\\IJobPositionRepository.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Domain\\IRepository\\IJobPositionRepository.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IRepository\\IJobPositionRepository.cs",
-              "RelativeToolTip": "DemoApi\\Domain\\IRepository\\IJobPositionRepository.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAYwAsAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T02:30:40.993Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "EducationLevelMetaValidator.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Validation\\EducationLevelMetaValidator.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Validation\\EducationLevelMetaValidator.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Validation\\EducationLevelMetaValidator.cs",
-              "RelativeToolTip": "DemoApi\\Infrastructure\\Validation\\EducationLevelMetaValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T00:43:36.347Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "EducationLevelSalaryCoefficientValidator.cs",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Validation\\EducationLevelSalaryCoefficientValidator.cs",
-              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Validation\\EducationLevelSalaryCoefficientValidator.cs",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Validation\\EducationLevelSalaryCoefficientValidator.cs",
-              "RelativeToolTip": "DemoApi\\Infrastructure\\Validation\\EducationLevelSalaryCoefficientValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-25T00:43:37.412Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\appsettings.json",
               "RelativeDocumentMoniker": "DemoApi\\appsettings.json",
@@ -596,7 +280,387 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EducationLevelSalaryCoefficientController.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\EducationLevelSalaryCoefficientController.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Api\\Controller\\EducationLevelSalaryCoefficientController.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\EducationLevelSalaryCoefficientController.cs",
+              "RelativeToolTip": "DemoApi\\Api\\Controller\\EducationLevelSalaryCoefficientController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAgwE4AAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T08:59:20.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "DemoApi\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Properties\\launchSettings.json",
+              "RelativeToolTip": "DemoApi\\Properties\\launchSettings.json",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAB8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-26T03:56:30.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "JobApplicationController.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\JobApplicationController.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Api\\Controller\\JobApplicationController.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\JobApplicationController.cs",
+              "RelativeToolTip": "DemoApi\\Api\\Controller\\JobApplicationController.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAQwEAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-22T04:14:15.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IEducationLevelSalaryCoefficientService.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IEducationLevelSalaryCoefficientService.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\IServices\\IEducationLevelSalaryCoefficientService.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IEducationLevelSalaryCoefficientService.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\IServices\\IEducationLevelSalaryCoefficientService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T07:43:56.269Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "JobApplicationService.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\JobApplicationService.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Service\\JobApplicationService.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\JobApplicationService.cs",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Service\\JobApplicationService.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAmwFAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T00:43:34.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "JobApplicationMeta.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ModelMetas\\JobApplicationMeta.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\ModelMetas\\JobApplicationMeta.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ModelMetas\\JobApplicationMeta.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\ModelMetas\\JobApplicationMeta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T08:59:27.423Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "04_StoredProducer_JobApplication.sql",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\04_StoredProducer_JobApplication.sql",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Database\\04_StoredProducer_JobApplication.sql",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\04_StoredProducer_JobApplication.sql",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Database\\04_StoredProducer_JobApplication.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-08-25T11:22:45.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IJobApplicationService.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IJobApplicationService.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\IServices\\IJobApplicationService.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IJobApplicationService.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\IServices\\IJobApplicationService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAQwA0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T10:13:30.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "05_StoredProducer_JobPosition.sql",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\05_StoredProducer_JobPosition.sql",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Database\\05_StoredProducer_JobPosition.sql",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\05_StoredProducer_JobPosition.sql",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Database\\05_StoredProducer_JobPosition.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-08-21T04:05:42.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "03_StoredProcedures_EducationSalary.sql",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\03_StoredProcedures_EducationSalary.sql",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Database\\03_StoredProcedures_EducationSalary.sql",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\03_StoredProcedures_EducationSalary.sql",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Database\\03_StoredProcedures_EducationSalary.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-08-25T11:21:52.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "01_Schema_Data.sql",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\01_Schema_Data.sql",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Database\\01_Schema_Data.sql",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\01_Schema_Data.sql",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Database\\01_Schema_Data.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-08-21T04:07:19.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "EducationLevelRepository.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\EducationLevelRepository.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Repository\\EducationLevelRepository.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\EducationLevelRepository.cs",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Repository\\EducationLevelRepository.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAIwDEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T07:53:41.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "02_StoredProcedures_EducationLevel.sql",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\02_StoredProcedures_EducationLevel.sql",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Database\\02_StoredProcedures_EducationLevel.sql",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\02_StoredProcedures_EducationLevel.sql",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Database\\02_StoredProcedures_EducationLevel.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-08-21T09:35:31.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "JobApplicationRepository.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\JobApplicationRepository.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Repository\\JobApplicationRepository.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\JobApplicationRepository.cs",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Repository\\JobApplicationRepository.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAEwHYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-21T09:35:47.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "JobPositionService.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\JobPositionService.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Service\\JobPositionService.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\JobPositionService.cs",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Service\\JobPositionService.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAawFIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T00:43:35.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "EducationLevelService.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\EducationLevelService.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Service\\EducationLevelService.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Service\\EducationLevelService.cs",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Service\\EducationLevelService.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAEwCkAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-22T04:24:40.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IJobPositionService.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IJobPositionService.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\IServices\\IJobPositionService.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IJobPositionService.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\IServices\\IJobPositionService.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAkwAwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T02:30:04.397Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "JobPositionController.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\JobPositionController.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Api\\Controller\\JobPositionController.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\JobPositionController.cs",
+              "RelativeToolTip": "DemoApi\\Api\\Controller\\JobPositionController.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAhwEcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-14T04:35:06.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IEducationLevelService.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IEducationLevelService.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\IServices\\IEducationLevelService.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IServices\\IEducationLevelService.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\IServices\\IEducationLevelService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T07:50:38.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "JobApplicationViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ViewModels\\JobApplicationViewModel.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\ViewModels\\JobApplicationViewModel.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ViewModels\\JobApplicationViewModel.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\ViewModels\\JobApplicationViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwA0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-21T09:35:01.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "JobApplicationMapper.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Mapper\\JobApplicationMapper.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\Mapper\\JobApplicationMapper.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Mapper\\JobApplicationMapper.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\Mapper\\JobApplicationMapper.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T04:05:02.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "JobPosition.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Models\\JobPosition.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\Models\\JobPosition.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Models\\JobPosition.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\Models\\JobPosition.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA1wA0AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T06:59:21.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "JobPositionMeta.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ModelMetas\\JobPositionMeta.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\ModelMetas\\JobPositionMeta.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ModelMetas\\JobPositionMeta.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\ModelMetas\\JobPositionMeta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T08:59:29.535Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "EducationLevelMapper.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Mapper\\EducationLevelMapper.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\Mapper\\EducationLevelMapper.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Mapper\\EducationLevelMapper.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\Mapper\\EducationLevelMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T08:00:38.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "IEducationLevelRepository.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IRepository\\IEducationLevelRepository.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\IRepository\\IEducationLevelRepository.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IRepository\\IEducationLevelRepository.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\IRepository\\IEducationLevelRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T07:50:07.621Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 30,
+              "Title": "EducationLevelController.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\EducationLevelController.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Api\\Controller\\EducationLevelController.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Api\\Controller\\EducationLevelController.cs",
+              "RelativeToolTip": "DemoApi\\Api\\Controller\\EducationLevelController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAowE8AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-22T04:16:11.117Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "JobPositionViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ViewModels\\JobPositionViewModel.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\ViewModels\\JobPositionViewModel.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ViewModels\\JobPositionViewModel.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\ViewModels\\JobPositionViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-21T09:35:02.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "JobPositionMapper.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Mapper\\JobPositionMapper.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\Mapper\\JobPositionMapper.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Mapper\\JobPositionMapper.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\Mapper\\JobPositionMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T02:40:24.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "JobPositionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\JobPositionRepository.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Repository\\JobPositionRepository.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Repository\\JobPositionRepository.cs",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Repository\\JobPositionRepository.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAADgv0AAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-21T09:35:48.332Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "IJobPositionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IRepository\\IJobPositionRepository.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Domain\\IRepository\\IJobPositionRepository.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\IRepository\\IJobPositionRepository.cs",
+              "RelativeToolTip": "DemoApi\\Domain\\IRepository\\IJobPositionRepository.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAYwAsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T02:30:40.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "EducationLevelMetaValidator.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Validation\\EducationLevelMetaValidator.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Validation\\EducationLevelMetaValidator.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Validation\\EducationLevelMetaValidator.cs",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Validation\\EducationLevelMetaValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T00:43:36.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "EducationLevelSalaryCoefficientValidator.cs",
+              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Validation\\EducationLevelSalaryCoefficientValidator.cs",
+              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Validation\\EducationLevelSalaryCoefficientValidator.cs",
+              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Validation\\EducationLevelSalaryCoefficientValidator.cs",
+              "RelativeToolTip": "DemoApi\\Infrastructure\\Validation\\EducationLevelSalaryCoefficientValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T00:43:37.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
               "Title": "JobApplicationMetaValidator.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Validation\\JobApplicationMetaValidator.cs",
               "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Validation\\JobApplicationMetaValidator.cs",
@@ -608,7 +672,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 35,
               "Title": "JobPositionMetaValidation.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Validation\\JobPositionMetaValidation.cs",
               "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Validation\\JobPositionMetaValidation.cs",
@@ -620,7 +684,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 43,
               "Title": "EducationLevelSalaryCoefficientMeta.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ModelMetas\\EducationLevelSalaryCoefficientMeta.cs",
               "RelativeDocumentMoniker": "DemoApi\\Domain\\ModelMetas\\EducationLevelSalaryCoefficientMeta.cs",
@@ -632,7 +696,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 41,
               "Title": "EducationLevel.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Models\\EducationLevel.cs",
               "RelativeDocumentMoniker": "DemoApi\\Domain\\Models\\EducationLevel.cs",
@@ -644,7 +708,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 39,
               "Title": "JobApplication.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Models\\JobApplication.cs",
               "RelativeDocumentMoniker": "DemoApi\\Domain\\Models\\JobApplication.cs",
@@ -656,18 +720,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "01_Schema_Data.sql",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\01_Schema_Data.sql",
-              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Database\\01_Schema_Data.sql",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\01_Schema_Data.sql",
-              "RelativeToolTip": "DemoApi\\Infrastructure\\Database\\01_Schema_Data.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-08-21T04:07:19.381Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 40,
               "Title": "EducationLevelSalaryCoefficient.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\Models\\EducationLevelSalaryCoefficient.cs",
               "RelativeDocumentMoniker": "DemoApi\\Domain\\Models\\EducationLevelSalaryCoefficient.cs",
@@ -679,7 +732,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 42,
               "Title": "JobApplicationSearchMeta.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ModelMetas\\JobApplicationSearchMeta.cs",
               "RelativeDocumentMoniker": "DemoApi\\Domain\\ModelMetas\\JobApplicationSearchMeta.cs",
@@ -691,7 +744,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 44,
               "Title": "EducationLevelMeta.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ModelMetas\\EducationLevelMeta.cs",
               "RelativeDocumentMoniker": "DemoApi\\Domain\\ModelMetas\\EducationLevelMeta.cs",
@@ -703,7 +756,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 45,
               "Title": "CountJobOfEducatiuonViewModel.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ViewModels\\CountJobOfEducatiuonViewModel.cs",
               "RelativeDocumentMoniker": "DemoApi\\Domain\\ViewModels\\CountJobOfEducatiuonViewModel.cs",
@@ -715,18 +768,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "02_StoredProcedures_EducationLevel.sql",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\02_StoredProcedures_EducationLevel.sql",
-              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Database\\02_StoredProcedures_EducationLevel.sql",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\02_StoredProcedures_EducationLevel.sql",
-              "RelativeToolTip": "DemoApi\\Infrastructure\\Database\\02_StoredProcedures_EducationLevel.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-08-21T09:35:31.649Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 48,
               "Title": "DbConnectionNames.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Data\\DbConnectionNames.cs",
               "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Data\\DbConnectionNames.cs",
@@ -738,7 +780,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 47,
               "Title": "IDbConnectionFactory.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Data\\IDbConnectionFactory.cs",
               "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Data\\IDbConnectionFactory.cs",
@@ -750,7 +792,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 46,
               "Title": "IDbSession.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Data\\IDbSession.cs",
               "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Data\\IDbSession.cs",
@@ -762,18 +804,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "05_StoredProducer_JobPosition.sql",
-              "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\05_StoredProducer_JobPosition.sql",
-              "RelativeDocumentMoniker": "DemoApi\\Infrastructure\\Database\\05_StoredProducer_JobPosition.sql",
-              "ToolTip": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Infrastructure\\Database\\05_StoredProducer_JobPosition.sql",
-              "RelativeToolTip": "DemoApi\\Infrastructure\\Database\\05_StoredProducer_JobPosition.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-08-21T04:05:42.93Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 49,
               "Title": "EducationLevelViewModel.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ViewModels\\EducationLevelViewModel.cs",
               "RelativeDocumentMoniker": "DemoApi\\Domain\\ViewModels\\EducationLevelViewModel.cs",
@@ -785,7 +816,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 50,
               "Title": "EducationLevelSalaryCoefficientViewModel.cs",
               "DocumentMoniker": "C:\\Users\\deptraitoc2mai\\source\\repos\\DemoApi\\DemoApi\\Domain\\ViewModels\\EducationLevelSalaryCoefficientViewModel.cs",
               "RelativeDocumentMoniker": "DemoApi\\Domain\\ViewModels\\EducationLevelSalaryCoefficientViewModel.cs",

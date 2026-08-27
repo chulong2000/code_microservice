@@ -15,7 +15,7 @@ namespace DemoApi.Domain.ModelMetas
         public string? Gender { get; set; }                        // max 20
 
         // Hồ sơ CV
-        public string CvFileUrl { get; set; } = string.Empty;       // đường dẫn file CV đã upload, max 500
+        public string? CvFileUrl { get; set; }      // đường dẫn file CV đã upload, max 500
         public string? CoverLetter { get; set; }                     // thư xin việc, max 2000
         public int? YearsOfExperience { get; set; }                  // số năm kinh nghiệm
 

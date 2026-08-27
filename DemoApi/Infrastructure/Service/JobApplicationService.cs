@@ -82,7 +82,7 @@ namespace DemoApi.Infrastructure.Service
             var entity = new JobApplication
             {
                 Id = id,
-                JobPositionId = id,
+                JobPositionId = meta.JobPositionId,
                 FullName = meta.FullName,
                 Email = meta.Email,
                 PhoneNumber = meta.PhoneNumber,

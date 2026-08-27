@@ -50,7 +50,7 @@ namespace DemoApi.Infrastructure.Repository
             param.Add("@EffectiveFrom", entity.EffectiveFrom);
             param.Add("@Notes", entity.Notes);
             param.Add("@CreatedAt", entity.CreatedAt);
-            param.Add("@CreatedAt", entity.CreatedAt);
+            
 
             // Trả về: 1 = thành công, -1 = trùng tên (race condition ở tầng SQL).
             return await connection.ExecuteScalarAsync<int>(
