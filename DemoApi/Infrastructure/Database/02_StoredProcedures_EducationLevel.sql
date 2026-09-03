@@ -51,15 +51,40 @@ BEGIN
 END
 
 ALTER   PROCEDURE [dbo].[spEducationLevel_SelectList]
-    @Keyword NVARCHAR(100) = NULL
+    @Keyword        NVARCHAR(100) = NULL,
+    @SortColumn     NVARCHAR(50)  = NULL,   -- Name | Order | CreatedAt. Giá trị khác/NULL -> sắp xếp mặc định (Order, Name).
+    @SortDescending BIT           = 0,
+    @PageIndex      INT           = 1,
+    @PageSize       INT           = 20
 AS
 BEGIN
     SET NOCOUNT ON;
+
+    IF @PageIndex < 1 SET @PageIndex = 1;
+    IF @PageSize  < 1 SET @PageSize  = 20;
+
+    -- Result set 1: tổng số bản ghi thoả điều kiện lọc, dùng để tính TotalPages ở tầng ứng dụng.
+    SELECT COUNT(1)
+    FROM dbo.EducationLevel
+    WHERE IsDeleted = 0
+      AND (@Keyword IS NULL OR Name LIKE '%' + @Keyword + '%');
+
+    -- Result set 2: dữ liệu của trang hiện tại.
+    -- Sắp xếp qua CASE WHEN (không dùng dynamic SQL) để @SortColumn không thể gây SQL injection.
     SELECT Id, Name, Description, [Order], IsDeleted, CreatedAt, UpdatedAt
     FROM dbo.EducationLevel
     WHERE IsDeleted = 0
       AND (@Keyword IS NULL OR Name LIKE '%' + @Keyword + '%')
-    ORDER BY [Order], Name;
+    ORDER BY
+        CASE WHEN @SortColumn = 'Name'      AND @SortDescending = 0 THEN Name END ASC,
+        CASE WHEN @SortColumn = 'Name'      AND @SortDescending = 1 THEN Name END DESC,
+        CASE WHEN @SortColumn = 'CreatedAt' AND @SortDescending = 0 THEN CreatedAt END ASC,
+        CASE WHEN @SortColumn = 'CreatedAt' AND @SortDescending = 1 THEN CreatedAt END DESC,
+        CASE WHEN (@SortColumn = 'Order' OR @SortColumn IS NULL) AND @SortDescending = 0 THEN [Order] END ASC,
+        CASE WHEN (@SortColumn = 'Order' OR @SortColumn IS NULL) AND @SortDescending = 1 THEN [Order] END DESC,
+        Name ASC
+    OFFSET (@PageIndex - 1) * @PageSize ROWS
+    FETCH NEXT @PageSize ROWS ONLY;
 END
 
 ALTER   PROCEDURE [dbo].[spEducationLevel_SoftDelete]

@@ -17,12 +17,14 @@ namespace DemoApi.Api.Controller
         [HttpGet]
         [SwaggerOperation(
        Summary = "Danh sách trình độ học vấn",
-       Description = "Trả về toàn bộ danh mục trình độ học vấn chưa bị xoá, sắp xếp theo Order.",
+       Description = "Trả về danh mục trình độ học vấn chưa bị xoá, hỗ trợ phân trang, sắp xếp và tìm kiếm theo từ khoá (Name). " +
+                     "Mặc định sắp xếp theo Order, Name tăng dần.",
        OperationId = "GetEducationLevels")]
-        [ProducesResponseType(typeof(ActionResultResponse<List<EducationLevelViewModel>>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetList()
+        [ProducesResponseType(typeof(ActionResultResponse<PagedResultViewModel<EducationLevelViewModel>>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetList(
+            [FromQuery, SwaggerParameter("Tham số phân trang (pageIndex, pageSize), sắp xếp (sortColumn, sortDescending) và tìm kiếm (keyword)")] PagingRequestMeta request)
         {
-            var result = await service.GetListAsync();
+            var result = await service.GetListAsync(request);
             return Ok(result);
         }
 

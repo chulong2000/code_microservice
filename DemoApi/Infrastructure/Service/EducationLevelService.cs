@@ -19,13 +19,20 @@ namespace DemoApi.Infrastructure.Service
             _educationRepo = educationRepo;
         }
 
-        public async Task<ActionResultResponse<List<EducationLevelViewModel>>> GetListAsync()
+        public async Task<ActionResultResponse<PagedResultViewModel<EducationLevelViewModel>>> GetListAsync(PagingRequestMeta request)
         {
-            var entities = await _educationRepo.SelectListAsync();
-            var data = entities.Select(EducationLevelMapper.MapToViewModel).ToList();
+            var (entities, totalRecords) = await _educationRepo.SelectListAsync(request);
+
+            var data = new PagedResultViewModel<EducationLevelViewModel>
+            {
+                Items = entities.Select(EducationLevelMapper.MapToViewModel).ToList(),
+                PageIndex = request.PageIndex,
+                PageSize = request.PageSize,
+                TotalRecords = totalRecords
+            };
 
             // Constructor (T data) tự set Code = 1 — dùng cho case thành công đơn giản, không cần message riêng.
-            return new ActionResultResponse<List<EducationLevelViewModel>>(data);
+            return new ActionResultResponse<PagedResultViewModel<EducationLevelViewModel>>(data);
         }
 
         public async Task<ActionResultResponse<EducationLevelViewModel>> GetDetailAsync(Guid id)

@@ -99,7 +99,6 @@ C:\Users\deptraitoc2mai\source\repos\DemoApi\DemoApi\obj\Debug\net8.0\staticweba
 C:\Users\deptraitoc2mai\source\repos\DemoApi\DemoApi\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\deptraitoc2mai\source\repos\DemoApi\DemoApi\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\deptraitoc2mai\source\repos\DemoApi\DemoApi\obj\Debug\net8.0\swae.build.ex.cache
-C:\Users\deptraitoc2mai\source\repos\DemoApi\DemoApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\deptraitoc2mai\source\repos\DemoApi\DemoApi\obj\Debug\net8.0\DemoApi.csproj.Up2Date
 C:\Users\deptraitoc2mai\source\repos\DemoApi\DemoApi\obj\Debug\net8.0\DemoApi.dll
 C:\Users\deptraitoc2mai\source\repos\DemoApi\DemoApi\obj\Debug\net8.0\refint\DemoApi.dll
@@ -210,3 +209,4 @@ C:\Users\user\Documents\Source Code C#\Source Code Demo API\code_microservice_2\
 C:\Users\user\Documents\Source Code C#\Source Code Demo API\code_microservice_2\code_microservice\DemoApi\obj\Debug\net8.0\DemoApi.csproj.Up2Date
 C:\Users\user\Documents\Source Code C#\Source Code Demo API\code_microservice_2\code_microservice\DemoApi\obj\Debug\net8.0\DemoApi.genruntimeconfig.cache
 C:\Users\user\Documents\Source Code C#\Source Code Demo API\code_microservice_2\code_microservice\DemoApi\obj\Debug\net8.0\ref\DemoApi.dll
+C:\Users\deptraitoc2mai\source\repos\DemoApi\DemoApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -122,10 +122,36 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "PageIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Keyword",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SortColumn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SortDescending",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "GHM.Infrastructure.Models.ActionResultResponse\u00601[[System.Collections.Generic.List\u00601[[DemoApi.Domain.ViewModels.EducationLevelViewModel, DemoApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "GHM.Infrastructure.Models.ActionResultResponse\u00601[[DemoApi.Domain.ViewModels.PagedResultViewModel\u00601[[DemoApi.Domain.ViewModels.EducationLevelViewModel, DemoApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], DemoApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],

@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DemoApi.Domain.IRepository;
+using DemoApi.Domain.ModelMetas;
 using DemoApi.Domain.Models;
 using DemoApi.Domain.ViewModels;
 using DemoApi.Infrastructure.Data;
@@ -74,16 +75,26 @@ namespace DemoApi.Infrastructure.Repository
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<List<EducationLevel>> SelectListAsync()
+        public async Task<(List<EducationLevel> Items, int TotalRecords)> SelectListAsync(PagingRequestMeta request)
         {
             var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@Keyword", string.IsNullOrWhiteSpace(request.Keyword) ? null : request.Keyword.Trim());
+            param.Add("@SortColumn", request.SortColumn);
+            param.Add("@SortDescending", request.SortDescending);
+            param.Add("@PageIndex", request.PageIndex);
+            param.Add("@PageSize", request.PageSize);
 
-            var result = await connection.QueryAsync<EducationLevel>(
-                "[dbo].[spEducationLevel_SelectList]",
+            // Stored procedure trả về 2 result set: (1) tổng số bản ghi, (2) dữ liệu của trang hiện tại.
+            using var multi = await connection.QueryMultipleAsync(
+                "[dbo].[spEducationLevel_SelectList]", param,
                 transaction: _session.Transaction,
                 commandType: CommandType.StoredProcedure);
 
-            return result.ToList();
+            var totalRecords = await multi.ReadFirstAsync<int>();
+            var items = (await multi.ReadAsync<EducationLevel>()).ToList();
+
+            return (items, totalRecords);
         }
 
         public async Task<EducationLevel?> SelectByIdAsync(Guid id)
