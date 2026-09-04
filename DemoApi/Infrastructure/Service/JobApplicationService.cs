@@ -34,7 +34,7 @@ namespace DemoApi.Infrastructure.Service
             var result = await _jobApplicationRepo.InsertAsync(entity);
             if (result <= 0)
             {
-                new ActionResultResponse<Guid>(-99, "Ứng tuyển CV thất bại.");
+               return new ActionResultResponse<Guid>(-99, "Ứng tuyển CV thất bại.");
             }
             // Tham số thứ 3 của constructor thật là "title", không phải "data" -> phải truyền data bằng named argument.
             return new ActionResultResponse<Guid>(1, "Tạo trình độ học vấn thành công.", data: entity.Id);

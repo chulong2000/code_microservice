@@ -63,9 +63,7 @@ namespace DemoApi.Infrastructure.Service
             var result = await _educationRepo.InsertAsync(entity);
             if (result <= 0)
             {
-                return result == -1
-                    ? new ActionResultResponse<Guid>(-1, $"Trình độ học vấn \"{name}\" đã tồn tại.")
-                    : new ActionResultResponse<Guid>(-99, "Có lỗi xảy ra, vui lòng thử lại.");
+                return new ActionResultResponse<Guid>(-1, $"Trình độ học vấn \"{name}\" đã tồn tại.");
             }
 
             // Tham số thứ 3 của constructor thật là "title", không phải "data" -> phải truyền data bằng named argument.

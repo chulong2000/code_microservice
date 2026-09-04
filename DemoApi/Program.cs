@@ -1,9 +1,11 @@
-﻿using DemoApi.Domain.IRepository;
+﻿using DemoApi.Api.Middleware;
+using DemoApi.Domain.IRepository;
 using DemoApi.Domain.IServices;
 using DemoApi.Infrastructure.Data;
 using DemoApi.Infrastructure.Repository;
 using DemoApi.Infrastructure.Service;
 using FluentValidation;
+using Microsoft.AspNetCore.Diagnostics;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -46,6 +48,7 @@ builder.Services.AddScoped<IEducationLevelSalaryCoefficientService, EducationLev
 builder.Services.AddScoped<IJobApplicationRepository, JobApplicationRepository>();
 builder.Services.AddScoped<IJobApplicationService, JobApplicationService>();
 
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 
 
@@ -65,6 +68,8 @@ if (app.Environment.IsDevelopment())
 //app.UseHttpsRedirection();
 
 app.UseCors(ReactClientPolicy);
+
+app.UseExceptionHandler(_ => { });
 
 app.UseAuthorization();
 
