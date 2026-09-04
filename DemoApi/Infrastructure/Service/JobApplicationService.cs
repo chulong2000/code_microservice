@@ -1,4 +1,5 @@
-﻿using DemoApi.Domain.IRepository;
+﻿using DemoApi.Domain.Exceptions;
+using DemoApi.Domain.IRepository;
 using DemoApi.Domain.IServices;
 using DemoApi.Domain.Mapper;
 using DemoApi.Domain.ModelMetas;
@@ -55,7 +56,7 @@ namespace DemoApi.Infrastructure.Service
         {
             var entity = await _jobApplicationRepo.SelectByIdAsync(id);
             if (entity is null)
-                return new ActionResultResponse<JobApplicationViewModel>(-99, "Không tìm thấy trình độ học vấn.");
+                throw new NotFoundException("Không tìm thấy JobApllication");
 
             return new ActionResultResponse<JobApplicationViewModel>(JobApplicationMapper.MapToViewModel(entity));
         }
