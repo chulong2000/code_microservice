@@ -26,11 +26,20 @@ namespace DemoApi.Api.Middleware
             "An unhandled exception occurred while processing request {Path}.",
             httpContext.Request.Path);
 
+            (int statusCode, string message) = exception switch
+            {
+                NotFoundException => ((int)HttpStatusCode.BadRequest, exception.Message),
+                UnauthorizedAccessException => ((int)HttpStatusCode.Unauthorized, "Unauthorized Access"),
+                KeyNotFoundException => ((int)HttpStatusCode.NotFound, "Resource Not Found"),
+                _ => ((int)HttpStatusCode.InternalServerError, "Internal Server Error")
+            };
+
+
             var error = new ActionResultResponse
             {
-                Code = StatusCodes.Status400BadRequest,
+                Code = statusCode,
                 Title = "Error",
-                Message = exception.Message,
+                Message = message,
                 
             };
             httpContext.Response.StatusCode = (int)error.Code;

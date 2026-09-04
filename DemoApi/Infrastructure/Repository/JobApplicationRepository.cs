@@ -58,7 +58,7 @@ namespace DemoApi.Infrastructure.Repository
                 commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<JobApplication> SelectByIdAsync(Guid id)
+        public async Task<JobApplication?> SelectByIdAsync(Guid id)
         {
             var connection = await _session.GetConnectionAsync();
             var param = new DynamicParameters();
@@ -76,7 +76,8 @@ namespace DemoApi.Infrastructure.Repository
                 transaction: _session.Transaction,
                 splitOn: "Id, Id",
                 commandType: CommandType.StoredProcedure);
-            return result.First();
+
+            return result?.FirstOrDefault(); 
         }
 
         public async Task<List<JobApplication>> SelectListAsync(JobApplicationSearchMeta search)
