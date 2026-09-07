@@ -31,10 +31,6 @@ namespace DemoApi.Infrastructure.Service
             };
 
             var result = await _salaryCoefficientRepo.InsertAsync(entity);
-            if (result <= 0)
-            {
-               return new ActionResultResponse<Guid>(-99, "Ứng tuyển CV thất bại.");
-            }
             // Tham số thứ 3 của constructor thật là "title", không phải "data" -> phải truyền data bằng named argument.
             return new ActionResultResponse<Guid>(1, "Tạo trình độ học vấn thành công.", data: entity.Id);
         }
@@ -42,12 +38,10 @@ namespace DemoApi.Infrastructure.Service
         public async Task<ActionResultResponse> DeleteAsync(Guid id)
         {
             var result = await _salaryCoefficientRepo.SoftDeleteAsync(id);
-            return result switch
-            {
-                1 => new ActionResultResponse(1, "Xóa thành công."),
-                -1 => new ActionResultResponse(-1, "Không thể xóa do vẫn còn tồn tại dữ liệu tham chiếu"),
-                _ => new ActionResultResponse(-99, "Không tìm thấy trình độ học vấn.")
-            };
+
+            return result <= 0 
+                ? new ActionResultResponse(-99, "Không tìm thấy hệ số lương.")
+                : new ActionResultResponse(1, "Xóa thành công.");
         }
 
         public async Task<ActionResultResponse<List<EducationLevelSalaryCoefficientViewModel>>> GetListAsync()
@@ -62,10 +56,10 @@ namespace DemoApi.Infrastructure.Service
         public async Task<ActionResultResponse<EducationLevelSalaryCoefficientViewModel>> GetSalaryCoefficientByEducationLevelId(Guid id)
         {
             var entity = await _salaryCoefficientRepo.GetSalaryCoefficientByEducationLevelId(id);
-            if (entity is null)
-                return new ActionResultResponse<EducationLevelSalaryCoefficientViewModel>(-99, "Không tìm hệ số lương.");
 
-            return new ActionResultResponse<EducationLevelSalaryCoefficientViewModel>(EducationLevelSalaryCoefficientMappper.MapToViewModel(entity));
+            return entity is null 
+                ? new ActionResultResponse<EducationLevelSalaryCoefficientViewModel>(-99, "Không tìm hệ số lương.")
+                : new ActionResultResponse<EducationLevelSalaryCoefficientViewModel>(EducationLevelSalaryCoefficientMappper.MapToViewModel(entity));
         }
 
         public async Task<ActionResultResponse> UpdateAsync(EducationLevelSalaryCoefficientMeta meta)
@@ -83,9 +77,10 @@ namespace DemoApi.Infrastructure.Service
             };
 
             var result = await _salaryCoefficientRepo.UpdateAsync(entity);
-            if (result <= 0)
-                return new ActionResultResponse(-90, "Thêm mới/cập nhập không thành công.");
-            return new ActionResultResponse(1, "Thêm mới/cập nhập thành công.");
+
+            return result <= 0 
+                ? new ActionResultResponse(-90, "Không tìm thấy dữ liệu hệ số lương cho vị trí này.")
+                : new ActionResultResponse(1, "Cập nhập thành công.");
         }
     }
 }

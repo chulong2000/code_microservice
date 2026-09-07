@@ -31,34 +31,24 @@ namespace DemoApi.Infrastructure.Service
             };
 
             Console.WriteLine($"Kiểm tra 2345:{entity.JobPosition}");
-
-            var result = await _jobApplicationRepo.InsertAsync(entity);
-            if (result <= 0)
-            {
-               return new ActionResultResponse<Guid>(-99, "Ứng tuyển CV thất bại.");
-            }
-            // Tham số thứ 3 của constructor thật là "title", không phải "data" -> phải truyền data bằng named argument.
             return new ActionResultResponse<Guid>(1, "Tạo trình độ học vấn thành công.", data: entity.Id);
         }
 
         public async Task<ActionResultResponse> DeleteAsync(Guid id)
         {
             var result = await _jobApplicationRepo.SoftDeleteAsync(id);
-            return result switch
-            {
-                1 => new ActionResultResponse(1, "Xóa thành công."),
-                -1 => new ActionResultResponse(-1, "Xóa thất bại"),
-                _ => new ActionResultResponse(-99, "Không tìm thấy CV này.")
-            };
+
+            return result <= 0 
+                ? new ActionResultResponse(-99, "Không tìm thấy CV này.")
+                : new ActionResultResponse(1, "Xóa thành công");
         }
 
         public async Task<ActionResultResponse<JobApplicationViewModel>> GetDetailAsync(Guid id)
         {
             var entity = await _jobApplicationRepo.SelectByIdAsync(id);
-            if (entity is null)
-                throw new NotFoundException("Không tìm thấy JobApllication");
-
-            return new ActionResultResponse<JobApplicationViewModel>(JobApplicationMapper.MapToViewModel(entity));
+            return entity is null 
+                ? new ActionResultResponse<JobApplicationViewModel>(-99, "Không tìm thấy hồ sơ ứng tuyển")
+                : new ActionResultResponse<JobApplicationViewModel>(JobApplicationMapper.MapToViewModel(entity));
         }
 
         public async Task<ActionResultResponse<List<JobApplicationViewModel>>> GetListAsync(JobApplicationSearchMeta search)
@@ -97,9 +87,10 @@ namespace DemoApi.Infrastructure.Service
             };
 
             var result = await _jobApplicationRepo.UpdateAsync(entity);
-            if (result <= 0)
-                return new ActionResultResponse(-90, "Thêm mới/cập nhập không thành công.");
-            return new ActionResultResponse(1, "Thêm mới/cập nhập thành công.");
+
+            return result <= 0 
+                ? new ActionResultResponse(-90, "Không tìm thấy thông tin về hồ sơ ứng tuyển này.")
+                : new ActionResultResponse(1, "Cập nhập thành công.");
         }
     }
 }

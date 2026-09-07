@@ -36,13 +36,9 @@ namespace DemoApi.Infrastructure.Service
             };
 
             var result = await _jobPositionRepo.InsertAsync(entity);
-            if (result <= 0)
-            {
-                return new ActionResultResponse<Guid>(-1, $"Vị trí \"{name}\" đã tồn tại.");                
-            }
-
-            // Tham số thứ 3 của constructor thật là "title", không phải "data" -> phải truyền data bằng named argument.
-            return new ActionResultResponse<Guid>(1, "Tạo vị trí công việc mới thành công.", data: entity.Id);
+            return result <= 0 
+                ? new ActionResultResponse<Guid>(-1, $"Vị trí \"{name}\" đã tồn tại.")
+                : new ActionResultResponse<Guid>(1, "Tạo vị trí công việc mới thành công.", data: entity.Id);
         }
 
         public async Task<ActionResultResponse> DeleteAsync(Guid id)
@@ -56,10 +52,10 @@ namespace DemoApi.Infrastructure.Service
         public async Task<ActionResultResponse<JobPositionViewModel>> GetDetailAsync(Guid id)
         {
             var entity = await _jobPositionRepo.SelectByIdAsync(id);
-            if (entity is null)
-                return new ActionResultResponse<JobPositionViewModel>(-99, "Không tìm thấy vị trí công việc.");
 
-            return new ActionResultResponse<JobPositionViewModel>(JobPositionMapper.MapToViewModel(entity));
+            return entity is null 
+                ? new ActionResultResponse<JobPositionViewModel>(-99, "Không tìm thấy vị trí công việc.")
+                : new ActionResultResponse<JobPositionViewModel>(JobPositionMapper.MapToViewModel(entity));
         }
 
         public async Task<ActionResultResponse<List<JobPositionViewModel>>> GetListAsync(Guid? educationLevelId, string keyword)

@@ -38,10 +38,9 @@ namespace DemoApi.Infrastructure.Service
         public async Task<ActionResultResponse<EducationLevelViewModel>> GetDetailAsync(Guid id)
         {
             var entity = await _educationRepo.SelectByIdAsync(id);
-            if (entity is null)
-                return new ActionResultResponse<EducationLevelViewModel>(-99, "Không tìm thấy trình độ học vấn.");
-
-            return new ActionResultResponse<EducationLevelViewModel>(EducationLevelMapper.MapToViewModel(entity));
+            return entity is null 
+                   ? new ActionResultResponse<EducationLevelViewModel>(-99, "Không tìm thấy trình độ học vấn.")
+                   : new ActionResultResponse<EducationLevelViewModel>(EducationLevelMapper.MapToViewModel(entity));
         }
 
         public async Task<ActionResultResponse<Guid>> CreateAsync(EducationLevelMeta meta)
@@ -61,11 +60,6 @@ namespace DemoApi.Infrastructure.Service
             };
 
             var result = await _educationRepo.InsertAsync(entity);
-            if (result <= 0)
-            {
-                return new ActionResultResponse<Guid>(-1, $"Trình độ học vấn \"{name}\" đã tồn tại.");
-            }
-
             // Tham số thứ 3 của constructor thật là "title", không phải "data" -> phải truyền data bằng named argument.
             return new ActionResultResponse<Guid>(1, "Tạo trình độ học vấn thành công.", data: entity.Id);
         }
@@ -74,8 +68,8 @@ namespace DemoApi.Infrastructure.Service
         {
             var name = meta.Name.Trim();
 
-            if (await _educationRepo.ExistsNameAsync(name, id))
-                return new ActionResultResponse(-1, $"Trình độ học vấn \"{name}\" đã tồn tại.");
+            //if (await _educationRepo.ExistsNameAsync(name, id))
+            //    return new ActionResultResponse(-1, $"Trình độ học vấn \"{name}\" đã tồn tại.");
 
             var entity = new EducationLevel
             {

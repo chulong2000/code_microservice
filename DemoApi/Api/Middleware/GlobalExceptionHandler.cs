@@ -18,7 +18,6 @@ namespace DemoApi.Api.Middleware
             _logger = logger;
         }
 
-
         public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
         {
             _logger.LogError(
@@ -26,24 +25,21 @@ namespace DemoApi.Api.Middleware
             "An unhandled exception occurred while processing request {Path}.",
             httpContext.Request.Path);
 
-            (int statusCode, string message) = exception switch
+            (int statusCode, string title) = exception switch
             {
-                NotFoundException => ((int)HttpStatusCode.BadRequest, exception.Message),
+                NotFoundException => ((int)HttpStatusCode.BadRequest, "Not Found Data"),
                 UnauthorizedAccessException => ((int)HttpStatusCode.Unauthorized, "Unauthorized Access"),
                 KeyNotFoundException => ((int)HttpStatusCode.NotFound, "Resource Not Found"),
                 _ => ((int)HttpStatusCode.InternalServerError, "Internal Server Error")
             };
-
-
-            var error = new ActionResultResponse
+            var problemDetails = new ProblemDetails
             {
-                Code = statusCode,
-                Title = "Error",
-                Message = message,
-                
+                Status = statusCode,
+                Title = title,
+                Detail = exception.Message, 
+                Instance = httpContext.Request.Path
             };
-            httpContext.Response.StatusCode = (int)error.Code;
-            await httpContext.Response.WriteAsJsonAsync(error, cancellationToken);
+            await httpContext.Response.WriteAsJsonAsync(problemDetails, cancellationToken);
             return true;
         }
     }
