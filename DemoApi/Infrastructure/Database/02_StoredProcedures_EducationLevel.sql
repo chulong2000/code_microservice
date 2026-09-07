@@ -13,7 +13,7 @@ END
 
 ALTER   PROCEDURE [dbo].[spEducationLevel_Insert]
     @Id UNIQUEIDENTIFIER, @Name NVARCHAR(100), @Description NVARCHAR(500) = NULL,
-    @Order INT, @CreatedAt DATETIME
+    @Order INT, @ParentId UNIQUEIDENTIFIER = NULL, @CreatedAt DATETIME
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -25,8 +25,15 @@ BEGIN
         RETURN;
     END
 
-    INSERT INTO dbo.EducationLevel (Id, Name, Description, [Order], IsDeleted, CreatedAt)
-    VALUES (@Id, @Name, @Description, @Order, 0, @CreatedAt);
+    IF @ParentId IS NOT NULL AND NOT EXISTS (
+        SELECT 1 FROM dbo.EducationLevel WHERE Id = @ParentId AND IsDeleted = 0)
+    BEGIN
+        SELECT -2;
+        RETURN;
+    END
+
+    INSERT INTO dbo.EducationLevel (Id, Name, Description, [Order], ParentId, IsDeleted, CreatedAt)
+    VALUES (@Id, @Name, @Description, @Order, @ParentId, 0, @CreatedAt);
 
     SELECT 1;
 END
@@ -71,20 +78,35 @@ BEGIN
 
     -- Result set 2: dữ liệu của trang hiện tại.
     -- Sắp xếp qua CASE WHEN (không dùng dynamic SQL) để @SortColumn không thể gây SQL injection.
-    SELECT Id, Name, Description, [Order], IsDeleted, CreatedAt, UpdatedAt
-    FROM dbo.EducationLevel
-    WHERE IsDeleted = 0
-      AND (@Keyword IS NULL OR Name LIKE '%' + @Keyword + '%')
+    -- Self-join lấy ParentName để FE hiển thị trực tiếp, không phải tự tra cứu theo ParentId.
+    SELECT e.Id, e.Name, e.Description, e.[Order], e.IsDeleted, e.CreatedAt, e.UpdatedAt,
+           e.ParentId, p.Name AS ParentName
+    FROM dbo.EducationLevel e
+    LEFT JOIN dbo.EducationLevel p ON p.Id = e.ParentId AND p.IsDeleted = 0
+    WHERE e.IsDeleted = 0
+      AND (@Keyword IS NULL OR e.Name LIKE '%' + @Keyword + '%')
     ORDER BY
-        CASE WHEN @SortColumn = 'Name'      AND @SortDescending = 0 THEN Name END ASC,
-        CASE WHEN @SortColumn = 'Name'      AND @SortDescending = 1 THEN Name END DESC,
-        CASE WHEN @SortColumn = 'CreatedAt' AND @SortDescending = 0 THEN CreatedAt END ASC,
-        CASE WHEN @SortColumn = 'CreatedAt' AND @SortDescending = 1 THEN CreatedAt END DESC,
-        CASE WHEN (@SortColumn = 'Order' OR @SortColumn IS NULL) AND @SortDescending = 0 THEN [Order] END ASC,
-        CASE WHEN (@SortColumn = 'Order' OR @SortColumn IS NULL) AND @SortDescending = 1 THEN [Order] END DESC,
-        Name ASC
+        CASE WHEN @SortColumn = 'Name'      AND @SortDescending = 0 THEN e.Name END ASC,
+        CASE WHEN @SortColumn = 'Name'      AND @SortDescending = 1 THEN e.Name END DESC,
+        CASE WHEN @SortColumn = 'CreatedAt' AND @SortDescending = 0 THEN e.CreatedAt END ASC,
+        CASE WHEN @SortColumn = 'CreatedAt' AND @SortDescending = 1 THEN e.CreatedAt END DESC,
+        CASE WHEN (@SortColumn = 'Order' OR @SortColumn IS NULL) AND @SortDescending = 0 THEN e.[Order] END ASC,
+        CASE WHEN (@SortColumn = 'Order' OR @SortColumn IS NULL) AND @SortDescending = 1 THEN e.[Order] END DESC,
+        e.Name ASC
     OFFSET (@PageIndex - 1) * @PageSize ROWS
     FETCH NEXT @PageSize ROWS ONLY;
+END
+
+CREATE OR ALTER PROCEDURE [dbo].[spEducationLevel_SelectTree]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Trả về flat list toàn bộ node chưa xoá; dựng cây lồng nhau (Children) thực hiện ở tầng Service.
+    SELECT Id, Name, Description, [Order], IsDeleted, CreatedAt, UpdatedAt, ParentId
+    FROM dbo.EducationLevel
+    WHERE IsDeleted = 0
+    ORDER BY [Order], Name;
 END
 
 ALTER   PROCEDURE [dbo].[spEducationLevel_SoftDelete]
@@ -112,7 +134,7 @@ END
 
 ALTER   PROCEDURE [dbo].[spEducationLevel_Update]
     @Id UNIQUEIDENTIFIER, @Name NVARCHAR(100), @Description NVARCHAR(500) = NULL,
-    @Order INT, @UpdatedAt DATETIME
+    @Order INT, @ParentId UNIQUEIDENTIFIER = NULL, @UpdatedAt DATETIME
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -123,8 +145,38 @@ BEGIN
         RETURN;
     END
 
+    IF @ParentId IS NOT NULL
+    BEGIN
+        IF @ParentId = @Id
+        BEGIN
+            SELECT -3;   -- không thể tự làm cha của chính mình
+            RETURN;
+        END
+
+        IF NOT EXISTS (SELECT 1 FROM dbo.EducationLevel WHERE Id = @ParentId AND IsDeleted = 0)
+        BEGIN
+            SELECT -2;   -- danh mục cha không tồn tại
+            RETURN;
+        END
+
+        -- Chặn vòng lặp: @ParentId không được là hậu duệ của @Id (duyệt xuống từ @Id để tìm toàn bộ con cháu).
+        ;WITH Descendants AS (
+            SELECT Id FROM dbo.EducationLevel WHERE ParentId = @Id AND IsDeleted = 0
+            UNION ALL
+            SELECT e.Id
+            FROM dbo.EducationLevel e
+            INNER JOIN Descendants d ON e.ParentId = d.Id
+            WHERE e.IsDeleted = 0
+        )
+        IF EXISTS (SELECT 1 FROM Descendants WHERE Id = @ParentId)
+        BEGIN
+            SELECT -4;   -- gây vòng lặp (chọn con/cháu làm cha)
+            RETURN;
+        END
+    END
+
     UPDATE dbo.EducationLevel
-    SET Name = @Name, Description = @Description, [Order] = @Order, UpdatedAt = @UpdatedAt
+    SET Name = @Name, Description = @Description, [Order] = @Order, ParentId = @ParentId, UpdatedAt = @UpdatedAt
     WHERE Id = @Id AND IsDeleted = 0;
 
     SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;

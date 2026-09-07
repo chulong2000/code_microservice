@@ -10,5 +10,7 @@ namespace DemoApi.Domain.ModelMetas
         public int Order { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+
+        public Guid? ParentId { get; set; }
     }
 }

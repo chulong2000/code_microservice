@@ -28,6 +28,19 @@ namespace DemoApi.Api.Controller
             return Ok(result);
         }
 
+        [HttpGet("tree")]
+        [SwaggerOperation(
+        Summary = "Cây trình độ học vấn",
+        Description = "Trả về toàn bộ cây trình độ học vấn chưa bị xoá, không phân trang. " +
+                      "Kết quả chỉ gồm các node gốc (ParentId = null), mỗi node lồng Children chứa đệ quy các node con.",
+        OperationId = "GetEducationLevelTree")]
+        [ProducesResponseType(typeof(ActionResultResponse<List<EducationLevelViewModel>>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetTree()
+        {
+            var result = await service.GetTreeAsync();
+            return Ok(result);
+        }
+
         [HttpGet("{id:guid}/job-positions")]
         [SwaggerOperation(
         Summary = "Danh sách vị trí công việc theo trình độ học vấn",

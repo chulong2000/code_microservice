@@ -109,6 +109,25 @@
         }
       }
     },
+    "/api/v1/education-levels/tree": {
+      "get": {
+        "tags": [
+          "EducationLevel"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EducationLevelViewModelListActionResultResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/education-levels/{id}/job-positions": {
       "get": {
         "tags": [
@@ -1007,6 +1026,22 @@
             },
             "nullable": true,
             "readOnly": true
+          },
+          "parentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "parentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EducationLevel"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1038,6 +1073,11 @@
           "updatedAt": {
             "type": "string",
             "format": "date-time",
+            "nullable": true
+          },
+          "parentId": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           }
         },
@@ -1212,6 +1252,18 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/JobPosition"
+            },
+            "nullable": true
+          },
+          "parentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EducationLevelViewModel"
             },
             "nullable": true
           }

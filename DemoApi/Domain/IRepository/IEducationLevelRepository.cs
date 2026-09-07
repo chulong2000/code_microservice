@@ -13,5 +13,6 @@ namespace DemoApi.Domain.IRepository
         Task<(List<EducationLevel> Items, int TotalRecords)> SelectListAsync(PagingRequestMeta request);
         Task<EducationLevel?> SelectByIdAsync(Guid id);
         Task<List<JobPosition>> GetListJobPositionByEducationLevelId(Guid id);
+        Task<List<EducationLevel>> GetAllEducationLevelTree();
     }
 }

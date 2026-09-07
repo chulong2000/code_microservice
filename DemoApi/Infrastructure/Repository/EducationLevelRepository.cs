@@ -37,9 +37,10 @@ namespace DemoApi.Infrastructure.Repository
             param.Add("@Name", entity.Name);
             param.Add("@Description", entity.Description);
             param.Add("@Order", entity.Order);
+            param.Add("@ParentId", entity.ParentId);
             param.Add("@CreatedAt", entity.CreatedAt);
 
-            // Trả về: 1 = thành công, -1 = trùng tên (race condition ở tầng SQL).
+            // Trả về: 1 = thành công, -1 = trùng tên, -2 = danh mục cha không tồn tại (race condition ở tầng SQL).
             return await connection.ExecuteScalarAsync<int>(
                 "[dbo].[spEducationLevel_Insert]", param,
                 transaction: _session.Transaction,
@@ -54,9 +55,11 @@ namespace DemoApi.Infrastructure.Repository
             param.Add("@Name", entity.Name);
             param.Add("@Description", entity.Description);
             param.Add("@Order", entity.Order);
+            param.Add("@ParentId", entity.ParentId);
             param.Add("@UpdatedAt", entity.UpdatedAt);
 
-            // 1 = thành công, -1 = trùng tên, 0 = không tìm thấy.
+            // 1 = thành công, -1 = trùng tên, -2 = cha không tồn tại, -3 = tự làm cha chính mình,
+            // -4 = chọn con/cháu làm cha (vòng lặp), 0 = không tìm thấy.
             return await connection.ExecuteScalarAsync<int>(
                 "[dbo].[spEducationLevel_Update]", param,
                 transaction: _session.Transaction,
@@ -110,16 +113,19 @@ namespace DemoApi.Infrastructure.Repository
                 (edu, sa, job, app) =>
                 {
                     educationLevel ??= edu;
-                    educationLevel.educationLevelSalaryCoefficient = sa;
+                    educationLevel.EducationLevelSalaryCoefficient = sa;
                     
-                    if (educationLevel.jobPositions.All(j => j.Id != job.Id))
+                    if (educationLevel.JobPositions.All(j => j.Id != job.Id))
                     {
+                        if (job != null)
+                        {
+                            job.jobApplications.Add(app);
+                            educationLevel.JobPositions.Add(job);
+                        }
                         
-                        job.jobApplications.Add(app);
-                        educationLevel.jobPositions.Add(job);
                     } else
                     {
-                        educationLevel.jobPositions.Single(j => j.Id == job.Id).jobApplications.Add(app);
+                        educationLevel.JobPositions.Single(j => j.Id == job.Id).jobApplications.Add(app);
                     }
                     
                     return educationLevel;
@@ -146,6 +152,20 @@ namespace DemoApi.Infrastructure.Repository
 
             return result.ToList();
 
+        }
+
+        public async Task<List<EducationLevel>> GetAllEducationLevelTree()
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+
+            var result = await connection.QueryAsync<EducationLevel>(
+                "[dbo].[spEducationLevel_SelectTree]",
+                param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+
+            return result.ToList();
         }
     }
 }

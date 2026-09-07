@@ -10,9 +10,14 @@
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
-        public EducationLevelSalaryCoefficient educationLevelSalaryCoefficient { get; set; }
+        public EducationLevelSalaryCoefficient? EducationLevelSalaryCoefficient { get; set; }
 
-        public List<JobPosition> jobPositions { get; } = [];
+        public List<JobPosition> JobPositions { get; } = [];
+
+        public Guid? ParentId { get; set; }
+        public string? ParentName { get; set; }   // chỉ có giá trị khi query kèm self-join, không phải cột thực insert/update
+
+        public List<EducationLevel> Children { get; set; } = [];
 
     }
 }

@@ -313,6 +313,24 @@
     ]
   },
   {
+    "ContainingType": "DemoApi.Api.Controller.EducationLevelController",
+    "Method": "GetTree",
+    "RelativePath": "api/v1/education-levels/tree",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "GHM.Infrastructure.Models.ActionResultResponse\u00601[[System.Collections.Generic.List\u00601[[DemoApi.Domain.ViewModels.EducationLevelViewModel, DemoApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "DemoApi.Api.Controller.JobApplicationController\u0323",
     "Method": "GetList",
     "RelativePath": "api/v1/job-applications",

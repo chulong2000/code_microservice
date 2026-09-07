@@ -13,6 +13,10 @@ namespace DemoApi.Domain.ViewModels
 
         public EducationLevelSalaryCoefficient educationLevelSalaryCoefficient { get; set; } = null!;
 
-        public List<JobPosition> jobPositions { get; set; }
+        public List<JobPosition>? jobPositions { get; set; }
+
+        public Guid? ParentId { get; set; }
+
+        public List<EducationLevelViewModel> Children { get; set; } = [];
     }
 }

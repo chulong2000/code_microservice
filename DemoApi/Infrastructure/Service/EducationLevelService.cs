@@ -46,22 +46,26 @@ namespace DemoApi.Infrastructure.Service
         public async Task<ActionResultResponse<Guid>> CreateAsync(EducationLevelMeta meta)
         {
             var name = meta.Name.Trim();
-
-            if (await _educationRepo.ExistsNameAsync(name, null))
-                return new ActionResultResponse<Guid>(-1, $"Trình độ học vấn \"{name}\" đã tồn tại.");
-
             var entity = new EducationLevel
             {
                 Id = Guid.NewGuid(),
                 Name = name,
                 Description = meta.Description?.Trim(),
                 Order = meta.Order,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.Now,
+                ParentId = meta.ParentId,
             };
 
             var result = await _educationRepo.InsertAsync(entity);
-            // Tham số thứ 3 của constructor thật là "title", không phải "data" -> phải truyền data bằng named argument.
-            return new ActionResultResponse<Guid>(1, "Tạo trình độ học vấn thành công.", data: entity.Id);
+
+            return result switch
+            {
+                1 => new ActionResultResponse<Guid>(1, "Cập nhật thành công."),
+                -1 => new ActionResultResponse<Guid>(-1, $"Trình độ học vấn \"{name}\" đã tồn tại."),
+                -2 => new ActionResultResponse<Guid>(-2, "Danh mục cha không tồn tại"),
+                _ => new ActionResultResponse<Guid>(-99, "Không tìm thấy trình độ học vấn.")
+            };
+
         }
 
         public async Task<ActionResultResponse> UpdateAsync(Guid id, EducationLevelMeta meta)
@@ -77,6 +81,7 @@ namespace DemoApi.Infrastructure.Service
                 Name = name,
                 Description = meta.Description?.Trim(),
                 Order = meta.Order,
+                ParentId = meta.ParentId,
                 UpdatedAt = DateTime.Now
             };
 
@@ -85,6 +90,9 @@ namespace DemoApi.Infrastructure.Service
             {
                 1 => new ActionResultResponse(1, "Cập nhật thành công."),
                 -1 => new ActionResultResponse(-1, $"Trình độ học vấn \"{name}\" đã tồn tại."),
+                -2 => new ActionResultResponse(-2, "Danh mục cha không tồn tại."),
+                -3 => new ActionResultResponse(-3, "Không thể chọn chính nó làm danh mục cha."),
+                -4 => new ActionResultResponse(-4, "Không thể chọn danh mục con/cháu làm danh mục cha vì sẽ gây vòng lặp."),
                 _ => new ActionResultResponse(-99, "Không tìm thấy trình độ học vấn.")
             };
         }
@@ -96,6 +104,7 @@ namespace DemoApi.Infrastructure.Service
             {
                 1 => new ActionResultResponse(1, "Xóa thành công."),
                 -1 => new ActionResultResponse(-1, "Không thể xóa do vẫn còn tồn tại dữ liệu tham chiếu"),
+                -2 => new ActionResultResponse(-2, "Không thể xóa vì còn danh mục con"),
                 _ => new ActionResultResponse(-99, "Không tìm thấy trình độ học vấn.")
             };
         }
@@ -107,6 +116,29 @@ namespace DemoApi.Infrastructure.Service
 
             return new ActionResultResponse<List<JobPositionViewModel>>(data);
 
+        }
+
+        public async Task<ActionResultResponse<List<EducationLevelViewModel>>> GetTreeAsync()
+        {
+            var flat = await _educationRepo.GetAllEducationLevelTree();
+            var tree = BuildTree(flat, null);
+
+            return new ActionResultResponse<List<EducationLevelViewModel>>(tree);
+        }
+
+        // Đệ quy: với mỗi node có Id = parentId, tìm tất cả node con (ParentId = Id đó), rồi lại tự tìm con của con.
+        private static List<EducationLevelViewModel> BuildTree(List<EducationLevel> flat, Guid? parentId)
+        {
+            return flat
+                .Where(x => x.ParentId == parentId)
+                .OrderBy(x => x.Order)
+                .Select(x =>
+                {
+                    var node = EducationLevelMapper.MapToViewModel(x);
+                    node.Children = BuildTree(flat, x.Id);
+                    return node;
+                })
+                .ToList();
         }
 
     }
