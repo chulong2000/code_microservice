@@ -15,5 +15,7 @@ namespace DemoApi.Domain.ModelMetas
         public bool IsOpen { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+
+        public Guid? ParentId { get; set; }
     }
 }

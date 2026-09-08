@@ -102,9 +102,8 @@ namespace DemoApi.Infrastructure.Service
             var result = await _educationRepo.SoftDeleteAsync(id);
             return result switch
             {
-                1 => new ActionResultResponse(1, "Xóa thành công."),
-                -1 => new ActionResultResponse(-1, "Không thể xóa do vẫn còn tồn tại dữ liệu tham chiếu"),
-                -2 => new ActionResultResponse(-2, "Không thể xóa vì còn danh mục con"),
+                1 => new ActionResultResponse(1, "Xóa thành công (bao gồm toàn bộ danh mục con nếu có)."),
+                -1 => new ActionResultResponse(-1, "Không thể xóa vì danh mục này hoặc danh mục con của nó đang có vị trí công việc tham chiếu."),
                 _ => new ActionResultResponse(-99, "Không tìm thấy trình độ học vấn.")
             };
         }

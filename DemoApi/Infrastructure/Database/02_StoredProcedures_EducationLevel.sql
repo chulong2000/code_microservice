@@ -115,21 +115,43 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
+    IF NOT EXISTS (SELECT 1 FROM dbo.EducationLevel WHERE Id = @Id AND IsDeleted = 0)
+    BEGIN
+        SELECT 0;   -- không tìm thấy
+        RETURN;
+    END
+
+    -- Duyệt xuống từ @Id để lấy trọn nhánh cần xoá: chính node này + toàn bộ hậu duệ (con, cháu, ...).
+    DECLARE @Branch TABLE (Id UNIQUEIDENTIFIER PRIMARY KEY);
+
+    ;WITH cte AS (
+        SELECT Id FROM dbo.EducationLevel WHERE Id = @Id AND IsDeleted = 0
+        UNION ALL
+        SELECT e.Id
+        FROM dbo.EducationLevel e
+        INNER JOIN cte d ON e.ParentId = d.Id
+        WHERE e.IsDeleted = 0
+    )
+    INSERT INTO @Branch (Id)
+    SELECT Id FROM cte;
+
+    -- Chặn cascade nếu BẤT KỲ node nào trong cả nhánh (node gốc hoặc con/cháu) còn JobPosition đang tham chiếu.
     IF EXISTS (
-        SELECT 1 
-        FROM dbo.JobPosition 
-        WHERE MinimumEducationLevelId = @Id 
-          AND IsDeleted = 0
+        SELECT 1
+        FROM dbo.JobPosition jp
+        INNER JOIN @Branch b ON jp.MinimumEducationLevelId = b.Id
+        WHERE jp.IsDeleted = 0
     )
     BEGIN
         SELECT -1;
         RETURN;
     END
 
-    UPDATE dbo.EducationLevel SET IsDeleted = 1
-    WHERE Id = @Id AND IsDeleted = 0;
+    UPDATE dbo.EducationLevel
+    SET IsDeleted = 1, UpdatedAt = GETDATE()
+    WHERE Id IN (SELECT Id FROM @Branch);
 
-    SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
+    SELECT 1;
 END
 
 ALTER   PROCEDURE [dbo].[spEducationLevel_Update]

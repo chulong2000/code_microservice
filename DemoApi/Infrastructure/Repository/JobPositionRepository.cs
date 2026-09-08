@@ -39,6 +39,7 @@ namespace DemoApi.Infrastructure.Repository
             param.Add("@OpenSlots", entity.OpenSlots);
             param.Add("@IsOpen", entity.IsOpen);
             param.Add("@CreatedAt", entity.CreatedAt);
+            param.Add("@ParentId", entity.ParentId);
             param.Add("@IsDeleted", false);
 
             // Trả về: 1 = thành công, -1 = trùng tên (race condition ở tầng SQL).

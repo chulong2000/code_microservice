@@ -18,5 +18,6 @@ namespace DemoApi.Domain.ViewModels
         public Guid? ParentId { get; set; }
 
         public List<EducationLevelViewModel> Children { get; set; } = [];
+
     }
 }

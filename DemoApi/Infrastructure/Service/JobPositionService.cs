@@ -31,6 +31,7 @@ namespace DemoApi.Infrastructure.Service
                 Department = meta.Department,
                 OpenSlots = meta.OpenSlots,
                 MinimumEducationLevelId = meta.MinimumEducationLevelId,
+                ParentId = meta.ParentId,
                 IsOpen = meta.IsOpen,
                 CreatedAt = DateTime.Now
             };

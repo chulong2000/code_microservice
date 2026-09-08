@@ -19,5 +19,7 @@ namespace DemoApi.Domain.Models
         public DateTime? UpdatedAt { get; set; }
         public bool IsDeleted { get; set; }
         public List<JobApplication> jobApplications { get; } = [];
+
+        public Guid? ParentId { get; set; }
     }
 }
