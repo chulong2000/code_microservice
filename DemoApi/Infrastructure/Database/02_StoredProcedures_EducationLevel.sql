@@ -1,4 +1,14 @@
-﻿ALTER   PROCEDURE [dbo].[spEducationLevel_ExistsName]
+﻿USE [DemoEducationLevelDb]
+GO
+/****** Object:  StoredProcedure [dbo].[spEducationLevel_ExistsName]    Script Date: 09/09/2026 9:51:21 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Database/02_StoredProcedures.sql
+
+CREATE   PROCEDURE [dbo].[spEducationLevel_ExistsName]
     @Name      NVARCHAR(100),
     @ExcludeId UNIQUEIDENTIFIER = NULL
 AS
@@ -11,9 +21,15 @@ BEGIN
     ) THEN 1 ELSE 0 END;
 END
 
-ALTER   PROCEDURE [dbo].[spEducationLevel_Insert]
+GO
+/****** Object:  StoredProcedure [dbo].[spEducationLevel_Insert]    Script Date: 09/09/2026 9:51:21 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE   PROCEDURE [dbo].[spEducationLevel_Insert]
     @Id UNIQUEIDENTIFIER, @Name NVARCHAR(100), @Description NVARCHAR(500) = NULL,
-    @Order INT, @ParentId UNIQUEIDENTIFIER = NULL, @CreatedAt DATETIME
+    @Order INT, @CreatedAt DATETIME, @ParentId UNIQUEIDENTIFIER
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -25,11 +41,10 @@ BEGIN
         RETURN;
     END
 
-    IF @ParentId IS NOT NULL AND NOT EXISTS (
+	IF @ParentId IS NOT NULL AND NOT EXISTS (
         SELECT 1 FROM dbo.EducationLevel WHERE Id = @ParentId AND IsDeleted = 0)
     BEGIN
-        SELECT -2;
-        RETURN;
+        SELECT -2; RETURN;
     END
 
     INSERT INTO dbo.EducationLevel (Id, Name, Description, [Order], ParentId, IsDeleted, CreatedAt)
@@ -37,8 +52,13 @@ BEGIN
 
     SELECT 1;
 END
-
-ALTER   PROCEDURE [dbo].[spEducationLevel_SelectById]
+GO
+/****** Object:  StoredProcedure [dbo].[spEducationLevel_SelectById]    Script Date: 09/09/2026 9:51:21 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE   PROCEDURE [dbo].[spEducationLevel_SelectById]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
@@ -48,16 +68,21 @@ BEGIN
 		   job.Id, job.Title, job.Department, job.OpenSlots,
 		   app.Id, app.FullName, app.Email, app.CvFileUrl, app.AppliedAt
     FROM dbo.EducationLevel as edu
-	inner join dbo.EducationLevelSalaryCoefficient as sa
+	left join dbo.EducationLevelSalaryCoefficient as sa
 	on edu.Id = sa.EducationLevelId
-	inner join dbo.JobPosition as job
+	left join dbo.JobPosition as job
 	on edu.Id = job.MinimumEducationLevelId
 	left join  dbo.JobApplication as app
 	on job.Id = app.JobPositionId
     WHERE edu.Id = @Id AND edu.IsDeleted = 0;
 END
-
-ALTER   PROCEDURE [dbo].[spEducationLevel_SelectList]
+GO
+/****** Object:  StoredProcedure [dbo].[spEducationLevel_SelectList]    Script Date: 09/09/2026 9:51:21 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE   PROCEDURE [dbo].[spEducationLevel_SelectList]
     @Keyword        NVARCHAR(100) = NULL,
     @SortColumn     NVARCHAR(50)  = NULL,   -- Name | Order | CreatedAt. Giá trị khác/NULL -> sắp xếp mặc định (Order, Name).
     @SortDescending BIT           = 0,
@@ -78,26 +103,29 @@ BEGIN
 
     -- Result set 2: dữ liệu của trang hiện tại.
     -- Sắp xếp qua CASE WHEN (không dùng dynamic SQL) để @SortColumn không thể gây SQL injection.
-    -- Self-join lấy ParentName để FE hiển thị trực tiếp, không phải tự tra cứu theo ParentId.
-    SELECT e.Id, e.Name, e.Description, e.[Order], e.IsDeleted, e.CreatedAt, e.UpdatedAt,
-           e.ParentId, p.Name AS ParentName
-    FROM dbo.EducationLevel e
-    LEFT JOIN dbo.EducationLevel p ON p.Id = e.ParentId AND p.IsDeleted = 0
-    WHERE e.IsDeleted = 0
-      AND (@Keyword IS NULL OR e.Name LIKE '%' + @Keyword + '%')
+    SELECT Id, Name, Description, [Order], IsDeleted, CreatedAt, UpdatedAt
+    FROM dbo.EducationLevel
+    WHERE IsDeleted = 0
+      AND (@Keyword IS NULL OR Name LIKE '%' + @Keyword + '%')
     ORDER BY
-        CASE WHEN @SortColumn = 'Name'      AND @SortDescending = 0 THEN e.Name END ASC,
-        CASE WHEN @SortColumn = 'Name'      AND @SortDescending = 1 THEN e.Name END DESC,
-        CASE WHEN @SortColumn = 'CreatedAt' AND @SortDescending = 0 THEN e.CreatedAt END ASC,
-        CASE WHEN @SortColumn = 'CreatedAt' AND @SortDescending = 1 THEN e.CreatedAt END DESC,
-        CASE WHEN (@SortColumn = 'Order' OR @SortColumn IS NULL) AND @SortDescending = 0 THEN e.[Order] END ASC,
-        CASE WHEN (@SortColumn = 'Order' OR @SortColumn IS NULL) AND @SortDescending = 1 THEN e.[Order] END DESC,
-        e.Name ASC
+        CASE WHEN @SortColumn = 'Name'      AND @SortDescending = 0 THEN Name END ASC,
+        CASE WHEN @SortColumn = 'Name'      AND @SortDescending = 1 THEN Name END DESC,
+        CASE WHEN @SortColumn = 'CreatedAt' AND @SortDescending = 0 THEN CreatedAt END ASC,
+        CASE WHEN @SortColumn = 'CreatedAt' AND @SortDescending = 1 THEN CreatedAt END DESC,
+        CASE WHEN (@SortColumn = 'Order' OR @SortColumn IS NULL) AND @SortDescending = 0 THEN [Order] END ASC,
+        CASE WHEN (@SortColumn = 'Order' OR @SortColumn IS NULL) AND @SortDescending = 1 THEN [Order] END DESC,
+        Name ASC
     OFFSET (@PageIndex - 1) * @PageSize ROWS
     FETCH NEXT @PageSize ROWS ONLY;
 END
+GO
+/****** Object:  StoredProcedure [dbo].[spEducationLevel_SelectTree]    Script Date: 09/09/2026 9:51:21 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
-CREATE OR ALTER PROCEDURE [dbo].[spEducationLevel_SelectTree]
+CREATE   PROCEDURE [dbo].[spEducationLevel_SelectTree]
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -108,8 +136,13 @@ BEGIN
     WHERE IsDeleted = 0
     ORDER BY [Order], Name;
 END
-
-ALTER   PROCEDURE [dbo].[spEducationLevel_SoftDelete]
+GO
+/****** Object:  StoredProcedure [dbo].[spEducationLevel_SoftDelete]    Script Date: 09/09/2026 9:51:21 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE   PROCEDURE [dbo].[spEducationLevel_SoftDelete]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
@@ -153,8 +186,14 @@ BEGIN
 
     SELECT 1;
 END
+GO
+/****** Object:  StoredProcedure [dbo].[spEducationLevel_Update]    Script Date: 09/09/2026 9:51:21 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
-ALTER   PROCEDURE [dbo].[spEducationLevel_Update]
+CREATE   PROCEDURE [dbo].[spEducationLevel_Update]
     @Id UNIQUEIDENTIFIER, @Name NVARCHAR(100), @Description NVARCHAR(500) = NULL,
     @Order INT, @ParentId UNIQUEIDENTIFIER = NULL, @UpdatedAt DATETIME
 AS
@@ -181,6 +220,8 @@ BEGIN
             RETURN;
         END
 
+		DECLARE @IsDescendant BIT = 0;   
+
         -- Chặn vòng lặp: @ParentId không được là hậu duệ của @Id (duyệt xuống từ @Id để tìm toàn bộ con cháu).
         ;WITH Descendants AS (
             SELECT Id FROM dbo.EducationLevel WHERE ParentId = @Id AND IsDeleted = 0
@@ -190,9 +231,14 @@ BEGIN
             INNER JOIN Descendants d ON e.ParentId = d.Id
             WHERE e.IsDeleted = 0
         )
-        IF EXISTS (SELECT 1 FROM Descendants WHERE Id = @ParentId)
-        BEGIN
-            SELECT -4;   -- gây vòng lặp (chọn con/cháu làm cha)
+
+		SELECT @IsDescendant = 1
+               FROM Descendants
+               WHERE Id = @ParentId;
+
+         IF @IsDescendant = 1
+            BEGIN
+              SELECT -4;   -- gây vòng lặp (chọn con/cháu làm cha)
             RETURN;
         END
     END
@@ -203,4 +249,4 @@ BEGIN
 
     SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
 END
-
+GO

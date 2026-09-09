@@ -28,6 +28,27 @@ namespace DemoApi.Infrastructure.Repository
                 commandType: CommandType.StoredProcedure);
         }
 
+       
+        public async Task<List<JobPosition>> GetAllJobPositionTree()
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+
+
+            var result = await connection.QueryAsync<JobPosition, EducationLevel, JobPosition>(
+                "[dbo].[spJobPosition_SelectTree]",
+                (job, education) =>
+                {
+                    job.MinimumEducationLevel = education;
+                    return job;
+                },
+                param,
+                transaction: _session.Transaction,
+                splitOn: "Id, Id",
+                commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public async Task<int> InsertAsync(JobPosition entity)
         {
             var connection = await _session.GetConnectionAsync();
@@ -109,6 +130,7 @@ namespace DemoApi.Infrastructure.Repository
             param.Add("@OpenSlots", entity.OpenSlots);
             param.Add("@EducationLevelId", entity.MinimumEducationLevelId);
             param.Add("@IsOpen", entity.IsOpen);
+            param.Add("@ParentId", entity.ParentId);
             param.Add("@UpdatedAt", entity.UpdatedAt);
 
             // 1 = thành công, -1 = trùng tên, 0 = không tìm thấy.

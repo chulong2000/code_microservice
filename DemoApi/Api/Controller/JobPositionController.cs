@@ -84,6 +84,20 @@ namespace DemoApi.Api.Controller
             var result = await service.DeleteAsync(id);
             return result.Code <= 0 ? BadRequest(result) : Ok(result);
         }
+
+
+        [HttpGet("tree")]
+        [SwaggerOperation(
+        Summary = "Cây vị trí công việc",
+        Description = "Trả về toàn bộ cây vị trí công việc chưa bị xoá, không phân trang. " +
+                      "Kết quả chỉ gồm các node gốc (ParentId = null), mỗi node lồng Children chứa đệ quy các node con.",
+        OperationId = "GetJobPositionTree")]
+        [ProducesResponseType(typeof(ActionResultResponse<List<JobPositionViewModel>>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetTree()
+        {
+            var result = await service.GetTreeAsync();
+            return Ok(result);
+        }
     }
 
    

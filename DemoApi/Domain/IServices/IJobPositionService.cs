@@ -11,6 +11,7 @@ namespace DemoApi.Domain.IServices
         Task<ActionResultResponse> DeleteAsync(Guid id);
         Task<ActionResultResponse<JobPositionViewModel>> GetDetailAsync(Guid id);
         Task<ActionResultResponse<List<JobPositionViewModel>>> GetListAsync(Guid? educationLevelId, string keyword);
+        Task<ActionResultResponse<List<JobPositionViewModel>>> GetTreeAsync();
         Task<ActionResultResponse> UpdateAsync(Guid id, JobPositionMeta meta);
     }
 }

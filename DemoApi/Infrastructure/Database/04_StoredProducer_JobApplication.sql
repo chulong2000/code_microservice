@@ -1,4 +1,36 @@
-﻿ALTER   PROCEDURE [dbo].[spJobApplication_GetListJobApplicationByJobPositionId]
+﻿USE [DemoEducationLevelDb]
+GO
+/****** Object:  StoredProcedure [dbo].[JobApplication_Update]    Script Date: 09/09/2026 9:54:31 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create   PROCEDURE [dbo].[JobApplication_Update]
+    @Id UNIQUEIDENTIFIER,@JobPositionId UNIQUEIDENTIFIER, @FullName NVARCHAR(100), @Email NVARCHAR(500),
+    @PhoneNumber NVARCHAR(100), @DateOfBirth DATETIME, @Gender VARCHAR(40),@CvFileUrl VARCHAR(120), @CoverLetter VARCHAR(120),
+	@YearsOfExperience INT, @AppliedAt DATETIME, @UpdatedAt DATETIME
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE dbo.JobApplication
+    SET JobPositionId = @JobPositionId, FullName = @FullName, 
+	    Email = @Email, PhoneNumber = @PhoneNumber,
+		DateOfBirth = @DateOfBirth, Gender = @Gender,
+		CvFileUrl = @CvFileUrl, CoverLetter = @CoverLetter,
+		YearsOfExperience = @YearsOfExperience, AppliedAt = @AppliedAt,
+		UpdatedAt = @UpdatedAt
+    WHERE Id = @Id AND IsDeleted = 0;
+
+    SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[spJobApplication_GetListJobApplicationByJobPositionId]    Script Date: 09/09/2026 9:54:31 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create   PROCEDURE [dbo].[spJobApplication_GetListJobApplicationByJobPositionId]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
@@ -8,8 +40,13 @@ BEGIN
 	on job.Id = app.JobPositionId
 	where job.Id = @Id and job.IsDeleted = 0
 END
-
-ALTER     PROCEDURE [dbo].[spJobApplication_Insert]
+GO
+/****** Object:  StoredProcedure [dbo].[spJobApplication_Insert]    Script Date: 09/09/2026 9:54:31 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create     PROCEDURE [dbo].[spJobApplication_Insert]
     @Id UNIQUEIDENTIFIER, @JobPositionId UNIQUEIDENTIFIER, @FullName NVARCHAR(500),
     @Email varchar(200), @PhoneNumber varchar(50), @DateOfBirth DateTime, @Gender varchar(120), @CvFileUrl varchar(150), 
 	@CoverLetter nvarchar (500), @YearOfExperience int, @AppliedAt Datetime, @CreatedAt datetime
@@ -21,8 +58,13 @@ BEGIN
 
     SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
 END
-
-ALTER   PROCEDURE [dbo].[spJobApplication_Select]
+GO
+/****** Object:  StoredProcedure [dbo].[spJobApplication_Select]    Script Date: 09/09/2026 9:54:31 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE   PROCEDURE [dbo].[spJobApplication_Select]
     @Keyword nvarchar(100) = NULL,
 	@JobPositionId UNIQUEIDENTIFIER = Null,
 	@AppliedFrom Datetime = null,
@@ -43,7 +85,13 @@ BEGIN
 	  AND job.IsDeleted = 0
 	  AND app.IsDeleted = 0;
 END
-ALTER   PROCEDURE [dbo].[spJobApplication_SelectById]
+GO
+/****** Object:  StoredProcedure [dbo].[spJobApplication_SelectById]    Script Date: 09/09/2026 9:54:31 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE   PROCEDURE [dbo].[spJobApplication_SelectById]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
@@ -53,8 +101,14 @@ BEGIN
 	on app.JobPositionId = job.Id
 	where app.Id = @Id and app.IsDeleted = 0
 END
+GO
+/****** Object:  StoredProcedure [dbo].[spJobApplication_SoftDelete]    Script Date: 09/09/2026 9:54:31 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
-ALTER    PROCEDURE [dbo].[spJobApplication_SoftDelete]
+Create    PROCEDURE [dbo].[spJobApplication_SoftDelete]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
@@ -64,6 +118,4 @@ BEGIN
 
     SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
 END
-
-
-
+GO

@@ -19,6 +19,8 @@ namespace DemoApi.Domain.ViewModels
 
         public bool IsDeleted { get; set; }
 
+        public List<JobPositionViewModel> Children { get; set; } = [];
+
     }
 
 }
