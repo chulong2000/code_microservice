@@ -37,9 +37,13 @@ namespace DemoApi.Infrastructure.Service
             };
 
             var result = await _jobPositionRepo.InsertAsync(entity);
-            return result <= 0 
-                ? new ActionResultResponse<Guid>(-1, $"Vị trí \"{name}\" đã tồn tại.")
-                : new ActionResultResponse<Guid>(1, "Tạo vị trí công việc mới thành công.", data: entity.Id);
+
+            return result switch
+            {
+                1 => new ActionResultResponse<Guid>(1, "Thêm mới thành công","", entity.Id),
+                -1 => new ActionResultResponse<Guid>(-1, $"Vị trí công việc \"{name}\" đã tồn tại."),
+                _ => new ActionResultResponse<Guid>(-2, "Không tìm thấy trình độ học vấn tương ứng")
+            };
         }
 
         public async Task<ActionResultResponse> DeleteAsync(Guid id)
@@ -83,6 +87,7 @@ namespace DemoApi.Infrastructure.Service
                 Department = meta.Department,
                 MinimumEducationLevelId = meta.MinimumEducationLevelId,
                 IsOpen = meta.IsOpen,
+                ParentId = meta.ParentId,
                 UpdatedAt = DateTime.Now,
             };
 
@@ -90,8 +95,11 @@ namespace DemoApi.Infrastructure.Service
             return result switch
             {
                 1 => new ActionResultResponse(1, "Cập nhật thành công."),
-                -1 => new ActionResultResponse(-1, $"Vị trí công việc \"{name}\" đã tồn tại."),
-                _ => new ActionResultResponse(-99, "Không tìm thấy vị trí công việc.")
+                -1 => new ActionResultResponse(-1, $"Trình độ học vấn \"{name}\" đã tồn tại."),
+                -2 => new ActionResultResponse(-2, "Danh mục cha không tồn tại."),
+                -3 => new ActionResultResponse(-3, "Không thể chọn chính nó làm danh mục cha."),
+                -4 => new ActionResultResponse(-4, "Không thể chọn danh mục con/cháu làm danh mục cha vì sẽ gây vòng lặp."),
+                _ => new ActionResultResponse(-99, "Không tìm vị trí công việc này.")
             };
         }
 

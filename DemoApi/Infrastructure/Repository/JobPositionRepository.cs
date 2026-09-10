@@ -109,6 +109,7 @@ namespace DemoApi.Infrastructure.Repository
             param.Add("@OpenSlots", entity.OpenSlots);
             param.Add("@EducationLevelId", entity.MinimumEducationLevelId);
             param.Add("@IsOpen", entity.IsOpen);
+            param.Add("@ParentId", entity.ParentId);
             param.Add("@UpdatedAt", entity.UpdatedAt);
 
             // 1 = thành công, -1 = trùng tên, 0 = không tìm thấy.
