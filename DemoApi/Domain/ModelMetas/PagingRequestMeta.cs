@@ -27,7 +27,6 @@ namespace DemoApi.Domain.ModelMetas
                 _ => value
             };
         }
-
         /// <summary>Từ khoá tìm kiếm (search/filter theo Name).</summary>
         public string? Keyword { get; set; }
 

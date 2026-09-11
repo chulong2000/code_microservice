@@ -21,9 +21,10 @@ namespace DemoApi.Api.Controller
             OperationId = "GetFacilities")]
         [ProducesResponseType(typeof(ActionResultResponse<PagedResultViewModel<FacilityViewModel>>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetList(
-            [FromQuery, SwaggerParameter("Tham số phân trang (pageIndex, pageSize), sắp xếp (sortColumn, sortDescending) và tìm kiếm (keyword)")] PagingRequestMeta request)
+            [FromQuery, SwaggerParameter("Tham số phân trang (pageIndex, pageSize), sắp xếp (sortColumn, sortDescending) và tìm kiếm (keyword)")] PagingRequestMeta request,
+            [FromQuery, SwaggerParameter("Tham số xác định có trả về kết quả tổng hợp")] Boolean includeStats)
         {
-            var result = await service.GetListAsync(request);
+            var result = await service.GetListAsync(request, includeStats);
             return Ok(result);
         }
 

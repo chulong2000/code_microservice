@@ -17,13 +17,31 @@ namespace DemoApi.Infrastructure.Service
             _facilityRepo = facilityRepo;
         }
 
-        public async Task<ActionResultResponse<PagedResultViewModel<FacilityViewModel>>> GetListAsync(PagingRequestMeta request)
+        public async Task<ActionResultResponse<PagedResultViewModel<FacilityViewModel>>> GetListAsync(PagingRequestMeta request, bool includeStats)
         {
             var (entities, totalRecords) = await _facilityRepo.SelectListAsync(request);
 
+            // map then set stats by assigning the whole tuple back to the property
+            var items = entities
+                .Select(FacilityMapper.MapToViewModel)
+                .ToList();
+
+            if (includeStats)
+            {
+                foreach (var x in items)
+                {
+                    var employeeCount = await _facilityRepo.GetCountAllEmployeeOFFacility(x.Id);
+                    var shiftCount = await _facilityRepo.GetCountAllShiftOFFacility(x.Id);
+                    x.EmployeeCount = employeeCount;
+                    x.ShiftCount = shiftCount;
+                }
+            }
+
+            Console.WriteLine("Check_23444: " + items);
+
             var data = new PagedResultViewModel<FacilityViewModel>
             {
-                Items = entities.Select(FacilityMapper.MapToViewModel).ToList(),
+                Items = items,
                 PageIndex = request.PageIndex,
                 PageSize = request.PageSize,
                 TotalRecords = totalRecords
@@ -34,10 +52,20 @@ namespace DemoApi.Infrastructure.Service
 
         public async Task<ActionResultResponse<FacilityViewModel>> GetDetailAsync(Guid id)
         {
+            
+
             var entity = await _facilityRepo.SelectByIdAsync(id);
-            return entity is null
-                   ? new ActionResultResponse<FacilityViewModel>(-99, "Không tìm thấy cơ sở.")
-                   : new ActionResultResponse<FacilityViewModel>(FacilityMapper.MapToViewModel(entity));
+
+            if (entity != null)
+            {
+                var employeeCount = await _facilityRepo.GetCountAllEmployeeOFFacility(entity.Id);
+                var shiftCount = await _facilityRepo.GetCountAllShiftOFFacility(entity.Id);
+                var viewModel = FacilityMapper.MapToViewModel(entity);
+                viewModel.EmployeeCount = employeeCount;
+                viewModel.ShiftCount = shiftCount;
+                return new ActionResultResponse<FacilityViewModel>(viewModel);
+            }
+            return new ActionResultResponse<FacilityViewModel>(-99, "Không tìm thấy cơ sở.");
         }
 
         public async Task<ActionResultResponse<Guid>> CreateAsync(FacilityMeta meta)
@@ -85,6 +113,17 @@ namespace DemoApi.Infrastructure.Service
         public async Task<ActionResultResponse> DeleteAsync(Guid id)
         {
             var result = await _facilityRepo.SoftDeleteAsync(id);
+
+            var employeeCount = await _facilityRepo.GetCountAllEmployeeOFFacility(id);
+
+            var shiftCount = await _facilityRepo.GetCountAllShiftOFFacility(id);
+
+            if ( employeeCount > 0 || shiftCount > 0 )
+            {
+                return new ActionResultResponse(2, "Không thể xoá cơ sở đang có nhân viên hoặc lịch làm việc", 
+                                                   "FACILITY_HAS_DEPENDENCIES");
+            }
+
             return result switch
             {
                 1 => new ActionResultResponse(1, "Xóa thành công."),

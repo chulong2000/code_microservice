@@ -1,25 +1,3 @@
-USE [DemoEducationLevelDb]
-GO
-/****** Object:  Table [dbo].[Facility] ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Facility](
-	[Id] [uniqueidentifier] NOT NULL,
-	[Name] [nvarchar](150) NOT NULL,
-	[Address] [nvarchar](300) NULL,
-	[IsDeleted] [bit] NOT NULL,
-	[CreatedAt] [datetime] NOT NULL,
-	[UpdatedAt] [datetime] NULL,
-PRIMARY KEY CLUSTERED
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [dbo].[Facility] ADD DEFAULT ((0)) FOR [IsDeleted]
-GO
 
 /****** Object:  StoredProcedure [dbo].[spFacility_ExistsName] ******/
 SET ANSI_NULLS ON

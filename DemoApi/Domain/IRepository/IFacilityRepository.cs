@@ -11,5 +11,8 @@ namespace DemoApi.Domain.IRepository
         Task<int> SoftDeleteAsync(Guid id);
         Task<(List<Facility> Items, int TotalRecords)> SelectListAsync(PagingRequestMeta request);
         Task<Facility?> SelectByIdAsync(Guid id);
+
+        Task<int> GetCountAllEmployeeOFFacility(Guid id);
+        Task<int> GetCountAllShiftOFFacility(Guid id);
     }
 }
