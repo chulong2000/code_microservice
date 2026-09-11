@@ -37,21 +37,24 @@ namespace DemoApi.Infrastructure.Service
             };
 
             var result = await _jobPositionRepo.InsertAsync(entity);
-
             return result switch
             {
-                1 => new ActionResultResponse<Guid>(1, "Thêm mới thành công","", entity.Id),
+                1 => new ActionResultResponse<Guid>(1, "Cập nhật thành công."),
                 -1 => new ActionResultResponse<Guid>(-1, $"Vị trí công việc \"{name}\" đã tồn tại."),
-                _ => new ActionResultResponse<Guid>(-2, "Không tìm thấy trình độ học vấn tương ứng")
+                -2 => new ActionResultResponse<Guid>(-2, "Danh mục cha không tồn tại"),
+                _ => new ActionResultResponse<Guid>(-99, "Không tìm thấy vị trí công việc.")
             };
         }
 
         public async Task<ActionResultResponse> DeleteAsync(Guid id)
         {
             var result = await _jobPositionRepo.SoftDeleteAsync(id);
-            return result <= 0
-                ? new ActionResultResponse(-99, "Không tìm thấy vị trí công việc.")
-                : new ActionResultResponse(1, "Xoá thành công.");
+            return result switch
+            {
+                1 => new ActionResultResponse(1, "Xóa thành công (bao gồm toàn bộ danh mục con nếu có)."),
+                -1 => new ActionResultResponse(-1, "Không thể xóa vì danh mục này hoặc danh mục con của nó đang có vị trí công việc tham chiếu."),
+                _ => new ActionResultResponse(-99, "Không tìm thấy vị trí công việc.")
+            };
         }
 
         public async Task<ActionResultResponse<JobPositionViewModel>> GetDetailAsync(Guid id)
@@ -72,6 +75,28 @@ namespace DemoApi.Infrastructure.Service
             return new ActionResultResponse<List<JobPositionViewModel>>(data);
         }
 
+        public async Task<ActionResultResponse<List<JobPositionViewModel>>> GetTreeAsync()
+        {
+            var flat = await _jobPositionRepo.GetAllJobPositionTree();
+            var tree = BuildTree(flat, null);
+
+            return new ActionResultResponse<List<JobPositionViewModel>>(tree);
+        }
+
+        // Đệ quy: với mỗi node có Id = parentId, tìm tất cả node con (ParentId = Id đó), rồi lại tự tìm con của con.
+        private static List<JobPositionViewModel> BuildTree(List<JobPosition> flat, Guid? parentId)
+        {
+            return flat
+                .Where(x => x.ParentId == parentId)
+                .Select(x =>
+                {
+                    var node = JobPositionMapper.MapToViewModel(x);
+                    node.Children = BuildTree(flat, x.Id);
+                    return node;
+                })
+                .ToList();
+        }
+
         public async Task<ActionResultResponse> UpdateAsync(Guid id, JobPositionMeta meta)
         {
             var name = meta.Title.Trim();
@@ -86,8 +111,8 @@ namespace DemoApi.Infrastructure.Service
                 OpenSlots = meta.OpenSlots,
                 Department = meta.Department,
                 MinimumEducationLevelId = meta.MinimumEducationLevelId,
-                IsOpen = meta.IsOpen,
                 ParentId = meta.ParentId,
+                IsOpen = meta.IsOpen,
                 UpdatedAt = DateTime.Now,
             };
 
@@ -95,11 +120,11 @@ namespace DemoApi.Infrastructure.Service
             return result switch
             {
                 1 => new ActionResultResponse(1, "Cập nhật thành công."),
-                -1 => new ActionResultResponse(-1, $"Trình độ học vấn \"{name}\" đã tồn tại."),
+                -1 => new ActionResultResponse(-1, $"Vị trí công việc \"{name}\" đã tồn tại."),
                 -2 => new ActionResultResponse(-2, "Danh mục cha không tồn tại."),
                 -3 => new ActionResultResponse(-3, "Không thể chọn chính nó làm danh mục cha."),
                 -4 => new ActionResultResponse(-4, "Không thể chọn danh mục con/cháu làm danh mục cha vì sẽ gây vòng lặp."),
-                _ => new ActionResultResponse(-99, "Không tìm vị trí công việc này.")
+                _ => new ActionResultResponse(-99, "Không tìm thấy vị trí công việc.")
             };
         }
 

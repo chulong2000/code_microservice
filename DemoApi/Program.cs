@@ -47,6 +47,8 @@ builder.Services.AddScoped<IEducationLevelSalaryCoefficientRepository,EducationL
 builder.Services.AddScoped<IEducationLevelSalaryCoefficientService, EducationLevelSalaryCoefficientService>();
 builder.Services.AddScoped<IJobApplicationRepository, JobApplicationRepository>();
 builder.Services.AddScoped<IJobApplicationService, JobApplicationService>();
+builder.Services.AddScoped<IFacilityRepository, FacilityRepository>();
+builder.Services.AddScoped<IFacilityService, FacilityService>();
 
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
