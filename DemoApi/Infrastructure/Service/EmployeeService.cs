@@ -17,9 +17,9 @@ namespace DemoApi.Infrastructure.Service
             _employeeRepo = employeeRepo;
         }
 
-        public async Task<ActionResultResponse<List<EmployeeViewModel>>> GetListAsync()
+        public async Task<ActionResultResponse<List<EmployeeViewModel>>> GetListAsync(Guid? facilityId, Guid? jobPositionId, string? status)
         {
-            var entities = await _employeeRepo.SelectAllAsync();
+            var entities = await _employeeRepo.SelectAllAsync(facilityId, jobPositionId, status);
             var data = entities.Select(EmployeeMapper.MapToViewModel).ToList();
 
             return new ActionResultResponse<List<EmployeeViewModel>>(data);

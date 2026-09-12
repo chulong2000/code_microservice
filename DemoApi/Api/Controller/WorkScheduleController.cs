@@ -52,6 +52,22 @@ namespace DemoApi.Api.Controller
             return result.Code <= 0 ? BadRequest(result) : Ok(result);
         }
 
+        [HttpPost("bulk-monthly")]
+        [SwaggerOperation(
+            Summary = "Tạo lịch làm việc hàng loạt theo tháng",
+            Description = "Tạo lịch làm việc cho nhiều nhân viên cùng lúc trong một tháng (cùng ca, cùng cơ sở). " +
+                          "Có thể giới hạn theo các thứ trong tuần áp dụng (VD: chỉ Thứ 2 - Thứ 6); để trống nghĩa là áp dụng tất cả các ngày trong tháng. " +
+                          "Cặp (nhân viên, ngày) đã có lịch làm việc sẽ được bỏ qua, không tạo trùng.",
+            OperationId = "BulkCreateWorkScheduleMonthly")]
+        [ProducesResponseType(typeof(ActionResultResponse<WorkScheduleBulkCreateResultViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> BulkCreateMonthly(
+            [FromBody, SwaggerRequestBody("Danh sách nhân viên, tháng/năm và ca làm việc cần tạo hàng loạt", Required = true)] WorkScheduleBulkCreateMeta meta)
+        {
+            var result = await service.BulkCreateMonthlyAsync(meta);
+            return result.Code <= 0 ? BadRequest(result) : Ok(result);
+        }
+
         [HttpPut("{id:guid}")]
         [SwaggerOperation(
             Summary = "Cập nhật lịch làm việc",

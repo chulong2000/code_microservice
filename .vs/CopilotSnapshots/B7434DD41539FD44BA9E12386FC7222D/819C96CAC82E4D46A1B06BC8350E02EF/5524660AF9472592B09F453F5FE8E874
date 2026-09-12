@@ -1,4 +1,4 @@
-using Dapper;
+﻿using Dapper;
 using DemoApi.Domain.IRepository;
 using DemoApi.Domain.Models;
 using DemoApi.Infrastructure.Data;
@@ -104,20 +104,17 @@ namespace DemoApi.Infrastructure.Repository
             var param = new DynamicParameters();
             param.Add("@Id", id);
 
-            var items = await connection.QueryAsync<Employee, JobPosition, Facility, Employee>(
+            var items = await connection.QueryFirstOrDefaultAsync<Employee, Facility, JobPosition, Employee>(
                 "[dbo].[spEmployee_SelectById]",
-                (employee, jobPosition, facility) =>
+                (employee, facility, jobPosition) =>
                 {
                     employee.PrimaryFacility = facility;
                     employee.JobPosition = jobPosition;
                     return employee;
                 },
                 param,
-                splitOn: "Id, Id",
                 transaction: _session.Transaction,
                 commandType: CommandType.StoredProcedure);
-
-            return  items.FirstOrDefault();
         }
 
     }

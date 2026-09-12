@@ -19,9 +19,9 @@ namespace DemoApi.Api.Controller
             Description = "Trả về toàn bộ nhân viên chưa bị xoá (chưa hỗ trợ phân trang/tìm kiếm).",
             OperationId = "GetEmployees")]
         [ProducesResponseType(typeof(ActionResultResponse<List<EmployeeViewModel>>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetList()
+        public async Task<IActionResult> GetList([FromQuery] Guid? facilityId, [FromQuery] Guid? jobPositionId, [FromQuery] string? status)
         {
-            var result = await service.GetListAsync();
+            var result = await service.GetListAsync(facilityId, jobPositionId, status);
             return Ok(result);
         }
 

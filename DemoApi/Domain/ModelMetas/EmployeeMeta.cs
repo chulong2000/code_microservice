@@ -7,11 +7,11 @@ namespace DemoApi.Domain.ModelMetas
         public Guid JobPositionId { get; set; }
         public Guid PrimaryFacilityId { get; set; }
 
-        public string FullName { get; set; } = string.Empty;
-        public string? Email { get; set; }
-        public string? PhoneNumber { get; set; }
-        public DateTime? DateOfBirth { get; set; }
-        public string? Gender { get; set; }
+        public string FullName { get; set; } = null!;
+        public string Email { get; set; } = null!;
+        public string PhoneNumber { get; set; } = null!;
+        public DateTime DateOfBirth { get; set; }
+        public string Gender { get; set; } = null!;
 
         public DateTime HireDate { get; set; }
         public string Status { get; set; } = string.Empty;

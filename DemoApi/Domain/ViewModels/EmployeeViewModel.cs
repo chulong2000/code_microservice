@@ -6,7 +6,11 @@ namespace DemoApi.Domain.ViewModels
         public string EmployeeCode { get; set; } = string.Empty;
         public Guid? JobApplicationId { get; set; }
         public Guid JobPositionId { get; set; }
+
+        public string PositionName  { get; set; }
         public Guid PrimaryFacilityId { get; set; }
+
+        public string FacilityName { get; set; }
 
         public string FullName { get; set; } = string.Empty;
         public string? Email { get; set; }

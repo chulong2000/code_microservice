@@ -7,7 +7,7 @@ namespace DemoApi.Domain.Models
 
         // Liên kết ngược tới hồ sơ ứng tuyển (nếu có)
         public Guid? JobApplicationId { get; set; }
-        public JobApplication? JobApplication { get; set; }
+        public JobApplication JobApplication { get; set; } = new JobApplication();
 
         // Tái sử dụng bảng JobPosition làm chức danh
         public Guid JobPositionId { get; set; }

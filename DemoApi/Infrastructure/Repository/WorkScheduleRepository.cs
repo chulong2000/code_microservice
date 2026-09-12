@@ -34,6 +34,48 @@ namespace DemoApi.Infrastructure.Repository
                 commandType: CommandType.StoredProcedure);
         }
 
+        public async Task<int> BulkInsertAsync(List<WorkSchedule> entities)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@Items", BuildWorkScheduleTable(entities));
+
+            return await connection.ExecuteScalarAsync<int>(
+                "[dbo].[spWorkSchedule_BulkInsert]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+        }
+
+        private static SqlMapper.ICustomQueryParameter BuildWorkScheduleTable(List<WorkSchedule> entities)
+        {
+            var table = new DataTable();
+            table.Columns.Add("Id", typeof(Guid));
+            table.Columns.Add("EmployeeId", typeof(Guid));
+            table.Columns.Add("ShiftId", typeof(Guid));
+            table.Columns.Add("FacilityId", typeof(Guid));
+            table.Columns.Add("WorkDate", typeof(DateTime));
+            table.Columns.Add("Status", typeof(string));
+            table.Columns.Add("Note", typeof(string));
+            table.Columns.Add("CreatedBy", typeof(Guid));
+            table.Columns.Add("CreatedAt", typeof(DateTime));
+
+            foreach (var entity in entities)
+            {
+                table.Rows.Add(
+                    entity.Id,
+                    entity.EmployeeId,
+                    entity.ShiftId,
+                    entity.FacilityId,
+                    entity.WorkDate,
+                    entity.Status,
+                    (object?)entity.Note ?? DBNull.Value,
+                    (object?)entity.CreatedBy ?? DBNull.Value,
+                    entity.CreatedAt);
+            }
+
+            return table.AsTableValuedParameter("[dbo].[WorkScheduleTableType]");
+        }
+
         public async Task<int> UpdateAsync(WorkSchedule entity)
         {
             var connection = await _session.GetConnectionAsync();

@@ -16,9 +16,11 @@ namespace DemoApi.Infrastructure.Validation
                 .MaximumLength(200).WithMessage("Họ tên tối đa 200 ký tự.");
 
             RuleFor(x => x.Email)
+                .NotEmpty().WithMessage("Email không được để trống.")
                 .MaximumLength(150).WithMessage("Email tối đa 150 ký tự.");
 
             RuleFor(x => x.PhoneNumber)
+                .NotEmpty().WithMessage("Số điện thoại không được để trống.")
                 .MaximumLength(20).WithMessage("Số điện thoại tối đa 20 ký tự.");
 
             RuleFor(x => x.Gender)
