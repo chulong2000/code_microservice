@@ -134,5 +134,47 @@ namespace DemoApi.Infrastructure.Repository
                 transaction: _session.Transaction,
                 commandType: CommandType.StoredProcedure);
         }
+
+        public async Task<LeaveRequest?> SelectConflictByDateAsync(Guid employeeId, DateTime workDate)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@EmployeeId", employeeId);
+            param.Add("@WorkDate", workDate);
+
+            return await connection.QueryFirstOrDefaultAsync<LeaveRequest>(
+                "[dbo].[spLeaveRequest_SelectConflictByDate]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<List<LeaveRequest>> SelectConflictsInScopeAsync(List<Guid> employeeIds, DateTime fromDate, DateTime toDate)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@EmployeeIds", BuildGuidTable(employeeIds));
+            param.Add("@FromDate", fromDate);
+            param.Add("@ToDate", toDate);
+
+            var items = await connection.QueryAsync<LeaveRequest>(
+                "[dbo].[spLeaveRequest_SelectConflictsInScope]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+
+            return items.ToList();
+        }
+
+        private static SqlMapper.ICustomQueryParameter BuildGuidTable(List<Guid> ids)
+        {
+            var table = new DataTable();
+            table.Columns.Add("Id", typeof(Guid));
+
+            foreach (var id in ids)
+            {
+                table.Rows.Add(id);
+            }
+
+            return table.AsTableValuedParameter("[dbo].[GuidListType]");
+        }
     }
 }

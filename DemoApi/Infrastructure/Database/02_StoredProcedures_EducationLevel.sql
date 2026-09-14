@@ -1,14 +1,4 @@
-﻿USE [DemoEducationLevelDb]
-GO
-/****** Object:  StoredProcedure [dbo].[spEducationLevel_ExistsName]    Script Date: 09/09/2026 9:51:21 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
--- Database/02_StoredProcedures.sql
-
-CREATE   PROCEDURE [dbo].[spEducationLevel_ExistsName]
+﻿ALTER   PROCEDURE [dbo].[spEducationLevel_ExistsName]
     @Name      NVARCHAR(100),
     @ExcludeId UNIQUEIDENTIFIER = NULL
 AS
@@ -21,13 +11,7 @@ BEGIN
     ) THEN 1 ELSE 0 END;
 END
 
-GO
-/****** Object:  StoredProcedure [dbo].[spEducationLevel_Insert]    Script Date: 09/09/2026 9:51:21 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE   PROCEDURE [dbo].[spEducationLevel_Insert]
+ALTER   PROCEDURE [dbo].[spEducationLevel_Insert]
     @Id UNIQUEIDENTIFIER, @Name NVARCHAR(100), @Description NVARCHAR(500) = NULL,
     @Order INT, @CreatedAt DATETIME, @ParentId UNIQUEIDENTIFIER
 AS
@@ -52,13 +36,8 @@ BEGIN
 
     SELECT 1;
 END
-GO
-/****** Object:  StoredProcedure [dbo].[spEducationLevel_SelectById]    Script Date: 09/09/2026 9:51:21 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE   PROCEDURE [dbo].[spEducationLevel_SelectById]
+
+ALTER   PROCEDURE [dbo].[spEducationLevel_SelectById]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
@@ -76,13 +55,8 @@ BEGIN
 	on job.Id = app.JobPositionId
     WHERE edu.Id = @Id AND edu.IsDeleted = 0;
 END
-GO
-/****** Object:  StoredProcedure [dbo].[spEducationLevel_SelectList]    Script Date: 09/09/2026 9:51:21 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE   PROCEDURE [dbo].[spEducationLevel_SelectList]
+
+ALTER   PROCEDURE [dbo].[spEducationLevel_SelectList]
     @Keyword        NVARCHAR(100) = NULL,
     @SortColumn     NVARCHAR(50)  = NULL,   -- Name | Order | CreatedAt. Giá trị khác/NULL -> sắp xếp mặc định (Order, Name).
     @SortDescending BIT           = 0,
@@ -118,14 +92,8 @@ BEGIN
     OFFSET (@PageIndex - 1) * @PageSize ROWS
     FETCH NEXT @PageSize ROWS ONLY;
 END
-GO
-/****** Object:  StoredProcedure [dbo].[spEducationLevel_SelectTree]    Script Date: 09/09/2026 9:51:21 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 
-CREATE   PROCEDURE [dbo].[spEducationLevel_SelectTree]
+ALTER   PROCEDURE [dbo].[spEducationLevel_SelectTree]
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -136,13 +104,8 @@ BEGIN
     WHERE IsDeleted = 0
     ORDER BY [Order], Name;
 END
-GO
-/****** Object:  StoredProcedure [dbo].[spEducationLevel_SoftDelete]    Script Date: 09/09/2026 9:51:21 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE   PROCEDURE [dbo].[spEducationLevel_SoftDelete]
+
+ALTER   PROCEDURE [dbo].[spEducationLevel_SoftDelete]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
@@ -186,14 +149,8 @@ BEGIN
 
     SELECT 1;
 END
-GO
-/****** Object:  StoredProcedure [dbo].[spEducationLevel_Update]    Script Date: 09/09/2026 9:51:21 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 
-CREATE   PROCEDURE [dbo].[spEducationLevel_Update]
+ALTER   PROCEDURE [dbo].[spEducationLevel_Update]
     @Id UNIQUEIDENTIFIER, @Name NVARCHAR(100), @Description NVARCHAR(500) = NULL,
     @Order INT, @ParentId UNIQUEIDENTIFIER = NULL, @UpdatedAt DATETIME
 AS
@@ -249,4 +206,3 @@ BEGIN
 
     SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
 END
-GO

@@ -131,6 +131,24 @@ namespace DemoApi.Infrastructure.Repository
             return items.ToList();
         }
 
+        public async Task<List<WorkSchedule>> SelectByFilterAsync(Guid? employeeId, Guid? facilityId, DateTime? fromDate, DateTime? toDate, Guid? shiftId)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@EmployeeId", employeeId);
+            param.Add("@FacilityId", facilityId);
+            param.Add("@FromDate", fromDate);
+            param.Add("@ToDate", toDate);
+            param.Add("@ShiftId", shiftId);
+
+            var items = await connection.QueryAsync<WorkSchedule>(
+                "[dbo].[spWorkSchedule_SelectByFilter]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+
+            return items.ToList();
+        }
+
         public async Task<WorkSchedule?> SelectByIdAsync(Guid id)
         {
             var connection = await _session.GetConnectionAsync();
@@ -139,6 +157,77 @@ namespace DemoApi.Infrastructure.Repository
 
             return await connection.QueryFirstOrDefaultAsync<WorkSchedule>(
                 "[dbo].[spWorkSchedule_SelectById]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<List<WorkSchedule>> SelectDraftInScopeAsync(Guid facilityId, DateTime fromDate, DateTime toDate)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@FacilityId", facilityId);
+            param.Add("@FromDate", fromDate);
+            param.Add("@ToDate", toDate);
+
+            var items = await connection.QueryAsync<WorkSchedule>(
+                "[dbo].[spWorkSchedule_SelectDraftInScope]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+
+            return items.ToList();
+        }
+
+        public async Task<int> BulkSoftDeleteAsync(List<Guid> ids)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@Ids", BuildGuidTable(ids));
+
+            return await connection.ExecuteScalarAsync<int>(
+                "[dbo].[spWorkSchedule_BulkSoftDelete]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+        }
+
+        private static SqlMapper.ICustomQueryParameter BuildGuidTable(List<Guid> ids)
+        {
+            var table = new DataTable();
+            table.Columns.Add("Id", typeof(Guid));
+
+            foreach (var id in ids)
+            {
+                table.Rows.Add(id);
+            }
+
+            return table.AsTableValuedParameter("[dbo].[GuidListType]");
+        }
+
+        public async Task<int> PublishBatchAsync(Guid facilityId, DateTime fromDate, DateTime toDate, Guid? publishedBy, DateTime publishedAt)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@FacilityId", facilityId);
+            param.Add("@FromDate", fromDate);
+            param.Add("@ToDate", toDate);
+            param.Add("@PublishedBy", publishedBy);
+            param.Add("@PublishedAt", publishedAt);
+
+            return await connection.ExecuteScalarAsync<int>(
+                "[dbo].[spWorkSchedule_PublishBatch]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<int> ConfirmAsync(Guid id, Guid confirmedBy, DateTime confirmedAt)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@Id", id);
+            param.Add("@ConfirmedBy", confirmedBy);
+            param.Add("@ConfirmedAt", confirmedAt);
+
+            return await connection.ExecuteScalarAsync<int>(
+                "[dbo].[spWorkSchedule_Confirm]", param,
                 transaction: _session.Transaction,
                 commandType: CommandType.StoredProcedure);
         }

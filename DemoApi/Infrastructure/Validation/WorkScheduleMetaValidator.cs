@@ -24,4 +24,13 @@ namespace DemoApi.Infrastructure.Validation
                 .MaximumLength(300).WithMessage("Ghi chú tối đa 300 ký tự.");
         }
     }
+
+    public class WorkScheduleConfirmMetaValidator : AbstractValidator<WorkScheduleConfirmMeta>
+    {
+        public WorkScheduleConfirmMetaValidator()
+        {
+            RuleFor(x => x.ConfirmedBy)
+                .NotEmpty().WithMessage("Id nhân viên xác nhận không được để trống.");
+        }
+    }
 }

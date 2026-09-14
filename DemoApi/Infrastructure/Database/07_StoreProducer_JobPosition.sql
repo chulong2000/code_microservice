@@ -1,12 +1,5 @@
-﻿USE [DemoEducationLevelDb]
-GO
-/****** Object:  StoredProcedure [dbo].[spJobPosition_ExistsName]    Script Date: 09/09/2026 9:56:30 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 
-Create     PROCEDURE [dbo].[spJobPosition_ExistsName]
+ALTER     PROCEDURE [dbo].[spJobPosition_ExistsName]
     @Title      NVARCHAR(100),
     @ExcludeId UNIQUEIDENTIFIER = NULL
 AS
@@ -19,13 +12,7 @@ BEGIN
     ) THEN 1 ELSE 0 END;
 END
 
-GO
-/****** Object:  StoredProcedure [dbo].[spJobPosition_Insert]    Script Date: 09/09/2026 9:56:30 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE     PROCEDURE [dbo].[spJobPosition_Insert]
+ALTER     PROCEDURE [dbo].[spJobPosition_Insert]
     @Id UNIQUEIDENTIFIER, @Title NVARCHAR(100), @Department NVARCHAR(500),
     @OpenSlots INT, @EducationLevelId UNIQUEIDENTIFIER, @IsOpen bit, @CreatedAt datetime, @IsDeleted bit, @ParentId UNIQUEIDENTIFIER
 AS
@@ -50,13 +37,8 @@ BEGIN
 
     SELECT 1;
 END
-GO
-/****** Object:  StoredProcedure [dbo].[spJobPosition_SelectById]    Script Date: 09/09/2026 9:56:30 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE     PROCEDURE [dbo].[spJobPosition_SelectById]
+
+ALTER     PROCEDURE [dbo].[spJobPosition_SelectById]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
@@ -67,13 +49,8 @@ BEGIN
 	on job.MinimumEducationLevelId = education.Id
     WHERE job.Id = @Id AND job.IsDeleted = 0;
 END
-GO
-/****** Object:  StoredProcedure [dbo].[spJobPosition_SelectList]    Script Date: 09/09/2026 9:56:30 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE     PROCEDURE [dbo].[spJobPosition_SelectList]
+
+ALTER     PROCEDURE [dbo].[spJobPosition_SelectList]
     @Keyword NVARCHAR(100) = NULL,
     @EducationId UNIQUEIDENTIFIER = NULL
 AS
@@ -86,13 +63,8 @@ BEGIN
 	where job.IsDeleted = 0 and education.IsDeleted = 0 and (@EducationId IS NULL OR  job.MinimumEducationLevelId = @EducationId)
 	AND (@Keyword IS NULL OR Title LIKE '%' + @Keyword + '%')
 END
-GO
-/****** Object:  StoredProcedure [dbo].[spJobPosition_SelectListJobPostionByEducationLevelId]    Script Date: 09/09/2026 9:56:30 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-Create     PROCEDURE [dbo].[spJobPosition_SelectListJobPostionByEducationLevelId]
+
+ALTER     PROCEDURE [dbo].[spJobPosition_SelectListJobPostionByEducationLevelId]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
@@ -104,13 +76,7 @@ BEGIN
     WHERE education.Id = @Id AND job.IsDeleted = 0;
 END
 
-GO
-/****** Object:  StoredProcedure [dbo].[spJobPosition_SelectTree]    Script Date: 09/09/2026 9:56:30 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-Create   PROCEDURE [dbo].[spJobPosition_SelectTree]
+ALTER   PROCEDURE [dbo].[spJobPosition_SelectTree]
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -122,13 +88,8 @@ BEGIN
     WHERE job.IsDeleted = 0
     ORDER BY job.Title;
 END
-GO
-/****** Object:  StoredProcedure [dbo].[spJobPosition_SoftDelete]    Script Date: 09/09/2026 9:56:30 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE     PROCEDURE [dbo].[spJobPosition_SoftDelete]
+
+ALTER     PROCEDURE [dbo].[spJobPosition_SoftDelete]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
@@ -171,13 +132,8 @@ BEGIN
 
     SELECT 1;
 END
-GO
-/****** Object:  StoredProcedure [dbo].[spJobPosition_Update]    Script Date: 09/09/2026 9:56:30 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE     PROCEDURE [dbo].[spJobPosition_Update]
+
+ALTER     PROCEDURE [dbo].[spJobPosition_Update]
     @Id UNIQUEIDENTIFIER, @Title NVARCHAR(100), @Department NVARCHAR(500),
     @OpenSlots INT, @EducationLevelId UNIQUEIDENTIFIER, @IsOpen bit,@UpdatedAt DATETIME, @ParentId UNIQUEIDENTIFIER
 AS
@@ -234,4 +190,3 @@ BEGIN
 
     SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
 END
-GO

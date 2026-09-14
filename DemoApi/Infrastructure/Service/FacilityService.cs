@@ -115,10 +115,10 @@ namespace DemoApi.Infrastructure.Service
             var result = await _facilityRepo.SoftDeleteAsync(id);
 
             var employeeCount = await _facilityRepo.GetCountAllEmployeeOFFacility(id);
-
+            var workScheduleCount = await _facilityRepo.GetCountAllWorkScheduleOFFacility(id);
             var shiftCount = await _facilityRepo.GetCountAllShiftOFFacility(id);
 
-            if ( employeeCount > 0 || shiftCount > 0 )
+            if (employeeCount > 0 || shiftCount > 0 || workScheduleCount > 0)
             {
                 return new ActionResultResponse(2, "Không thể xoá cơ sở đang có nhân viên hoặc lịch làm việc", 
                                                    "FACILITY_HAS_DEPENDENCIES");

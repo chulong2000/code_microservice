@@ -12,5 +12,7 @@ namespace DemoApi.Domain.IRepository
         Task<LeaveRequest?> SelectByIdAsync(Guid id);
         Task<int> ApproveAsync(Guid id, Guid? approvedBy, DateTime approvedAt);
         Task<int> RejectAsync(Guid id, Guid? approvedBy, DateTime approvedAt);
+        Task<LeaveRequest?> SelectConflictByDateAsync(Guid employeeId, DateTime workDate);
+        Task<List<LeaveRequest>> SelectConflictsInScopeAsync(List<Guid> employeeIds, DateTime fromDate, DateTime toDate);
     }
 }

@@ -133,5 +133,17 @@ namespace DemoApi.Infrastructure.Repository
                 transaction: _session.Transaction,
                 commandType: CommandType.StoredProcedure);
         }
+
+        public async Task<int> GetCountAllWorkScheduleOFFacility(Guid id)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@Id", id);
+
+            return await connection.ExecuteScalarAsync<int>(
+                "[dbo].[spFacility_Count_WorkSchedule]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+        }
     }
 }

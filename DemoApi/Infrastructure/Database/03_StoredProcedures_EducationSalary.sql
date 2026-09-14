@@ -1,93 +1,112 @@
-﻿USE [DemoEducationLevelDb]
-GO
-/****** Object:  StoredProcedure [dbo].[spEducationLevelSalaryCoefficient_GetSalaryCoefficientOfEducationLevel]    Script Date: 09/09/2026 9:52:48 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+﻿ALTER PROCEDURE [dbo].[spEmployee_Insert]
+    @Id UNIQUEIDENTIFIER,
+    @EmployeeCode NVARCHAR(50),
+    @JobApplicationId UNIQUEIDENTIFIER = NULL,
+    @JobPositionId UNIQUEIDENTIFIER,
+    @PrimaryFacilityId UNIQUEIDENTIFIER,
+    @FullName NVARCHAR(200),
+    @Email NVARCHAR(150) = NULL,
+    @PhoneNumber NVARCHAR(20) = NULL,
+    @DateOfBirth DATETIME = NULL,
+    @Gender NVARCHAR(20) = NULL,
+    @HireDate DATETIME,
+    @Status NVARCHAR(20),
+    @CreatedAt DATETIME
+AS
+BEGIN
+    SET NOCOUNT ON;
 
-Create     PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_GetSalaryCoefficientOfEducationLevel]
+    INSERT INTO dbo.Employee
+        (Id, EmployeeCode, JobApplicationId, JobPositionId, PrimaryFacilityId, FullName, Email, PhoneNumber, DateOfBirth, Gender, HireDate, Status, IsDeleted, CreatedAt)
+    VALUES
+        (@Id, @EmployeeCode, @JobApplicationId, @JobPositionId, @PrimaryFacilityId, @FullName, @Email, @PhoneNumber, @DateOfBirth, @Gender, @HireDate, @Status, 0, @CreatedAt);
+
+    SELECT 1;
+END
+
+ALTER PROCEDURE [dbo].[spEmployee_SelectAll]
+    @FacilityId UNIQUEIDENTIFIER,
+    @JobPositionId UNIQUEIDENTIFIER,
+    @Status NVARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT emp.Id, emp.EmployeeCode, emp.FullName, emp.Email, emp.PhoneNumber, emp.Status ,faci.Id, faci.Name, job.Id, job.Title
+    FROM dbo.Employee as emp
+	inner join dbo.Facility as faci on emp.PrimaryFacilityId = faci.Id
+	inner join dbo.JobPosition as job on emp.JobPositionId = job.Id
+    WHERE emp.IsDeleted = 0 and faci.IsDeleted = 0 and job.IsDeleted = 0
+	      AND (@FacilityId is null or emp.PrimaryFacilityId = @FacilityId)
+		  AND (@JobPositionId is null or emp.JobPositionId = @JobPositionId)
+		  AND (@Status is null or emp.Status = @Status)
+    ORDER BY FullName ASC;
+END
+
+ALTER PROCEDURE [dbo].[spEmployee_SelectById]
     @Id UNIQUEIDENTIFIER
 AS
 BEGIN
     SET NOCOUNT ON;
-    select sa.Id, sa.BaseCoefficient, sa.AllowancePercentage, sa.EffectiveFrom, edu.Id as Id, edu.Name from dbo.EducationLevelSalaryCoefficient as sa 
-	inner join dbo.EducationLevel as edu
-	on sa.EducationLevelId = edu.Id
-	where edu.Id = @Id
+    SELECT emp.Id, emp.EmployeeCode, emp.JobApplicationId, emp.FullName, emp.Email, emp.PhoneNumber, emp.DateOfBirth, emp.Gender, emp.HireDate, emp.Status,
+	       job.Id, job.Title,
+		   facility.Id, facility.Name
+    FROM dbo.Employee as emp 
+	inner join dbo.JobPosition as job on emp.JobPositionId = job.Id
+	inner join dbo.Facility as facility on emp.PrimaryFacilityId = facility.Id
+    WHERE emp.Id = @Id AND emp.IsDeleted = 0;
 END
 
-GO
-/****** Object:  StoredProcedure [dbo].[spEducationLevelSalaryCoefficient_Insert]    Script Date: 09/09/2026 9:52:48 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE   PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_Insert]
-    @Id UNIQUEIDENTIFIER, @EducationLevelId UNIQUEIDENTIFIER, @BaseCoefficient DECIMAL(5,2), @AllowancePercentage DECIMAL(5,2),@EffectiveFrom DATETIME,
-    @Notes nvarchar(500), @CreatedAt DATETIME
+ALTER PROCEDURE [dbo].[spEmployee_SoftDelete]
+    @Id UNIQUEIDENTIFIER
 AS
 BEGIN
     SET NOCOUNT ON;
+
+    IF NOT EXISTS (SELECT 1 FROM dbo.Employee WHERE Id = @Id AND IsDeleted = 0)
     BEGIN
-        INSERT INTO dbo.EducationLevelSalaryCoefficient(Id,EducationLevelId,BaseCoefficient, AllowancePercentage, EffectiveFrom, Notes, CreatedAt, IsDeleted)
-        VALUES (@Id, @EducationLevelId, @BaseCoefficient , @AllowancePercentage, @EffectiveFrom, @Notes, @CreatedAt, 0);
+        SELECT 0;   -- không tìm thấy
+        RETURN;
     END
-    SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
-END
-GO
-/****** Object:  StoredProcedure [dbo].[spEducationLevelSalaryCoefficient_SelectList]    Script Date: 09/09/2026 9:52:48 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE     PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_SelectList]
-    
-AS
-BEGIN
-    SET NOCOUNT ON;
-    select sa.Id, sa.EffectiveFrom, sa.BaseCoefficient, sa.AllowancePercentage, sa.Notes, edu.Id as Id, edu.Name from dbo.EducationLevelSalaryCoefficient as sa 
-	inner join dbo.EducationLevel as edu
-	on sa.EducationLevelId = edu.Id
-	where sa.IsDeleted = 0 and edu.IsDeleted = 0;
-END
-GO
-/****** Object:  StoredProcedure [dbo].[spEducationLevelSalaryCoefficient_SoftDelete]    Script Date: 09/09/2026 9:52:48 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE     PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_SoftDelete]
-    @Id UNIQUEIDENTIFIER
-AS
-BEGIN
-    SET NOCOUNT ON;
-    DELETE FROM dbo.EducationLevelSalaryCoefficient
-    WHERE EducationLevelId = @Id;
 
-    SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
+    UPDATE dbo.Employee
+    SET IsDeleted = 1, UpdatedAt = GETDATE()
+    WHERE Id = @Id;
+
+    SELECT 1;
 END
-GO
-/****** Object:  StoredProcedure [dbo].[spEducationLevelSalaryCoefficient_Update]    Script Date: 09/09/2026 9:52:48 SA ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE     PROCEDURE [dbo].[spEducationLevelSalaryCoefficient_Update]
-    @EducationLevelId UNIQUEIDENTIFIER, @BaseCoefficient DECIMAL(5,2), @AllowancePercentage DECIMAL(5,2),@EffectiveFrom DATETIME,
-    @Notes nvarchar(500), @CreatedAt DATETIME, @UpdatedAt DATETIME
+
+ALTER PROCEDURE [dbo].[spEmployee_Update]
+    @Id UNIQUEIDENTIFIER,
+    @EmployeeCode NVARCHAR(50),
+    @JobApplicationId UNIQUEIDENTIFIER = NULL,
+    @JobPositionId UNIQUEIDENTIFIER,
+    @PrimaryFacilityId UNIQUEIDENTIFIER,
+    @FullName NVARCHAR(200),
+    @Email NVARCHAR(150) = NULL,
+    @PhoneNumber NVARCHAR(20) = NULL,
+    @DateOfBirth DATETIME = NULL,
+    @Gender NVARCHAR(20) = NULL,
+    @HireDate DATETIME,
+    @Status NVARCHAR(20),
+    @UpdatedAt DATETIME
 AS
 BEGIN
     SET NOCOUNT ON;
-    IF EXISTS (SELECT 1 from dbo.EducationLevel as edu 
-	           inner join dbo.EducationLevelSalaryCoefficient as salary 
-			   on edu.Id = salary.EducationLevelId where edu.Id = @EducationLevelId)
-    BEGIN
-        UPDATE dbo.EducationLevelSalaryCoefficient
-        SET BaseCoefficient = @BaseCoefficient, AllowancePercentage = @AllowancePercentage, EffectiveFrom = @EffectiveFrom, Notes = @Notes,
+
+    UPDATE dbo.Employee
+    SET EmployeeCode = @EmployeeCode,
+        JobApplicationId = @JobApplicationId,
+        JobPositionId = @JobPositionId,
+        PrimaryFacilityId = @PrimaryFacilityId,
+        FullName = @FullName,
+        Email = @Email,
+        PhoneNumber = @PhoneNumber,
+        DateOfBirth = @DateOfBirth,
+        Gender = @Gender,
+        HireDate = @HireDate,
+        Status = @Status,
         UpdatedAt = @UpdatedAt
-        WHERE EducationLevelId = @EducationLevelId;
-    END
+    WHERE Id = @Id AND IsDeleted = 0;
+
     SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
 END
-GO

@@ -19,6 +19,19 @@ namespace DemoApi.Infrastructure.Validation
         }
     }
 
+    public class WorkScheduleBulkSyncMetaValidator : AbstractValidator<WorkScheduleBulkSyncMeta>
+    {
+        public WorkScheduleBulkSyncMetaValidator()
+        {
+            RuleFor(x => x.Entries)
+                .NotNull().WithMessage("Danh sách lịch làm việc không được null.");
+
+            RuleForEach(x => x.Entries)
+                .SetValidator(new WorkScheduleEntryRequestValidator())
+                .When(x => x.Entries is { Count: > 0 });
+        }
+    }
+
     public class WorkScheduleEntryRequestValidator : AbstractValidator<WorkScheduleEntryRequest>
     {
         public WorkScheduleEntryRequestValidator()

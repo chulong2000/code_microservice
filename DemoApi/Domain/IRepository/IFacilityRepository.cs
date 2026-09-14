@@ -14,5 +14,6 @@ namespace DemoApi.Domain.IRepository
 
         Task<int> GetCountAllEmployeeOFFacility(Guid id);
         Task<int> GetCountAllShiftOFFacility(Guid id);
+        Task<int> GetCountAllWorkScheduleOFFacility(Guid id);
     }
 }
