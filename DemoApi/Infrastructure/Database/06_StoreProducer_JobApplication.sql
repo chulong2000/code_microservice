@@ -1,132 +1,68 @@
-
-
-/****** Object:  StoredProcedure [dbo].[spEmployee_Insert] ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE [dbo].[spEmployee_Insert]
-    @Id UNIQUEIDENTIFIER,
-    @EmployeeCode NVARCHAR(50),
-    @JobApplicationId UNIQUEIDENTIFIER = NULL,
-    @JobPositionId UNIQUEIDENTIFIER,
-    @PrimaryFacilityId UNIQUEIDENTIFIER,
-    @FullName NVARCHAR(200),
-    @Email NVARCHAR(150) = NULL,
-    @PhoneNumber NVARCHAR(20) = NULL,
-    @DateOfBirth DATETIME = NULL,
-    @Gender NVARCHAR(20) = NULL,
-    @HireDate DATETIME,
-    @Status NVARCHAR(20),
-    @CreatedAt DATETIME
+ALTER   PROCEDURE [dbo].[spJobApplication_GetListJobApplicationByJobPositionId]
+    @Id UNIQUEIDENTIFIER
 AS
 BEGIN
     SET NOCOUNT ON;
-
-    INSERT INTO dbo.Employee
-        (Id, EmployeeCode, JobApplicationId, JobPositionId, PrimaryFacilityId, FullName, Email, PhoneNumber, DateOfBirth, Gender, HireDate, Status, IsDeleted, CreatedAt)
-    VALUES
-        (@Id, @EmployeeCode, @JobApplicationId, @JobPositionId, @PrimaryFacilityId, @FullName, @Email, @PhoneNumber, @DateOfBirth, @Gender, @HireDate, @Status, 0, @CreatedAt);
-
-    SELECT 1;
+    select app.Id, app.FullName, app.Gender, app.CvFileUrl, app.CoverLetter, app.AppliedAt from dbo.JobPosition as job 
+	inner join dbo.JobApplication as app
+	on job.Id = app.JobPositionId
+	where job.Id = @Id and job.IsDeleted = 0
 END
-GO
 
-/****** Object:  StoredProcedure [dbo].[spEmployee_Update] ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE [dbo].[spEmployee_Update]
-    @Id UNIQUEIDENTIFIER,
-    @EmployeeCode NVARCHAR(50),
-    @JobApplicationId UNIQUEIDENTIFIER = NULL,
-    @JobPositionId UNIQUEIDENTIFIER,
-    @PrimaryFacilityId UNIQUEIDENTIFIER,
-    @FullName NVARCHAR(200),
-    @Email NVARCHAR(150) = NULL,
-    @PhoneNumber NVARCHAR(20) = NULL,
-    @DateOfBirth DATETIME = NULL,
-    @Gender NVARCHAR(20) = NULL,
-    @HireDate DATETIME,
-    @Status NVARCHAR(20),
-    @UpdatedAt DATETIME
+ALTER     PROCEDURE [dbo].[spJobApplication_Insert]
+    @Id UNIQUEIDENTIFIER, @JobPositionId UNIQUEIDENTIFIER, @FullName NVARCHAR(500),
+    @Email varchar(200), @PhoneNumber varchar(50), @DateOfBirth DateTime, @Gender varchar(120), @CvFileUrl varchar(150), 
+	@CoverLetter nvarchar (500), @YearOfExperience int, @AppliedAt Datetime, @CreatedAt datetime
 AS
 BEGIN
     SET NOCOUNT ON;
+    INSERT INTO dbo.JobApplication (Id, JobPositionId, FullName, Email, PhoneNumber, DateOfBirth, Gender, CvFileUrl, CoverLetter, YearsOfExperience, AppliedAt, CreatedAt, IsDeleted)
+    VALUES (@Id, @JobPositionId, @FullName, @Email, @PhoneNumber, @DateOfBirth, @Gender, @CvFileUrl, @CoverLetter, @YearOfExperience, @AppliedAt, @CreatedAt, 0);
 
-    UPDATE dbo.Employee
-    SET EmployeeCode = @EmployeeCode,
-        JobApplicationId = @JobApplicationId,
-        JobPositionId = @JobPositionId,
-        PrimaryFacilityId = @PrimaryFacilityId,
-        FullName = @FullName,
-        Email = @Email,
-        PhoneNumber = @PhoneNumber,
-        DateOfBirth = @DateOfBirth,
-        Gender = @Gender,
-        HireDate = @HireDate,
-        Status = @Status,
-        UpdatedAt = @UpdatedAt
+    SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
+END
+
+ALTER   PROCEDURE [dbo].[spJobApplication_Select]
+    @Keyword nvarchar(100) = NULL,
+	@JobPositionId UNIQUEIDENTIFIER = Null,
+	@AppliedFrom Datetime = null,
+	@AppliedTo Datetime = null
+AS
+BEGIN
+    SET NOCOUNT ON;
+	DECLARE @Pattern nvarchar(102) = N'%' + @Keyword + N'%';
+    select app.Id, app.FullName, app.Gender, app.Email,app.DateOfBirth, app.YearsOfExperience ,app.PhoneNumber,app.CvFileUrl, app.CoverLetter, app.AppliedAt, job.Id, job.Title, job.Department from dbo.JobApplication as app 
+	inner join dbo.JobPosition as job
+	on app.JobPositionId = job.Id
+	 WHERE (@Keyword IS NULL
+           OR app.FullName LIKE @Pattern
+           OR app.Email    LIKE @Pattern)      -- 
+      AND (@JobPositionId IS NULL OR app.JobPositionId = @JobPositionId)
+      AND (@AppliedFrom   IS NULL OR app.AppliedAt >= @AppliedFrom)
+      AND (@AppliedTo     IS NULL OR app.AppliedAt <  DATEADD(DAY, 1, @AppliedTo))
+	  AND job.IsDeleted = 0
+	  AND app.IsDeleted = 0;
+END
+
+ALTER   PROCEDURE [dbo].[spJobApplication_SelectById]
+    @Id UNIQUEIDENTIFIER
+AS
+BEGIN
+    SET NOCOUNT ON;
+    select app.Id, app.FullName, app.Email, app.PhoneNumber ,app.Gender, app.DateOfBirth, app.YearsOfExperience ,app.CvFileUrl, app.AppliedAt, job.Id, job.Title from dbo.JobApplication as app
+	inner join dbo.JobPosition as job
+	on app.JobPositionId = job.Id
+	where app.Id = @Id and app.IsDeleted = 0
+END
+
+ALTER    PROCEDURE [dbo].[spJobApplication_SoftDelete]
+    @Id UNIQUEIDENTIFIER
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE dbo.JobApplication SET IsDeleted = 1
     WHERE Id = @Id AND IsDeleted = 0;
 
     SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END;
 END
-GO
 
-/****** Object:  StoredProcedure [dbo].[spEmployee_SoftDelete] ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE [dbo].[spEmployee_SoftDelete]
-    @Id UNIQUEIDENTIFIER
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    IF NOT EXISTS (SELECT 1 FROM dbo.Employee WHERE Id = @Id AND IsDeleted = 0)
-    BEGIN
-        SELECT 0;   -- không tìm thấy
-        RETURN;
-    END
-
-    UPDATE dbo.Employee
-    SET IsDeleted = 1, UpdatedAt = GETDATE()
-    WHERE Id = @Id;
-
-    SELECT 1;
-END
-GO
-
-/****** Object:  StoredProcedure [dbo].[spEmployee_SelectById] ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE [dbo].[spEmployee_SelectById]
-    @Id UNIQUEIDENTIFIER
-AS
-BEGIN
-    SET NOCOUNT ON;
-    SELECT Id, EmployeeCode, JobApplicationId, JobPositionId, PrimaryFacilityId, FullName, Email, PhoneNumber, DateOfBirth, Gender, HireDate, Status, IsDeleted, CreatedAt, UpdatedAt
-    FROM dbo.Employee
-    WHERE Id = @Id AND IsDeleted = 0;
-END
-GO
-
-/****** Object:  StoredProcedure [dbo].[spEmployee_SelectAll] ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE [dbo].[spEmployee_SelectAll]
-AS
-BEGIN
-    SET NOCOUNT ON;
-    SELECT Id, EmployeeCode, JobApplicationId, JobPositionId, PrimaryFacilityId, FullName, Email, PhoneNumber, DateOfBirth, Gender, HireDate, Status, IsDeleted, CreatedAt, UpdatedAt
-    FROM dbo.Employee
-    WHERE IsDeleted = 0
-    ORDER BY FullName ASC;
-END
-GO
