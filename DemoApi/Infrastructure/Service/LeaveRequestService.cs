@@ -17,9 +17,9 @@ namespace DemoApi.Infrastructure.Service
             _leaveRequestRepo = leaveRequestRepo;
         }
 
-        public async Task<ActionResultResponse<List<LeaveRequestViewModel>>> GetListAsync()
+        public async Task<ActionResultResponse<List<LeaveRequestViewModel>>> GetListAsync(Guid? employeeId, string? status)
         {
-            var entities = await _leaveRequestRepo.SelectAllAsync();
+            var entities = await _leaveRequestRepo.SelectByFilterAsync(employeeId, status?.Trim());
             var data = entities.Select(LeaveRequestMapper.MapToViewModel).ToList();
 
             return new ActionResultResponse<List<LeaveRequestViewModel>>(data);
@@ -84,6 +84,22 @@ namespace DemoApi.Infrastructure.Service
             return result == 1
                    ? new ActionResultResponse(1, "Xóa thành công.")
                    : new ActionResultResponse(-99, "Không tìm thấy đơn nghỉ phép.");
+        }
+
+        public async Task<ActionResultResponse> ApproveAsync(Guid id, LeaveRequestApproveMeta meta)
+        {
+            var result = await _leaveRequestRepo.ApproveAsync(id, meta.ApprovedBy, DateTime.Now);
+            return result == 1
+                   ? new ActionResultResponse(1, "Duyệt đơn nghỉ phép thành công.")
+                   : new ActionResultResponse(-99, "Không tìm thấy đơn nghỉ phép hoặc đơn đã được xử lý.");
+        }
+
+        public async Task<ActionResultResponse> RejectAsync(Guid id, LeaveRequestRejectMeta meta)
+        {
+            var result = await _leaveRequestRepo.RejectAsync(id, meta.ApprovedBy, DateTime.Now);
+            return result == 1
+                   ? new ActionResultResponse(1, "Từ chối đơn nghỉ phép thành công.")
+                   : new ActionResultResponse(-99, "Không tìm thấy đơn nghỉ phép hoặc đơn đã được xử lý.");
         }
     }
 }

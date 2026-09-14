@@ -16,12 +16,14 @@ namespace DemoApi.Api.Controller
         [HttpGet]
         [SwaggerOperation(
             Summary = "Danh sách đơn nghỉ phép",
-            Description = "Trả về toàn bộ đơn nghỉ phép chưa bị xoá (chưa hỗ trợ phân trang/tìm kiếm).",
+            Description = "Trả về đơn nghỉ phép chưa bị xoá, có thể lọc theo `employeeId` và/hoặc `status` (chưa hỗ trợ phân trang).",
             OperationId = "GetLeaveRequests")]
         [ProducesResponseType(typeof(ActionResultResponse<List<LeaveRequestViewModel>>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetList()
+        public async Task<IActionResult> GetList(
+            [FromQuery, SwaggerParameter("Lọc theo Id nhân viên")] Guid? employeeId,
+            [FromQuery, SwaggerParameter("Lọc theo trạng thái: Pending / Approved / Rejected")] string? status)
         {
-            var result = await service.GetListAsync();
+            var result = await service.GetListAsync(employeeId, status);
             return Ok(result);
         }
 
@@ -78,6 +80,36 @@ namespace DemoApi.Api.Controller
             [SwaggerParameter("Id của đơn nghỉ phép", Required = true)] Guid id)
         {
             var result = await service.DeleteAsync(id);
+            return result.Code <= 0 ? BadRequest(result) : Ok(result);
+        }
+
+        [HttpPut("{id:guid}/approve")]
+        [SwaggerOperation(
+            Summary = "Duyệt đơn nghỉ phép",
+            Description = "Chỉ duyệt được đơn đang ở trạng thái `Pending`. Trả về `Code = -99` khi không tìm thấy hoặc đơn đã được xử lý.",
+            OperationId = "ApproveLeaveRequest")]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Approve(
+            [SwaggerParameter("Id của đơn nghỉ phép", Required = true)] Guid id,
+            [FromBody, SwaggerRequestBody("Người duyệt (tuỳ chọn)")] LeaveRequestApproveMeta? meta)
+        {
+            var result = await service.ApproveAsync(id, meta ?? new LeaveRequestApproveMeta());
+            return result.Code <= 0 ? BadRequest(result) : Ok(result);
+        }
+
+        [HttpPut("{id:guid}/reject")]
+        [SwaggerOperation(
+            Summary = "Từ chối đơn nghỉ phép",
+            Description = "Chỉ từ chối được đơn đang ở trạng thái `Pending`. Trả về `Code = -99` khi không tìm thấy hoặc đơn đã được xử lý.",
+            OperationId = "RejectLeaveRequest")]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Reject(
+            [SwaggerParameter("Id của đơn nghỉ phép", Required = true)] Guid id,
+            [FromBody, SwaggerRequestBody("Người từ chối (tuỳ chọn)")] LeaveRequestRejectMeta? meta)
+        {
+            var result = await service.RejectAsync(id, meta ?? new LeaveRequestRejectMeta());
             return result.Code <= 0 ? BadRequest(result) : Ok(result);
         }
     }

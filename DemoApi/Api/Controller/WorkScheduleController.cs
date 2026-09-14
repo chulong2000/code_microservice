@@ -59,7 +59,7 @@ namespace DemoApi.Api.Controller
                           "Có thể giới hạn theo các thứ trong tuần áp dụng (VD: chỉ Thứ 2 - Thứ 6); để trống nghĩa là áp dụng tất cả các ngày trong tháng. " +
                           "Cặp (nhân viên, ngày) đã có lịch làm việc sẽ được bỏ qua, không tạo trùng.",
             OperationId = "BulkCreateWorkScheduleMonthly")]
-        [ProducesResponseType(typeof(ActionResultResponse<WorkScheduleBulkCreateResultViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> BulkCreateMonthly(
             [FromBody, SwaggerRequestBody("Danh sách nhân viên, tháng/năm và ca làm việc cần tạo hàng loạt", Required = true)] WorkScheduleBulkCreateMeta meta)

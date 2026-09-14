@@ -80,6 +80,21 @@ namespace DemoApi.Infrastructure.Repository
             return items.ToList();
         }
 
+        public async Task<List<LeaveRequest>> SelectByFilterAsync(Guid? employeeId, string? status)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@EmployeeId", employeeId);
+            param.Add("@Status", status);
+
+            var items = await connection.QueryAsync<LeaveRequest>(
+                "[dbo].[spLeaveRequest_SelectByFilter]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+
+            return items.ToList();
+        }
+
         public async Task<LeaveRequest?> SelectByIdAsync(Guid id)
         {
             var connection = await _session.GetConnectionAsync();
@@ -88,6 +103,34 @@ namespace DemoApi.Infrastructure.Repository
 
             return await connection.QueryFirstOrDefaultAsync<LeaveRequest>(
                 "[dbo].[spLeaveRequest_SelectById]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<int> ApproveAsync(Guid id, Guid? approvedBy, DateTime approvedAt)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@Id", id);
+            param.Add("@ApprovedBy", approvedBy);
+            param.Add("@ApprovedAt", approvedAt);
+
+            return await connection.ExecuteScalarAsync<int>(
+                "[dbo].[spLeaveRequest_Approve]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<int> RejectAsync(Guid id, Guid? approvedBy, DateTime approvedAt)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@Id", id);
+            param.Add("@ApprovedBy", approvedBy);
+            param.Add("@ApprovedAt", approvedAt);
+
+            return await connection.ExecuteScalarAsync<int>(
+                "[dbo].[spLeaveRequest_Reject]", param,
                 transaction: _session.Transaction,
                 commandType: CommandType.StoredProcedure);
         }

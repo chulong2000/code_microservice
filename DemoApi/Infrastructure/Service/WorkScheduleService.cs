@@ -55,47 +55,33 @@ namespace DemoApi.Infrastructure.Service
                    : new ActionResultResponse<Guid>(-99, "Tạo mới thất bại.");
         }
 
-        public async Task<ActionResultResponse<WorkScheduleBulkCreateResultViewModel>> BulkCreateMonthlyAsync(WorkScheduleBulkCreateMeta meta)
+        public async Task<ActionResultResponse> BulkCreateMonthlyAsync(WorkScheduleBulkCreateMeta meta)
         {
-            var employeeIds = meta.EmployeeIds.Distinct().ToList();
-            var daysInMonth = DateTime.DaysInMonth(meta.Year, meta.Month);
-            var workDates = Enumerable.Range(1, daysInMonth)
-                .Select(day => new DateTime(meta.Year, meta.Month, day))
-                .Where(date => meta.WorkingDaysOfWeek is not { Count: > 0 } || meta.WorkingDaysOfWeek.Contains(date.DayOfWeek))
-                .ToList();
-
-            if (workDates.Count == 0)
-                return new ActionResultResponse<WorkScheduleBulkCreateResultViewModel>(-99, "Không có ngày làm việc nào phù hợp trong tháng đã chọn.");
-
-            var now = DateTime.Now;
-            var status = meta.Status.Trim();
-            var note = meta.Note?.Trim();
-
-            var entities = employeeIds
-                .SelectMany(employeeId => workDates.Select(workDate => new WorkSchedule
-                {
-                    Id = Guid.NewGuid(),
-                    EmployeeId = employeeId,
-                    ShiftId = meta.ShiftId,
-                    FacilityId = meta.FacilityId,
-                    WorkDate = workDate,
-                    Status = status,
-                    Note = note,
-                    CreatedBy = meta.CreatedBy,
-                    CreatedAt = now,
-                }))
-                .ToList();
+            Guid facilityId = meta.FacilityID!.Value;
+            var entities = meta.Entries
+                           .Select(item => new WorkSchedule
+                           {
+                               Id = Guid.NewGuid(),
+                               EmployeeId = item.EmployeeId,
+                               ShiftId = item.ShifId,
+                               FacilityId = facilityId,
+                               WorkDate = item.WorkDate,
+                               Status = "Draft",
+                               Note = item.Note?.Trim(),
+                               CreatedBy = item.CreatBy,
+                               CreatedAt = DateTime.Now,
+                               UpdatedAt = null,
+                               PublishedAt = null,
+                               PublishedBy = null,
+                               confirmedAt = null,
+                               confirmedBy = null,
+                               IsDeleted = false,
+                           })
+                          .ToList();
 
             var totalCreated = await _workScheduleRepo.BulkInsertAsync(entities);
 
-            var data = new WorkScheduleBulkCreateResultViewModel
-            {
-                TotalRequested = entities.Count,
-                TotalCreated = totalCreated,
-                TotalSkipped = entities.Count - totalCreated,
-            };
-
-            return new ActionResultResponse<WorkScheduleBulkCreateResultViewModel>(1, "Tạo lịch làm việc hàng loạt thành công.", data: data);
+            return new ActionResultResponse(1, "Tạo lịch làm việc hàng loạt thành công.");
         }
 
         public async Task<ActionResultResponse> UpdateAsync(Guid id, WorkScheduleMeta meta)

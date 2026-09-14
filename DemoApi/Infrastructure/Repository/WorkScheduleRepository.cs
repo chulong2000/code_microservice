@@ -38,10 +38,10 @@ namespace DemoApi.Infrastructure.Repository
         {
             var connection = await _session.GetConnectionAsync();
             var param = new DynamicParameters();
-            param.Add("@Items", BuildWorkScheduleTable(entities));
+            param.Add("@workSchedules", BuildWorkScheduleTable(entities));
 
             return await connection.ExecuteScalarAsync<int>(
-                "[dbo].[spWorkSchedule_BulkInsert]", param,
+                "[dbo].[WorkSchedule_bulkInsert]", param,
                 transaction: _session.Transaction,
                 commandType: CommandType.StoredProcedure);
         }
@@ -58,6 +58,12 @@ namespace DemoApi.Infrastructure.Repository
             table.Columns.Add("Note", typeof(string));
             table.Columns.Add("CreatedBy", typeof(Guid));
             table.Columns.Add("CreatedAt", typeof(DateTime));
+            table.Columns.Add("UpdatedAt", typeof(DateTime));
+            table.Columns.Add("PublishedAt", typeof(DateTime));
+            table.Columns.Add("PublishedBy", typeof(Guid));
+            table.Columns.Add("confirmedAt", typeof(DateTime));
+            table.Columns.Add("confirmedBy", typeof(Guid));
+            table.Columns.Add("IsDeleted",typeof(Boolean));
 
             foreach (var entity in entities)
             {
@@ -70,10 +76,16 @@ namespace DemoApi.Infrastructure.Repository
                     entity.Status,
                     (object?)entity.Note ?? DBNull.Value,
                     (object?)entity.CreatedBy ?? DBNull.Value,
-                    entity.CreatedAt);
+                    entity.CreatedAt,
+                    (object?)entity.UpdatedAt ?? DBNull.Value,
+                    (object?)entity.PublishedAt ?? DBNull.Value,
+                    (object?)entity.PublishedBy ?? DBNull.Value,
+                    (object?)entity.confirmedAt ?? DBNull.Value,
+                    (object?)entity.confirmedBy ?? DBNull.Value,
+                    entity.IsDeleted);
             }
 
-            return table.AsTableValuedParameter("[dbo].[WorkScheduleTableType]");
+            return table.AsTableValuedParameter("[dbo].[typWorkSchedule]");
         }
 
         public async Task<int> UpdateAsync(WorkSchedule entity)

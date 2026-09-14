@@ -4,6 +4,7 @@ using DemoApi.Domain.ModelMetas;
 using DemoApi.Domain.Models;
 using DemoApi.Infrastructure.Data;
 using System.Data;
+using Z.Dapper.Plus;
 
 namespace DemoApi.Infrastructure.Repository
 {
@@ -38,6 +39,7 @@ namespace DemoApi.Infrastructure.Repository
             param.Add("@CreatedAt", entity.CreatedAt);
 
             // Trả về: 1 = thành công, -1 = trùng tên.
+
             return await connection.ExecuteScalarAsync<int>(
                 "[dbo].[spFacility_Insert]", param,
                 transaction: _session.Transaction,
@@ -52,6 +54,8 @@ namespace DemoApi.Infrastructure.Repository
             param.Add("@Name", entity.Name);
             param.Add("@Address", entity.Address);
             param.Add("@UpdatedAt", entity.UpdatedAt);
+
+            
 
             // 1 = thành công, -1 = trùng tên, 0 = không tìm thấy.
             return await connection.ExecuteScalarAsync<int>(
