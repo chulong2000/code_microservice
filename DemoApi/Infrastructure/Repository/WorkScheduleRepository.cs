@@ -1,5 +1,6 @@
 using Dapper;
 using DemoApi.Domain.IRepository;
+using DemoApi.Domain.ModelMetas;
 using DemoApi.Domain.Models;
 using DemoApi.Infrastructure.Data;
 using System.Data;
@@ -228,6 +229,36 @@ namespace DemoApi.Infrastructure.Repository
 
             return await connection.ExecuteScalarAsync<int>(
                 "[dbo].[spWorkSchedule_Confirm]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<int> ConfirmBatchAsync(Guid employeeId, DateTime fromDate, DateTime toDate, DateTime confirmedAt)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@EmployeeId", employeeId);
+            param.Add("@FromDate", fromDate);
+            param.Add("@ToDate", toDate);
+            param.Add("@ConfirmedAt", confirmedAt);
+
+            return await connection.ExecuteScalarAsync<int>(
+                "[dbo].[spWorkSchedule_ConfirmBatch]", param,
+                transaction: _session.Transaction,
+                commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<int> DeclineAsync(Guid id, WorkScheduleRejectMeta meta, DateTime now)
+        {
+            var connection = await _session.GetConnectionAsync();
+            var param = new DynamicParameters();
+            param.Add("@Id", id);
+            param.Add("@CancelledBy", meta.RejectedBy);
+            param.Add("@Note", meta.Note);
+            param.Add("@CancelledAt", now);
+
+            return await connection.ExecuteScalarAsync<int>(
+                "[dbo].[spWorkSchedule_Decline]", param,
                 transaction: _session.Transaction,
                 commandType: CommandType.StoredProcedure);
         }

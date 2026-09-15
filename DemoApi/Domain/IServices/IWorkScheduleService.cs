@@ -17,5 +17,7 @@ namespace DemoApi.Domain.IServices
         Task<ActionResultResponse> BulkSyncAsync(Guid facilityId, DateTime fromDate, DateTime toDate, WorkScheduleBulkSyncMeta meta);
         Task<ActionResultResponse> PublishBatchAsync(Guid facilityId, DateTime fromDate, DateTime toDate, Guid? publishedBy);
         Task<ActionResultResponse> ConfirmAsync(Guid id, WorkScheduleConfirmMeta meta);
+        Task<ActionResultResponse> ConfirmBatchAsync(Guid employeeId, DateTime fromDate, DateTime toDate, WorkScheduleConfirmMeta meta);
+        Task<ActionResultResponse> DeclineAsync(Guid id, WorkScheduleRejectMeta meta);
     }
 }

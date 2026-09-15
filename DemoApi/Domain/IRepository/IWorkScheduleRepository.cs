@@ -1,3 +1,4 @@
+using DemoApi.Domain.ModelMetas;
 using DemoApi.Domain.Models;
 
 namespace DemoApi.Domain.IRepository
@@ -15,5 +16,7 @@ namespace DemoApi.Domain.IRepository
         Task<int> BulkSoftDeleteAsync(List<Guid> ids);
         Task<int> PublishBatchAsync(Guid facilityId, DateTime fromDate, DateTime toDate, Guid? publishedBy, DateTime publishedAt);
         Task<int> ConfirmAsync(Guid id, Guid confirmedBy, DateTime confirmedAt);
+        Task<int> ConfirmBatchAsync(Guid employeeId, DateTime fromDate, DateTime toDate, DateTime confirmedAt);
+        Task<int> DeclineAsync(Guid id, WorkScheduleRejectMeta meta, DateTime now);
     }
 }

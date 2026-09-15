@@ -164,6 +164,46 @@ namespace DemoApi.Api.Controller
             return result.Code <= 0 ? BadRequest(result) : Ok(result);
         }
 
+        [HttpPut("confirm-batch")]
+        [SwaggerOperation(
+            Summary = "Nhân viên xác nhận cả tháng lịch làm việc",
+            Description = "Xác nhận hàng loạt (chuyển từ trạng thái `Published` sang `Confirmed`) toàn bộ ca làm việc của `employeeId` " +
+                          "trong phạm vi `fromDate`..`toDate` (VD: cả tháng) chỉ bằng 1 lần gọi (1 câu UPDATE duy nhất trong DB, không lặp từng ca). " +
+                          "`ConfirmedBy` trong body phải đúng bằng `employeeId` (nhân viên chỉ được tự xác nhận ca của chính mình). " +
+                          "Các ca không ở trạng thái `Published` (đang `Draft`/đã `Confirmed`/`Cancelled`) sẽ không bị ảnh hưởng. " +
+                          "Trả về `Code = -99` nếu `ConfirmedBy` không khớp `employeeId`, hoặc không có ca `Published` nào trong phạm vi để xác nhận.",
+            OperationId = "ConfirmBatchWorkSchedule")]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ConfirmBatch(
+            [FromQuery, SwaggerParameter("Id nhân viên", Required = true)] Guid employeeId,
+            [FromQuery, SwaggerParameter("Từ ngày", Required = true)] DateTime fromDate,
+            [FromQuery, SwaggerParameter("Đến ngày", Required = true)] DateTime toDate,
+            [FromBody, SwaggerRequestBody("Nhân viên xác nhận", Required = true)] WorkScheduleConfirmMeta meta)
+        {
+            var result = await service.ConfirmBatchAsync(employeeId, fromDate, toDate, meta);
+            return result.Code <= 0 ? BadRequest(result) : Ok(result);
+        }
+
+
+        [HttpPut("{id:guid}/decline")]
+        [SwaggerOperation(
+            Summary = "Nhân viên từ chối lịch làm việc",
+            Description = "Chỉ từ chối được ca đang ở trạng thái `Published`, và `declinedBy` phải đúng là nhân viên được phân ca đó. " +
+                          "Trả về `Code = -99` khi không tìm thấy lịch, lịch chưa được công bố, hoặc không thuộc về nhân viên này.",
+            OperationId = "DeclineWorkSchedule")]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ActionResultResponse), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Decline(
+            [SwaggerParameter("Id của lịch làm việc", Required = true)] Guid id,
+            [FromBody, SwaggerRequestBody("Nhân viên từ chối", Required = true)] WorkScheduleRejectMeta meta)
+        {
+            var result = await service.DeclineAsync(id, meta);
+            return result.Code <= 0 ? BadRequest(result) : Ok(result);
+        }
+
+
+
         [HttpDelete("{id:guid}")]
         [SwaggerOperation(
             Summary = "Xoá (mềm) lịch làm việc",

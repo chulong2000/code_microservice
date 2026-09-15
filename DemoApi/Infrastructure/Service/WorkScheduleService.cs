@@ -272,5 +272,27 @@ namespace DemoApi.Infrastructure.Service
                    ? new ActionResultResponse(1, "Xác nhận lịch làm việc thành công.")
                    : new ActionResultResponse(-99, "Không tìm thấy lịch làm việc, lịch chưa được công bố, hoặc không thuộc về nhân viên này.");
         }
+
+        public async Task<ActionResultResponse> ConfirmBatchAsync(Guid employeeId, DateTime fromDate, DateTime toDate, WorkScheduleConfirmMeta meta)
+        {
+            if (employeeId != meta.ConfirmedBy)
+            {
+                return new ActionResultResponse(-99, "Không thể xác nhận lịch làm việc của nhân viên khác.");
+            }
+
+            var affected = await _workScheduleRepo.ConfirmBatchAsync(employeeId, fromDate, toDate, DateTime.Now);
+
+            return affected > 0
+                   ? new ActionResultResponse(1, $"Đã xác nhận {affected} ca làm việc.")
+                   : new ActionResultResponse(-99, "Không có ca nào ở trạng thái Published trong phạm vi này để xác nhận.");
+        }
+
+        public async Task<ActionResultResponse> DeclineAsync(Guid id, WorkScheduleRejectMeta meta)
+        {
+            var result = await _workScheduleRepo.DeclineAsync(id, meta,DateTime.Now);
+            return result == 1
+                   ? new ActionResultResponse(1, "Từ chối lịch làm việc thành công.")
+                   : new ActionResultResponse(-99, "Không tìm thấy lịch làm việc, lịch chưa được công bố, hoặc không thuộc về nhân viên này.");
+        }
     }
 }

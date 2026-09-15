@@ -125,3 +125,24 @@ BEGIN
 
 	  Select @@ROWCOUNT;
 END
+
+CREATE OR ALTER PROCEDURE [dbo].[spWorkSchedule_ConfirmBatch]
+    @EmployeeId UNIQUEIDENTIFIER,
+    @FromDate DATETIME,
+    @ToDate DATETIME,
+    @ConfirmedAt DATETIME
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE dbo.WorkSchedule
+    SET Status = 'Confirmed',
+        confirmedBy = @EmployeeId,
+        confirmedAt = @ConfirmedAt
+    WHERE IsDeleted = 0
+        AND EmployeeId = @EmployeeId
+        AND Status = 'Published'
+        AND CAST(WorkDate AS DATE) BETWEEN CAST(@FromDate AS DATE) AND CAST(@ToDate AS DATE);
+
+    SELECT @@ROWCOUNT;
+END
